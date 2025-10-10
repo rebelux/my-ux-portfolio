@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+//import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import Link from "next/link";
 
-const geistSans = Geist({
+/*const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
@@ -12,7 +12,7 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-});
+});*/
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -73,12 +73,16 @@ export default function RootLayout({
         </nav>
 
         {/* Main content wrapper */}
-        <main className="min-h-[calc(100vh-5rem)] pt-[5rem] bg-zinc-950">
+        <main className="min-h-[calc(100vh-4rem)] pt-16 bg-zinc-950">
           {children}
         </main>
 
         {/* Chat container required for Botpress v3.3 */}
-        <div id="webchat" style={{ width: "500px", height: "500px" }}></div>
+        {/* Chat container as fixed */}
+        <div
+          id="webchat"
+          className="fixed bottom-6 right-6 w-[420px] h-[560px] hidden"
+        ></div>
         {/* Initialize Botpress after the script loads */}
         <Script id="botpress-init" strategy="afterInteractive">
           {`
