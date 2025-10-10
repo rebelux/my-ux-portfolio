@@ -54,7 +54,7 @@ export default function CMSIdentityManagement() {
         <section>
           <h2 className="text-2xl font-semibold mb-4">Project Overview</h2>
           <p className="text-zinc-300 leading-relaxed">
-            CMS’s Identity Management (IDM) platform serves as the secure entry point for vendors
+            CMS&rsquo;s Identity Management (IDM) platform serves as the secure entry point for vendors
             and partners connecting to CMS data systems. The existing platform was outdated,
             inefficient, and difficult for both internal staff and external partners to navigate.
             As <strong>UX Design Lead</strong>, I led the redesign of this critical system,

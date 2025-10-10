@@ -32,7 +32,7 @@ export default function ProjectsPage() {
       subtitle: "Transforming public health data systems through human-centered design.",
       image: "/images/cdc-nbs-modernization-hero.jpg",
       description:
-        "Led UX design for CDC’s modernization of the National Disease Surveillance platform, improving usability, accessibility, and scalability for public health professionals nationwide.",
+        "Led UX design for CDC&rsquo;s modernization of the National Disease Surveillance platform, improving usability, accessibility, and scalability for public health professionals nationwide.",
       link: "/projects/cdc-nbs-modernization",
     },
     {
@@ -40,7 +40,7 @@ export default function ProjectsPage() {
       subtitle: "Streamlining secure access for healthcare data systems through HCD.",
       image: "/images/cms-identity-management-hero.jpg",
       description:
-        "Redesigned CMS’s Identity Management system to simplify onboarding, improve accessibility, and ensure Section 508 compliance across internal and external user groups.",
+        "Redesigned CMS&rsquo;s Identity Management system to simplify onboarding, improve accessibility, and ensure Section 508 compliance across internal and external user groups.",
       link: "/projects/cms-identity-management",
     },
     {
@@ -48,7 +48,7 @@ export default function ProjectsPage() {
       subtitle: "Transforming a development-focused company into a user-centered design practice.",
       image: "/images/arrow-digital-hero.jpg",
       description:
-        "Developed and scaled a UX discovery process that became core to Arrow Digital’s delivery model—helping grow the company from 12 to over 200 employees and positioning it for acquisition.",
+        "Developed and scaled a UX discovery process that became core to Arrow Digital&rsquo;s delivery model—helping grow the company from 12 to over 200 employees and positioning it for acquisition.",
       link: "/projects/arrow-digital-ux-discovery",
     },
   ];

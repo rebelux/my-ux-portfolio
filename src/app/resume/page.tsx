@@ -7,7 +7,7 @@ export default function ResumePage() {
       <section className="max-w-3xl w-full text-center">
         <h1 className="text-4xl font-bold mb-8">Résumé</h1>
         <p className="text-zinc-400 mb-12">
-          Here’s a concise overview of my experience and skills. A full PDF
+          Here&rsquo;s a concise overview of my experience and skills. A full PDF
           résumé is available below.
         </p>
 
@@ -86,9 +86,9 @@ export default function ResumePage() {
             <p className="text-zinc-300 leading-relaxed mb-4 mt-2 ">
               In my capacity as Partner of User Experience at Arrow Digital, I oversaw the User
                 Experience practice and worked with clients to develop their vision, objectives and
-                digital roadmaps - before working with Arrow’s project teams to ensure their vision was
+                digital roadmaps - before working with Arrow&rsquo;s project teams to ensure their vision was
                 met. At every point in the client's experience, it was my goal to create a unique and
-                delightful experience by infusing Arrow’s expertise and values across all clients,
+                delightful experience by infusing Arrow&rsquo;s expertise and values across all clients,
                 products, services, and interpersonal interactions.</p>
             <ul className="list-disc list-inside space-y-2 text-zinc-300">
                 <li>Grew small UX team into a successful practice area responsible for $3 million in
@@ -96,7 +96,7 @@ export default function ResumePage() {
                 <li>Led the overall UX strategy for all financial tech software projects with largest client,
                 PwC, which accounted for over $10 million in annual revenue.</li>
                 <li>Scaled UX methodologies and mentored senior associates to manage multiple work
-                streams across consumer and enterprise clients while adhering to Arrow’s standards
+                streams across consumer and enterprise clients while adhering to Arrow&rsquo;s standards
                 and values.</li>
                 <li>Oversaw major digital projects for Cracker Barrel, GL Homes, Hilton and In Touch
                 Ministries.</li>

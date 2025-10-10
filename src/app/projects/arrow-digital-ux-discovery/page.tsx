@@ -63,7 +63,7 @@ export default function ArrowDigitalDiscovery() {
             Over seven years, I helped evolve that environment into a mature, human-centered design
             practice. By introducing a repeatable UX discovery process, I transformed how the
             company scoped projects, collaborated with clients, and delivered value—eventually
-            scaling our UX team and contributing to the company’s growth to over 200 employees.
+            scaling our UX team and contributing to the company&rsquo;s growth to over 200 employees.
           </p>
         </section>
 
@@ -133,7 +133,7 @@ export default function ArrowDigitalDiscovery() {
         <section>
           <h2 className="text-2xl font-semibold mb-4">Process in Action</h2>
           <p className="text-zinc-300 leading-relaxed mb-4">
-            The UX Discovery Process became the backbone of Arrow Digital’s project lifecycle. We
+            The UX Discovery Process became the backbone of Arrow Digital&rsquo;s project lifecycle. We
             incorporated it into <strong>proposal development, planning sessions, and design
             delivery</strong>, ensuring every engagement started with empathy and evidence.
           </p>
@@ -143,7 +143,7 @@ export default function ArrowDigitalDiscovery() {
             <li>Designers produced solutions grounded in real user needs.</li>
           </ul>
           <p className="text-zinc-300 leading-relaxed mt-4">
-            The process not only improved project quality but also enhanced the company’s reputation
+            The process not only improved project quality but also enhanced the company&rsquo;s reputation
             for delivering thoughtful, high-impact solutions.
           </p>
         </section>
@@ -169,7 +169,7 @@ export default function ArrowDigitalDiscovery() {
             mentored designers, developed reusable frameworks, and represented UX in executive
             discussions. The team culture emphasized{" "}
             <strong>collaboration, curiosity, and continuous improvement</strong>—values that became
-            embedded in Arrow Digital’s identity.
+            embedded in Arrow Digital&rsquo;s identity.
           </p>
         </section>
 
@@ -187,10 +187,10 @@ export default function ArrowDigitalDiscovery() {
         <section>
           <h2 className="text-2xl font-semibold mb-4">Reflection</h2>
           <p className="text-zinc-300 leading-relaxed">
-            This experience taught me that creating a UX practice isn’t just about design—it’s about
+            This experience taught me that creating a UX practice isn&rsquo;t just about design—it&rsquo;s about
             changing how an organization thinks. By integrating discovery, research, and
             collaboration into every phase of work, we built more than a process; we built a culture
-            of design thinking that elevated the company’s entire delivery model.
+            of design thinking that elevated the company&rsquo;s entire delivery model.
           </p>
         </section>
 
