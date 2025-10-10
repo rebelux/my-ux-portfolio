@@ -87,7 +87,7 @@ export default function ResumePage() {
               In my capacity as Partner of User Experience at Arrow Digital, I oversaw the User
                 Experience practice and worked with clients to develop their vision, objectives and
                 digital roadmaps - before working with Arrow&rsquo;s project teams to ensure their vision was
-                met. At every point in the client's experience, it was my goal to create a unique and
+                met. At every point in the client&rsquo;s experience, it was my goal to create a unique and
                 delightful experience by infusing Arrow&rsquo;s expertise and values across all clients,
                 products, services, and interpersonal interactions.</p>
             <ul className="list-disc list-inside space-y-2 text-zinc-300">
@@ -130,11 +130,11 @@ export default function ResumePage() {
               Led the user experience discovery, research, design, and implementation of several
                 projects for a wide variety of clients including Hilton, PwC, and Virginia Credit Union.</p>
             <ul className="list-disc list-inside space-y-2 text-zinc-300">
-                <li>Designed the default skin and template used for version 6 of DotNetNuke's Content
+                <li>Designed the default skin and template used for version 6 of DotNetNuke&rsquo;s Content
                 Management System which had been downloaded and used over 330K times in the
                 first 6 months.</li>
                 <li>Implemented a UX discovery process which allowed the company to better scope
-                projects and implement higher quality designs that better met the client's objectives.</li>
+                projects and implement higher quality designs that better met the client&rsquo;s objectives.</li>
             </ul>
           </div>
           <div>
@@ -158,7 +158,7 @@ export default function ResumePage() {
               Camous Management Corp • 2008 – 2010
             </p>
             <p className="text-zinc-300 leading-relaxed mb-4 mt-2 ">
-              Established a signature brand and UI for the company's corporate web site. Developed
+              Established a signature brand and UI for the company&rsquo;s corporate web site. Developed
                 the framework used for creating both the UI prototypes and the future architecture of
                 their software presentation layer. Designed and developed the full design system for the
                 UI of the entire suite of products as they transition from legacy desktop software into
