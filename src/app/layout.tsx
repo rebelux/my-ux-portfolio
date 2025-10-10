@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,10 +48,35 @@ export default function RootLayout({
           }
         `}</style>
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className="bg-zinc-950 text-zinc-100">
+        {/* === Global Navigation === */}
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800">
+          <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+            <Link href="/" className="text-lg font-bold text-amber-500 hover:text-amber-400">
+              Henry Tavarez
+            </Link>
+            <div className="flex gap-6 text-sm">
+              <Link href="/projects" className="hover:text-amber-400 transition">
+                Projects
+              </Link>
+              <Link href="/about" className="hover:text-amber-400 transition">
+                About
+              </Link>
+              <Link href="/resume" className="hover:text-amber-400 transition">
+                Résumé
+              </Link>
+              <Link href="/contact" className="hover:text-amber-400 transition">
+                Contact
+              </Link>
+            </div>
+          </div>
+        </nav>
+
+        {/* Main content wrapper */}
+        <main className="min-h-[calc(100vh-5rem)] pt-[5rem] bg-zinc-950">
+          {children}
+        </main>
+
         {/* Chat container required for Botpress v3.3 */}
         <div id="webchat" style={{ width: "500px", height: "500px" }}></div>
         {/* Initialize Botpress after the script loads */}
