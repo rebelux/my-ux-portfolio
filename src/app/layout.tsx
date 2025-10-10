@@ -58,9 +58,7 @@ export default function RootLayout({
           {`
             function initializeBotpress() {
               if (window.botpress && typeof window.botpress.init === "function") {
-                window.botpress.on("webchat:ready", () => {
-                  window.botpress.open();
-                });
+                // ❌ Removed auto-open so chat stays hidden until toggled
                 window.botpress.init({
                   botId: "0d1251e2-411d-4cbd-a0f8-3302266afb9f",
                   configuration: {
