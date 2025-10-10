@@ -1,4 +1,4 @@
-// src/global.d.ts
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export {}
 
 declare global {
@@ -6,3 +6,4 @@ declare global {
     botpressWebChat?: any
   }
 }
+/* eslint-enable @typescript-eslint/no-explicit-any */
