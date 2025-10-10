@@ -1,9 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export {}
+export {};
 
 declare global {
   interface Window {
-    botpressWebChat?: any
+    botpress?: {
+      open: () => void;
+      close: () => void;
+      on: (event: string, callback: () => void) => void;
+      init: (config: any) => void;
+    };
+    __bpIsOpen?: boolean;
   }
 }
-/* eslint-enable @typescript-eslint/no-explicit-any */
