@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,10 +25,80 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Load Botpress v3.3 script */}
+        <Script
+          src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"
+          strategy="afterInteractive"
+        />
+
+        {/* Inject chat container styling */}
+        <style>{`
+          #webchat .bpWebchat {
+            position: unset;
+            width: 100%;
+            height: 100%;
+            max-height: 100%;
+            max-width: 100%;
+          }
+
+          #webchat .bpFab {
+            display: none;
+          }
+        `}</style>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        {/* Chat container required for Botpress v3.3 */}
+        <div id="webchat" style={{ width: "500px", height: "500px" }}></div>
+        {/* Initialize Botpress after the script loads */}
+        <Script id="botpress-init" strategy="afterInteractive">
+          {`
+            function initializeBotpress() {
+              if (window.botpress && typeof window.botpress.init === "function") {
+                window.botpress.on("webchat:ready", () => {
+                  window.botpress.open();
+                });
+                window.botpress.init({
+                  botId: "0d1251e2-411d-4cbd-a0f8-3302266afb9f",
+                  configuration: {
+                    version: "v2",
+                    composerPlaceholder: "",
+                    botName: "Henry’s UX Portfolio Assistant",
+                    botDescription: "Discover Henry’s UX journey — ask me about his design philosophy or key projects.",
+                    website: {},
+                    email: {},
+                    phone: {},
+                    termsOfService: {},
+                    privacyPolicy: {},
+                    color: "#E91E63",
+                    variant: "solid",
+                    headerVariant: "glass",
+                    themeMode: "light",
+                    fontFamily: "inter",
+                    radius: 4,
+                    feedbackEnabled: false,
+                    footer: "[⚡ by Botpress](https://botpress.com/?from=webchat)",
+                    soundEnabled: false,
+                    proactiveMessageEnabled: false,
+                    proactiveBubbleMessage: "Hi! 👋 Need help?",
+                    proactiveBubbleTriggerType: "afterDelay",
+                    proactiveBubbleDelayTime: 10
+                  },
+                  clientId: "4c7013bc-fc0a-4e19-ad82-c9a54129c8b6",
+                  selector: "#webchat"
+                });
+              } else {
+                // Retry after a short delay if the script hasn't loaded yet
+                setTimeout(initializeBotpress, 500);
+              }
+            }
+            initializeBotpress();
+          `}
+        </Script>
+        
       </body>
     </html>
   );
