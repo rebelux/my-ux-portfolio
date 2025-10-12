@@ -7,209 +7,201 @@ export default function ResumePage() {
       <section className="max-w-3xl w-full text-center">
         <h1 className="text-4xl font-bold mb-8">Résumé</h1>
         <p className="text-zinc-400 mb-12">
-          Here&rsquo;s a concise overview of my experience and skills. A full PDF
-          résumé is available below.
+          Here’s a concise overview of my professional experience, leadership background, and core
+          design skills. A downloadable PDF version is available below.
         </p>
 
-        {/* === Experience placeholder === */}
-        <div className="space-y-8 text-left">
+        {/* === Professional Experience === */}
+        <section className="text-left space-y-12">
+          <h2 className="text-2xl font-bold border-b border-zinc-800 pb-4 mb-8">
+            Professional Experience
+          </h2>
+
+          {/* === CDW === */}
           <div>
-            <h2 className="text-amber-500 text-xl font-semibold">
-              UX Lead
-            </h2>
-            <p className="text-zinc-400">
-              CDW-G • 2022 – Present
+            <h3 className="text-amber-500 text-xl font-semibold">UX Lead</h3>
+            <p className="text-zinc-400">CDW-G — 2022–Present</p>
+            <p className="text-zinc-300 leading-relaxed mt-2 mb-4">
+              Leading UX design initiatives for the modernization of the CDC’s National Disease
+              Surveillance (NBS) platform—enhancing usability, scalability, and accessibility across
+              public health agencies nationwide.
             </p>
-            <p className="text-zinc-300 leading-relaxed mb-4 mt-2 ">
-              Leading UX design initiatives for the modernization of the NBS surveillance tool in
-                collaboration with the Centers for Disease Control and Prevention (CDC).</p>
-            <ul className="list-disc list-inside space-y-2 text-zinc-300">
-                <li>Designed, managed, and governed the design system for the NBS Modernized
-                application, utilizing the US Web Design System (USWDS) as a foundation.</li>
-                <li>Facilitated co-creation workshops with users from public health departments
-                nationwide to inform and advance the design of NBS.</li>
-                <li>Collaborated closely with clients and stakeholders to elicit, document, and ideate on
-                requirements and deliverables.</li>
-                <li>Provided mentorship to a team of UX Designers, guiding them through our Human-
-                Centered Design (HCD) methodology by oﬀering design and UX expertise and review.</li>
+            <ul className="list-disc list-inside text-zinc-300 space-y-2">
+              <li>
+                Designed and governed the NBS design system using the U.S. Web Design System (USWDS)
+                as a foundation.
+              </li>
+              <li>
+                Facilitated co-creation workshops with public health users nationwide to inform and
+                validate design direction.
+              </li>
+              <li>
+                Partnered with stakeholders to define requirements and deliver measurable design
+                outcomes.
+              </li>
+              <li>
+                Mentored UX designers, reinforcing a strong Human-Centered Design (HCD) practice
+                grounded in collaboration and iteration.
+              </li>
             </ul>
           </div>
 
-          <div>
-            <h2 className="text-amber-500 text-xl font-semibold">
-              Human Centered Design Lead
-            </h2>
-            <p className="text-zinc-400">
-              C-HIT • 2021 – 2022
+          {/* === C-HIT === */}
+          <div className="border-t border-zinc-800 pt-8">
+            <h3 className="text-amber-500 text-xl font-semibold">
+              Human-Centered Design Lead
+            </h3>
+            <p className="text-zinc-400">C-HIT — 2021–2022</p>
+            <p className="text-zinc-300 leading-relaxed mt-2 mb-4">
+              Led HCD efforts for CMS’s Identity Management modernization, advocating for
+              user-centered design and accessible, efficient workflows for internal and external
+              users.
             </p>
-            <p className="text-zinc-300 leading-relaxed mb-4 mt-2 ">
-              Led HCD processes for the Identity Management team serving the US Centers for
-                Medicare and Medicaid Services (CMS).</p>
-            <ul className="list-disc list-inside space-y-2 text-zinc-300">
-                <li>Focused on advocating change towards a user-centric research based environment.</li>
-                <li>Interface directly with the customer and business owners to gather, analyze, validate
-                and document functional, business and user requirements.</li>
-                <li>Support development staﬀ and SMEs to ensure requirements meet specifications and
-                client expectations.</li>
-                <li>Assist with implementation of a design system for their IDM Portal application based
-                on the US Web Design System (USWDS).</li>
-                <li>Operate within an Agile environment (SAFe).</li>
+            <ul className="list-disc list-inside text-zinc-300 space-y-2">
+              <li>Championed a research-based, user-focused approach across product teams.</li>
+              <li>
+                Collaborated directly with business owners and engineers to align goals, define
+                requirements, and ensure implementation met both user and technical needs.
+              </li>
+              <li>
+                Guided implementation of a design system aligned with USWDS standards within an
+                Agile (SAFe) environment.
+              </li>
             </ul>
           </div>
 
-          <div>
-            <h2 className="text-amber-500 text-xl font-semibold">
-              Founder/Head of User Experience
-            </h2>
-            <p className="text-zinc-400">
-              Rebel UX • 2018 – 2021
+          {/* === Rebel UX === */}
+          <div className="border-t border-zinc-800 pt-8">
+            <h3 className="text-amber-500 text-xl font-semibold">
+              Founder & Head of User Experience
+            </h3>
+            <p className="text-zinc-400">Rebel UX — 2018–2021</p>
+            <p className="text-zinc-300 leading-relaxed mt-2 mb-4">
+              Founded and led a UX consultancy focused on designing human-centered products and
+              services for startups, government agencies, and enterprise clients.
             </p>
-            <p className="text-zinc-300 leading-relaxed mb-4 mt-2 ">
-              Founded a user experience design consultancy in Washington, DC with the goal to
-                design great digital products, apps and experiences for its customers. Provided user
-                experience, interface design and product strategy services.</p>
-            <ul className="list-disc list-inside space-y-2 text-zinc-300">
-                <li>Implemented design systems (USWDS, Material) for government agencies and
-                enterprise software projects.</li>
-                <li>Consulted with small startups, government agencies and Fortune 500 companies
-                such as PwC, Total Wine, Crossover, Centers for Medicare and Medicaid Services
-                (CMS) and Association of American Medical Colleges (AAMC)</li>
+            <ul className="list-disc list-inside text-zinc-300 space-y-2">
+              <li>
+                Built scalable design systems (USWDS, Material) for federal and enterprise software
+                projects.
+              </li>
+              <li>
+                Partnered with clients including PwC, CMS, Total Wine, and AAMC on end-to-end UX
+                strategy and design execution.
+              </li>
             </ul>
           </div>
-          <div>
-            <h2 className="text-amber-500 text-xl font-semibold">
-              Partner, User Experience
-            </h2>
-            <p className="text-zinc-400">
-              Arrow Digital (Acquired by Cognizant) • 2016 – 2018
-            </p>
-            <p className="text-zinc-300 leading-relaxed mb-4 mt-2 ">
-              In my capacity as Partner of User Experience at Arrow Digital, I oversaw the User
-                Experience practice and worked with clients to develop their vision, objectives and
-                digital roadmaps - before working with Arrow&rsquo;s project teams to ensure their vision was
-                met. At every point in the client&rsquo;s experience, it was my goal to create a unique and
-                delightful experience by infusing Arrow&rsquo;s expertise and values across all clients,
-                products, services, and interpersonal interactions.</p>
-            <ul className="list-disc list-inside space-y-2 text-zinc-300">
-                <li>Grew small UX team into a successful practice area responsible for $3 million in
-                annual billable revenue.</li>
-                <li>Led the overall UX strategy for all financial tech software projects with largest client,
-                PwC, which accounted for over $10 million in annual revenue.</li>
-                <li>Scaled UX methodologies and mentored senior associates to manage multiple work
-                streams across consumer and enterprise clients while adhering to Arrow&rsquo;s standards
-                and values.</li>
-                <li>Oversaw major digital projects for Cracker Barrel, GL Homes, Hilton and In Touch
-                Ministries.</li>
-            </ul>
-          </div>
-          <div>
-            <h2 className="text-amber-500 text-xl font-semibold">
-              Creative Director
-            </h2>
-            <p className="text-zinc-400">
-              Arrow Digital (Acquired by Cognizant) • 2011 – 2015
-            </p>
-            <p className="text-zinc-300 leading-relaxed mb-4 mt-2 ">
-              As the Creative Director, I led a team of very talented web designers and UX
-                professionals. This multi-disciplinary leadership role revolved around leading the design
-                of highly interactive web and enterprise solutions from concept to completion as well as
-                translating business goals and user needs into UX strategies.</p>
-            <p className="text-zinc-300 leading-relaxed mb-4 mt-2 ">
-              By infusing UCD methodology into the very successful software development life-cycle
-                here at Arrow, I was able to increase the quality of the user interfaces for both the web
-                design and enterprise software portions of our business.</p>
-          </div>
-          <div>
-            <h2 className="text-amber-500 text-xl font-semibold">
-              UX Lead / Senior Associate
-            </h2>
-            <p className="text-zinc-400">
-              Arrow Digital (Acquired by Cognizant) • 2010 – 2011
-            </p>
-            <p className="text-zinc-300 leading-relaxed mb-4 mt-2 ">
-              Led the user experience discovery, research, design, and implementation of several
-                projects for a wide variety of clients including Hilton, PwC, and Virginia Credit Union.</p>
-            <ul className="list-disc list-inside space-y-2 text-zinc-300">
-                <li>Designed the default skin and template used for version 6 of DotNetNuke&rsquo;s Content
-                Management System which had been downloaded and used over 330K times in the
-                first 6 months.</li>
-                <li>Implemented a UX discovery process which allowed the company to better scope
-                projects and implement higher quality designs that better met the client&rsquo;s objectives.</li>
-            </ul>
-          </div>
-          <div>
-            <h2 className="text-amber-500 text-xl font-semibold">
-              User Interface Architect
-            </h2>
-            <p className="text-zinc-400">
-              ResumeSponge • 2010
-            </p>
-            <p className="text-zinc-300 leading-relaxed mb-4 mt-2 ">
-              Led all front-end architecture and development. At ResumeSponge, my focus was to
-                implement interactive design interfaces, and architect front-end coding practices to
-                ensure growth and scalability. Collaborated with outside agency to test designs and
-                iterate on interfaces.</p>
-          </div>
-          <div>
-            <h2 className="text-amber-500 text-xl font-semibold">
-              Senior Interaction Designer
-            </h2>
-            <p className="text-zinc-400">
-              Camous Management Corp • 2008 – 2010
-            </p>
-            <p className="text-zinc-300 leading-relaxed mb-4 mt-2 ">
-              Established a signature brand and UI for the company&rsquo;s corporate web site. Developed
-                the framework used for creating both the UI prototypes and the future architecture of
-                their software presentation layer. Designed and developed the full design system for the
-                UI of the entire suite of products as they transition from legacy desktop software into
-                web applications. Use of semantic web standards and progressive enhancement
-                techniques have added increased usability, accessibility and made the applications 508
-                compliant, making the software available to additional institutions and markets.</p>
-          </div>
-          <div>
-            <h2 className="text-amber-500 text-xl font-semibold">
-              Interactive Art Director
-            </h2>
-            <p className="text-zinc-400">
-              Extinction Level • 2005 – 2010
-            </p>
-            <p className="text-zinc-300 leading-relaxed mb-4 mt-2 ">
-              Extinction Level is an interactive media design firm. Led projects to created websites,
-                flash applications and other design projects for various companies such as Crispin
-                Porter + Bogusky, Wieden+Kennedy, Slim Jim, Volkswagen, BMW Mini Cooper,
-                CareerBuilder.com, Nike, Virgin Atlantic and eDiets.com.</p>
-          </div>
-        </div>
 
-        {/* === Skills placeholder === */}
-        <section className="mt-12 text-left">
+          {/* === Arrow Digital (Partner) === */}
+          <div className="border-t border-zinc-800 pt-8">
+            <h3 className="text-amber-500 text-xl font-semibold">Partner, User Experience</h3>
+            <p className="text-zinc-400">Arrow Digital (Acquired by Cognizant) — 2016–2018</p>
+            <p className="text-zinc-300 leading-relaxed mt-2 mb-4">
+              Oversaw Arrow Digital’s UX practice, driving vision, methodology, and client strategy
+              for large-scale digital initiatives.
+            </p>
+            <ul className="list-disc list-inside text-zinc-300 space-y-2">
+              <li>
+                Scaled the UX team into a mature practice generating over $3M in annual revenue.
+              </li>
+              <li>
+                Led UX strategy for PwC’s financial software suite—representing over $10M in annual
+                revenue.
+              </li>
+              <li>
+                Mentored senior associates, codifying Arrow’s UX delivery model and leadership
+                culture.
+              </li>
+              <li>
+                Oversaw major digital initiatives for Cracker Barrel, GL Homes, Hilton, and In Touch
+                Ministries.
+              </li>
+            </ul>
+          </div>
+
+          {/* === Arrow Digital (Creative Director) === */}
+          <div className="border-t border-zinc-800 pt-8">
+            <h3 className="text-amber-500 text-xl font-semibold">Creative Director</h3>
+            <p className="text-zinc-400">Arrow Digital — 2011–2015</p>
+            <p className="text-zinc-300 leading-relaxed mt-2 mb-4">
+              Led a multidisciplinary team of designers and UX professionals to deliver interactive
+              web and enterprise solutions from concept to completion.
+            </p>
+            <p className="text-zinc-300 leading-relaxed">
+              Introduced user-centered design principles to the firm’s development process,
+              significantly improving interface quality and client outcomes.
+            </p>
+          </div>
+
+          {/* === Early Roles === */}
+          <div className="border-t border-zinc-800 pt-8 space-y-4">
+            <h3 className="text-amber-500 text-xl font-semibold">Earlier Roles</h3>
+            <div>
+              <p className="text-zinc-300">
+                <strong>UX Lead / Senior Associate</strong> — Arrow Digital • 2010–2011
+              </p>
+              <p className="text-zinc-400">
+                Led discovery, design, and implementation for enterprise clients such as Hilton and
+                PwC; introduced UX processes that improved project scoping and delivery.
+              </p>
+            </div>
+            <div>
+              <p className="text-zinc-300">
+                <strong>User Interface Architect</strong> — ResumeSponge • 2010
+              </p>
+              <p className="text-zinc-400">
+                Built scalable front-end architecture and interactive prototypes to accelerate design
+                iteration and testing.
+              </p>
+            </div>
+            <div>
+              <p className="text-zinc-300">
+                <strong>Senior Interaction Designer</strong> — Campus Management Corp • 2008–2010
+              </p>
+              <p className="text-zinc-400">
+                Designed and implemented accessible, web-based interfaces for enterprise education
+                software, ensuring 508 compliance and scalability.
+              </p>
+            </div>
+            <div>
+              <p className="text-zinc-300">
+                <strong>Interactive Art Director</strong> — Extinction Level • 2005–2010
+              </p>
+              <p className="text-zinc-400">
+                Led creative for digital campaigns and experiences for brands such as Nike, BMW
+                Mini, Virgin Atlantic, and CareerBuilder.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* === Core Skills === */}
+        <section className="mt-16 text-left border-t border-zinc-800 pt-8">
           <h2 className="text-2xl font-bold mb-4">Core Skills</h2>
           <p className="text-zinc-300">
-            User Research · Prototyping · Wireframing · Design Systems (USWDS) · Accessibility (508) · UX Strategy · Stakeholder Management · Cross-Functional Collaboration · Leadership & Mentorship · Co-Creation Workshops · Agile · Figma · Miro
-            </p>
-        </section>
-        <section className="mt-12 text-left">
-            <h2 className="text-2xl font-bold mb-4">Education & Military</h2>
-            <div>
-                <p className="text-zinc-300">
-                    <strong>Art Institute of Fort Lauderdale</strong>
-                </p>
-                <p className="text-zinc-400 mb-4">
-                B.S. - Interactive Media Design • 2005
-                </p>
-            </div>
-            <div>
-                <p className="text-zinc-300">
-                    <strong>United States Marine Corp</strong>
-                </p>
-                <p className="text-zinc-400 mb-4">
-                Communications
-                </p>
-            </div>
+            UX Strategy · Research & Synthesis · Design Systems (USWDS) · Accessibility (Section
+            508) · Prototyping · Workshop Facilitation · Leadership & Mentorship · Stakeholder
+            Collaboration · Agile Delivery · Figma · Miro
+          </p>
         </section>
 
-        {/* === Download link placeholder === */}
-        <div className="mt-12">
+        {/* === Education === */}
+        <section className="mt-16 text-left border-t border-zinc-800 pt-8">
+          <h2 className="text-2xl font-bold mb-4">Education & Military</h2>
+          <div>
+            <p className="text-zinc-300 font-semibold">
+              Art Institute of Fort Lauderdale
+            </p>
+            <p className="text-zinc-400 mb-4">B.S. — Interactive Media Design, 2005</p>
+          </div>
+          <div>
+            <p className="text-zinc-300 font-semibold">United States Marine Corps</p>
+            <p className="text-zinc-400">Communications</p>
+          </div>
+        </section>
+
+        {/* === PDF Download === */}
+        <div className="mt-16 text-center">
           <Link
             href="/files/Henry-Tavarez-Resume.pdf"
             target="_blank"
@@ -221,7 +213,7 @@ export default function ResumePage() {
         </div>
       </section>
 
-      {/* === Optional Chat CTA === */}
+      {/* === Chat CTA === */}
       <section className="mt-16 text-center">
         <p className="text-zinc-400 mb-4">
           Want to learn more about my professional experience?

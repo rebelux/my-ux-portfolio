@@ -2,24 +2,25 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function HomePage() {
   const featuredProjects = [
     {
       title: "CDC – NBS Modernization",
-      subtitle: "Transforming public health data systems through HCD.",
+      subtitle: "Modernizing public health data systems through human-centered design.",
       image: "/images/cdc-nbs-modernization-hero.jpg",
       link: "/projects/cdc-nbs-modernization",
     },
     {
       title: "CMS – Identity Management Modernization",
-      subtitle: "Streamlining secure access for healthcare data systems.",
+      subtitle: "Improving secure access to healthcare systems through usability and accessibility.",
       image: "/images/cms-identity-management-hero.jpg",
       link: "/projects/cms-identity-management",
     },
     {
       title: "Arrow Digital – UX Discovery Process",
-      subtitle: "Building a user-centered design culture within a dev-focused firm.",
+      subtitle: "Establishing a repeatable design process that shaped company-wide transformation.",
       image: "/images/arrow-digital-hero.jpg",
       link: "/projects/arrow-digital-ux-discovery",
     },
@@ -28,25 +29,22 @@ export default function HomePage() {
   return (
     <main className="bg-black text-zinc-100">
       {/* === Hero === */}
-      <section className="relative h-[85vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden">
-        {/* === Animated Background Gradient === */}
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-fuchsia-500/10 to-blue-500/10 animate-gradient" />
+     <section className="relative min-h-[80vh] flex flex-col items-center justify-center text-center px-6">
+        <motion.div
+          className="relative z-10 max-w-2xl"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 leading-tight">
+            Hi, I’m <span className="text-amber-500">Henry Tavarez</span>.
+          </h1>
 
-        {/* === Overlay to Soften Contrast === */}
-        <div className="absolute inset-0 bg-black/70" />
-
-        {/* === Hero Content === */}
-        <div className="relative z-10">
-          <h1 className="text-5xl font-bold mb-4">Henry Tavarez</h1>
-          <h2 className="text-xl text-zinc-400 mb-6">
-            UX Designer & Product Design Lead
-          </h2>
-          <p className="text-zinc-300 max-w-2xl mb-8 leading-relaxed">
-            Designing clarity and impact at enterprise scale. I help organizations
-            transform complexity into clarity through human-centered design.
+          <p className="text-base sm:text-lg md:text-xl text-zinc-400 mb-8 leading-relaxed">
+            I design enterprise experiences that turn complexity into clarity and measurable impact.
           </p>
 
-          <button
+          <motion.button
             onClick={() => {
               if (typeof window !== "undefined" && window.botpress) {
                 window.botpress.open();
@@ -55,16 +53,40 @@ export default function HomePage() {
                 );
               }
             }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
             className="rounded-xl px-8 py-4 bg-amber-500 hover:bg-amber-600 transition text-lg font-medium"
           >
             Chat with my AI Assistant
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </section>
 
 
+
+      {/* === About / Introduction === */}
+      <section className="bg-zinc-950 py-24 px-6 text-center border-t border-zinc-800">
+        <h2 className="text-3xl font-bold mb-6">About Me</h2>
+        <p className="text-zinc-300 max-w-3xl mx-auto leading-relaxed mb-6">
+          I’m a UX Designer and Product Design Lead with over two decades of experience 
+          bridging design, technology, and strategy.
+        </p>
+        <p className="text-zinc-300 max-w-3xl mx-auto leading-relaxed">
+          My work focuses on simplifying complexity—translating the needs of users, engineers, and 
+          business leaders into cohesive, human-centered solutions that scale. My work focuses on 
+          simplifying complexity—translating the needs of users, engineers, and business leaders into 
+          cohesive, human-centered solutions that scale.
+        </p>
+        <Link
+          href="/about"
+          className="inline-block mt-8 text-amber-500 hover:text-amber-400 transition font-medium"
+        >
+          Learn More →
+        </Link>
+      </section>
+
       {/* === Featured Projects === */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
+      <section className="max-w-6xl mx-auto px-6 py-24">
         <h2 className="text-3xl font-bold mb-10 text-center">Featured Projects</h2>
 
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
@@ -101,28 +123,36 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* === About Preview === */}
-      <section className="bg-zinc-950 py-20 px-6 text-center">
-        <h2 className="text-3xl font-bold mb-6">Design Philosophy</h2>
-        <p className="text-zinc-300 max-w-3xl mx-auto leading-relaxed">
-          I believe good design creates clarity. My work focuses on simplifying
-          complex systems, aligning technology and human needs, and building
-          experiences that scale with empathy and precision.
+      {/* === AI Assistant Invite === */}
+      <section className="bg-zinc-950 py-24 px-6 text-center border-t border-zinc-800">
+        <h2 className="text-3xl font-bold mb-6">Meet My AI Portfolio Assistant</h2>
+        <p className="text-zinc-300 max-w-3xl mx-auto leading-relaxed mb-8">
+          Curious about my work or design approach?
+          My AI Assistant can walk you through my projects, philosophy, and process — all trained 
+          from my own portfolio.
         </p>
-        <Link
-          href="/about"
-          className="inline-block mt-8 text-amber-500 hover:text-amber-400 transition font-medium"
+
+        <button
+          onClick={() => {
+            if (typeof window !== "undefined" && window.botpress) {
+              window.botpress.open();
+              window.botpress.sendMessage?.(
+                "Hi! I'd like to learn more about Henry’s design philosophy."
+              );
+            }
+          }}
+          className="rounded-xl px-8 py-4 bg-amber-500 hover:bg-amber-600 transition text-lg font-medium"
         >
-          Read More →
-        </Link>
+          Chat Now
+        </button>
       </section>
 
       {/* === Contact CTA === */}
-      <section className="py-16 text-center">
+      <section className="py-20 text-center border-t border-zinc-800">
         <h2 className="text-2xl font-semibold mb-4">Let’s Connect</h2>
         <p className="text-zinc-400 mb-6">
-          I’m always open to discussing design leadership, UX strategy, and
-          system design.
+          I’m always open to conversations about design leadership, UX strategy, and how design 
+          drives transformation at scale.
         </p>
         <div className="space-x-4">
           <Link
