@@ -47,7 +47,7 @@ export default function ProjectsGrid() {
                 whileHover={{ y: -4 }}
                 transition={{
                   duration: glacialDepth.motion.fast.duration,
-                  ease: glacialDepth.motion.fast.ease as any,
+                  ease: glacialDepth.motion.fast.ease,
                 }}
                 className="rounded-2xl overflow-hidden shadow-sm bg-card border border-[--color-border] hover:shadow-md transition-all"
               >

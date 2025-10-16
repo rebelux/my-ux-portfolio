@@ -22,7 +22,7 @@ export default function NavBar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{
         duration: glacialDepth.motion.medium.duration,
-        ease: glacialDepth.motion.medium.ease as any,
+        ease: glacialDepth.motion.medium.ease,
       }}
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-[--color-bg]/70"
     >
@@ -70,7 +70,7 @@ export default function NavBar() {
             exit={{ opacity: 0, y: -20 }}
             transition={{
               duration: glacialDepth.motion.medium.duration,
-              ease: glacialDepth.motion.medium.ease as any,
+              ease: glacialDepth.motion.medium.ease,
             }}
             className="md:hidden bg-[--color-bg-alt] border-t border-[--color-border] backdrop-blur-sm shadow-soft"
           >

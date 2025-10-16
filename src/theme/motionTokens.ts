@@ -34,18 +34,15 @@ interface MotionTransforms {
     y: number;
     opacity: number;
   };
-  [key: string]: any; // optional catch-all for future transforms
 }
 
 interface MotionHover {
   scale: number;
   shadow: string;
-  [key: string]: any; // allows safe future hover variants
 }
 
 interface MotionTap {
   scale: number;
-  [key: string]: any; // allows safe future hover variants
 }
 
 interface MotionTokens {

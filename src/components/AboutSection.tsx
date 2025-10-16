@@ -21,7 +21,7 @@ export default function AboutSection() {
             className="font-sans text-[18px] text-text/80 leading-relaxed max-w-3xl mx-auto"
             transition={{
               duration: glacialDepth.motion.slow.duration,
-              ease: glacialDepth.motion.slow.ease as any,
+              ease: glacialDepth.motion.slow.ease,
             }}
           >
             I’m a UX design lead focused on modernizing complex public health systems —
@@ -39,7 +39,7 @@ export default function AboutSection() {
             viewport={{ once: true }}
             transition={{
               duration: glacialDepth.motion.medium.duration,
-              ease: glacialDepth.motion.medium.ease as any,
+              ease: glacialDepth.motion.medium.ease,
             }}
             className="h-[2px] bg-accent mx-auto mt-10"
           />

@@ -17,7 +17,7 @@ export default function FadeInSection({ children, delay = 0 }: FadeInSectionProp
       viewport={{ once: true, amount: 0.25 }}
       transition={{
         duration: glacialDepth.motion.medium.duration,
-        ease: glacialDepth.motion.medium.ease as any,
+        ease: glacialDepth.motion.medium.ease,
         delay,
       }}
       className="will-change-transform"

@@ -1,10 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import MotionButton from "@/components/ui/MotionButton";
-import { askAIAbout } from "@/lib/askAI"
 
 interface SelectedWorkProps {
   title: string;

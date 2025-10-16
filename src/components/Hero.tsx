@@ -15,7 +15,7 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{
           duration: glacialDepth.motion.medium.duration,
-          ease: glacialDepth.motion.medium.ease as any,
+          ease: glacialDepth.motion.medium.ease,
         }}
         className="font-serif text-center leading-tight text-5xl sm:text-6xl md:text-7xl text-[--color-text]"
       >
@@ -28,7 +28,7 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{
           duration: glacialDepth.motion.slow.duration,
-          ease: glacialDepth.motion.slow.ease as any,
+          ease: glacialDepth.motion.slow.ease,
           delay: 0.2,
         }}
         className="mt-6 max-w-2xl text-center font-sans text-lg sm:text-xl text-[--color-text-muted]"

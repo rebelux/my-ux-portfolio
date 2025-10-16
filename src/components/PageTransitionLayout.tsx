@@ -46,7 +46,7 @@ export default function PageTransitionLayout({
 
   const transition = {
     duration: glacialDepth.motion.medium.duration,
-    ease: glacialDepth.motion.medium.ease as any,
+    ease: glacialDepth.motion.medium.ease,
   };
 
   useEffect(() => {

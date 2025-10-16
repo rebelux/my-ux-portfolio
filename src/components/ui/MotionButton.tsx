@@ -48,14 +48,14 @@ export default function MotionButton({
         boxShadow: motionTokens.hover.shadow,
         transition: {
           duration: motionTokens.durations.medium,
-          ease: motionTokens.easings.out as any,
+          ease: motionTokens.easings.out,
         },
       }}
       whileTap={{
         scale: motionTokens.tap.scale,
         transition: {
           duration: motionTokens.durations.fast,
-          ease: motionTokens.easings.inOut as any,
+          ease: motionTokens.easings.inOut,
         },
       }}
     >
