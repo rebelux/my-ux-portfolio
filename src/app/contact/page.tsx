@@ -2,12 +2,10 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import MotionSection from "@/components/layout/MotionSection";
 import MotionButton from "@/components/ui/MotionButton";
 import Section from "@/components/layout/Section";
 import { variants } from "@/theme/motionVariants";
-import { askAIAbout } from "@/lib/askAI"
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);

@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 import Section from "@/components/layout/Section";
 import MotionButton from "@/components/ui/MotionButton";
 import ProjectCardFrosted from "@/components/ProjectCardFrosted";

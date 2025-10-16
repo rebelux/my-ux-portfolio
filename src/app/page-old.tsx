@@ -1,4 +1,4 @@
-"use client";
+/* "use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -28,7 +28,7 @@ export default function HomePage() {
 
   return (
     <main className="bg-black text-zinc-100">
-      {/* === Hero === */}
+      {/* === Hero === 
      <section className="relative min-h-[80vh] flex flex-col items-center justify-center text-center px-6">
         <motion.div
           className="relative z-10 max-w-2xl"
@@ -64,7 +64,7 @@ export default function HomePage() {
 
 
 
-      {/* === About / Introduction === */}
+      {/* === About / Introduction === 
       <section className="bg-zinc-950 py-24 px-6 text-center border-t border-zinc-800">
         <h2 className="text-3xl font-bold mb-6">About Me</h2>
         <p className="text-zinc-300 max-w-3xl mx-auto leading-relaxed mb-6">
@@ -85,7 +85,7 @@ export default function HomePage() {
         </Link>
       </section>
 
-      {/* === Featured Projects === */}
+      {/* === Featured Projects === 
       <section className="max-w-6xl mx-auto px-6 py-24">
         <h2 className="text-3xl font-bold mb-10 text-center">Featured Projects</h2>
 
@@ -123,7 +123,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* === AI Assistant Invite === */}
+      {/* === AI Assistant Invite === 
       <section className="bg-zinc-950 py-24 px-6 text-center border-t border-zinc-800">
         <h2 className="text-3xl font-bold mb-6">Meet My AI Portfolio Assistant</h2>
         <p className="text-zinc-300 max-w-3xl mx-auto leading-relaxed mb-8">
@@ -147,7 +147,7 @@ export default function HomePage() {
         </button>
       </section>
 
-      {/* === Contact CTA === */}
+      {/* === Contact CTA === 
       <section className="py-20 text-center border-t border-zinc-800">
         <h2 className="text-2xl font-semibold mb-4">Let’s Connect</h2>
         <p className="text-zinc-400 mb-6">
@@ -173,3 +173,5 @@ export default function HomePage() {
     </main>
   );
 }
+
+*/

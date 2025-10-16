@@ -30,7 +30,7 @@ export default function MotionSection({
         duration: motionTokens.durations.slow,
         delay,
         // Cast to satisfy Framer's Easing type (cubic-bezier tuple)
-        ease: motionTokens.easings.out as any,
+        ease: motionTokens.easings.out,
       }}
       viewport={{ once: true, amount: 0.25 }}
       variants={variants ?? motionVariants.fadeUp}

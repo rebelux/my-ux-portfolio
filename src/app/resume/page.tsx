@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import MotionSection from "@/components/layout/MotionSection";
 import MotionButton from "@/components/ui/MotionButton";
 import Section from "@/components/layout/Section";
