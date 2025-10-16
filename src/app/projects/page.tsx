@@ -1,171 +1,120 @@
 "use client";
-import Image from "next/image";
-import Link from "next/link";
 
-// ✅ Safe Botpress helper (works with free plan)
-function askAIAbout(projectTitle: string) {
-  if (typeof window === "undefined" || !window.botpress) return;
+import { motion } from "framer-motion";
+import MotionSection from "@/components/layout/MotionSection";
+import Section from "@/components/layout/Section";
+import ProjectCardFrosted from "@/components/ProjectCardFrosted";
+import SelectedWorkFrosted from "@/components/SelectedWorkFrosted";
+import { variants } from "@/theme/motionVariants";
+import { featuredProjects } from "@/data/featuredProjects";
+import { selectedWork } from "@/data/selectedWork";
 
-  const text = `Tell me about the ${projectTitle} project.`;
-  let sent = false;
-
-  const trySend = () => {
-    if (sent) return;
-    sent = true;
-    window.botpress?.sendMessage?.(text);
-  };
-
-  window.botpress.open();
-  window.botpress.on?.("webchat:ready", trySend);
-  window.botpress.on?.("webchat:opened", trySend);
-  setTimeout(trySend, 300);
-}
-
-// === Project Data ===
-const featuredProjects = [
-  {
-    title: "CDC – NBS Modernization",
-    subtitle: "Transforming public health data systems through human-centered design.",
-    image: "/images/cdc-nbs-modernization-hero.jpg",
-    description:
-      "I led UX design for the modernization of CDC’s National Disease Surveillance platform—making it faster, more accessible, and easier for public health professionals to manage nationwide case data.",
-    link: "/projects/cdc-nbs-modernization",
-  },
-  {
-    title: "CMS – Identity Management Modernization",
-    subtitle: "Streamlining secure access for healthcare data systems through HCD.",
-    image: "/images/cms-identity-management-hero.jpg",
-    description:
-      "As UX Design Lead, I redesigned CMS’s Identity Management platform to simplify onboarding, improve accessibility, and align with Section 508 and USWDS standards for both internal and external users.",
-    link: "/projects/cms-identity-management",
-  },
-  {
-    title: "Arrow Digital – Building a UX Discovery Process",
-    subtitle: "Transforming a development-focused company into a user-centered design practice.",
-    image: "/images/arrow-digital-hero.jpg",
-    description:
-      "I built and scaled a UX Discovery Framework that redefined how projects were scoped, designed, and delivered—helping Arrow Digital grow from a 12-person development shop into a 200+ employee firm later acquired by Cognizant.",
-    link: "/projects/arrow-digital-ux-discovery",
-  },
-];
-
-const selectedWork = [
-  {
-    title: "Cracker Barrel",
-    description:
-      "Modernizing a legacy brand’s digital experience while preserving its charm. We reimagined Cracker Barrel’s online presence with a modern yet rustic aesthetic—bringing its in-store warmth to digital. The redesign also introduced smarter data organization for 600+ locations and proposed an AR experience to boost engagement.",
-  },
-  {
-    title: "Central Electric Cooperative (CREC)",
-    description:
-      "Turning complex energy data into actionable insights. Designed a real-time Energy Dashboard and mobile tools that gave operations and field teams clear, visual data—enabling faster decisions, stronger collaboration, and more efficient responses in the field.",
-  },
-  {
-    title: "PwC",
-    description:
-      "Designing enterprise-scale consistency for the world’s largest professional services firm. I directed UX strategy across 20+ internal enterprise applications, defining a cohesive design system that unified workflows and improved usability across PwC’s global software ecosystem.",
-  },
-  {
-    title: "In Touch Ministries",
-    description:
-      "A complete digital transformation across web, mobile, and media. Partnered with In Touch Ministries to unify its web, mobile, and magazine experiences under one cohesive design system—expanding reach, accessibility, and engagement across audiences and devices.",
-  },
-];
-
-// === Component ===
 export default function ProjectsPage() {
   return (
-    <main className="bg-black text-zinc-100 px-6 py-16 flex flex-col items-center">
-      <div className="max-w-6xl w-full space-y-24">
-        {/* === Header === */}
-        <header className="text-center space-y-4">
-          <h1 className="text-4xl font-bold">Projects</h1>
-          <p className="text-zinc-400 max-w-2xl mx-auto">
-            A selection of case studies showcasing my work in UX design, systems thinking,
-            and organizational transformation. Each project demonstrates how design can
-            create clarity, efficiency, and measurable impact at scale.
-          </p>
-        </header>
+    <main className="bg-[--color-bg] text-[--color-text] overflow-x-hidden">
+      <Section variant="default" fadeTo="bg" hasGlow className="py-20 md:py-24">
+        <MotionSection variants={variants.staggerChildren}>
+          {/* Page Title */}
+          <motion.h1
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="font-serif text-4xl md:text-5xl text-center mb-6"
+          >
+            Projects
+          </motion.h1>
 
-        {/* === Featured Case Studies === */}
-        <section>
-          <h2 className="text-3xl font-bold text-center mb-12">Featured Case Studies</h2>
-          <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
-            {featuredProjects.map((project) => (
-              <div
-                key={project.title}
-                className="group bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:border-amber-500 transition flex flex-col"
-              >
-                {/* === Image === */}
-                <div className="relative w-full h-56 overflow-hidden flex-shrink-0">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-                </div>
+          {/* Intro Paragraph */}
+          <motion.p
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="text-center text-[--color-text-muted] max-w-2xl mx-auto mb-16 leading-relaxed"
+          >
+            A selection of case studies showcasing my work in UX design, systems thinking, and 
+            organizational transformation. Each project demonstrates how design can create clarity, 
+            efficiency, and measurable impact at scale.
+          </motion.p>
 
-                {/* === Card Content === */}
-                <div className="flex flex-col justify-between p-6 flex-grow">
-                  <div>
-                    <h3 className="text-xl font-semibold text-amber-400">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm italic text-zinc-400 mb-2">
-                      {project.subtitle}
-                    </p>
-                    <p
-                      className="text-zinc-300 text-sm leading-relaxed"
-                      dangerouslySetInnerHTML={{ __html: project.description }}
-                    />
-                  </div>
-
-                  {/* === Actions === */}
-                  <div className="flex justify-between items-center mt-6 pt-4 border-t border-zinc-800">
-                    <Link
-                      href={project.link}
-                      className="text-amber-500 hover:text-amber-400 transition text-sm font-medium"
-                    >
-                      Read Case Study →
-                    </Link>
-                    <button
-                      onClick={() => askAIAbout(project.title)}
-                      className="text-sm rounded-lg bg-amber-500 px-3 py-1.5 hover:bg-amber-600 transition"
-                    >
-                      Ask AI
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* === Selected Work === */}
-        <section>
-          <h2 className="text-3xl font-bold text-center mb-12">Selected Work</h2>
-          <div className="grid gap-12 md:grid-cols-2">
-            {selectedWork.map((project) => (
-              <div key={project.title} className="bg-zinc-900 rounded-xl p-6 border border-zinc-800 hover:border-amber-500 transition">
-                <h3 className="text-xl font-semibold text-amber-400 mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-zinc-300 text-sm leading-relaxed mb-4">
-                  {project.description}
-                </p>
-                <button
-                  onClick={() => askAIAbout(project.title)}
-                  className="text-sm text-amber-500 hover:text-amber-400 transition"
+            <motion.h2
+            variants={variants.fadeUp}
+            className="text-center"
+            >
+            Featured Projects
+            </motion.h2>
+          {/* Project Grid */}
+          <motion.div
+            variants={variants.staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ delay: 0.45 }}
+            className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto px-6 items-stretch"
+          >            
+            {featuredProjects.map((proj, i) => (
+              <motion.div 
+                key={proj.title} 
+                variants={variants.fadeUp} 
+                transition={{ delay: 0.55 + i * 0.1 }}
+                className="flex"
                 >
-                  Ask AI about this project →
-                </button>
-              </div>
+                <ProjectCardFrosted
+                  title={proj.title}
+                  subtitle={proj.subtitle}
+                  image={proj.image}
+                  href={proj.href}
+                />
+              </motion.div>
             ))}
-          </div>
-        </section>
-      </div>
+          </motion.div>
+        </MotionSection>
+      </Section>
+
+      <Section variant="alt" fadeTo="footer" hasGlow className="py-20 md:py-24">
+        <MotionSection variants={variants.staggerChildren}>
+            <motion.h2
+            variants={variants.fadeUp}
+            className="text-center"
+            >
+            Selected Work
+            </motion.h2>
+          {/* Project Grid */}
+          <motion.div
+            variants={variants.staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ delay: 0.45 }}
+            className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2 max-w-6xl mx-auto px-6"
+          >            
+            {selectedWork.map((proj, i) => (
+              <motion.div 
+                key={proj.title} 
+                variants={variants.fadeUp} 
+                transition={{ delay: 0.55 + i * 0.1 }}
+                >
+                <SelectedWorkFrosted
+                  title={proj.title}
+                  subtitle={proj.subtitle}
+                  image={proj.image}
+                  href={proj.href}
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Ambient Glow */}
+          <motion.div
+            className="absolute inset-0 flex justify-center items-center overflow-hidden pointer-events-none"
+            animate={{ scale: [1, 1.05, 1], opacity: [0.25, 0.4, 0.25] }}
+            transition={{ repeat: Infinity, duration: 18, ease: 'easeInOut' }}
+          />
+        </MotionSection>
+      </Section>
     </main>
   );
 }

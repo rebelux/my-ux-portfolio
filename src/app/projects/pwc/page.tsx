@@ -1,142 +1,235 @@
 "use client";
+
+import { motion } from "framer-motion";
 import Link from "next/link";
-import CaseStudyHero from "@/components/CaseStudyHero";
-
-// === Botpress-safe helper ===
-function askAIAbout(projectTitle: string) {
-  if (typeof window === "undefined" || !window.botpress) return;
-
-  const text = `Tell me about the ${projectTitle} project.`;
-  let sent = false;
-
-  const trySend = () => {
-    if (sent) return;
-    sent = true;
-    window.botpress?.sendMessage?.(text);
-  };
-
-  window.botpress.open();
-  window.botpress.on?.("webchat:ready", trySend);
-  window.botpress.on?.("webchat:opened", trySend);
-  setTimeout(trySend, 300);
-}
+import { askAIAbout } from "@/lib/askAI"
+import Section from "@/components/layout/Section";
+import MotionSection from "@/components/layout/MotionSection";
+import MotionButton from "@/components/ui/MotionButton";
+import { variants } from "@/theme/motionVariants";
 
 export default function PwCPage() {
   return (
-    <main className="bg-black text-zinc-100 px-6 py-16 flex flex-col items-center">
-      <article className="max-w-4xl w-full space-y-12">
-        {/* === Hero === */}
-        <CaseStudyHero
-          title="PwC – Enterprise Application Suite"
-          subtitle="Driving design consistency and efficiency across a global software ecosystem."
-          imageUrl="/images/pwc-hero.jpg"
-        />
+    <main className="editorial bg-[--color-bg] text-[--color-text]">
+      {/* === Hero Section === */}
+      <Section container density="editorial"  className="section--editorial">
+        <MotionSection variants={variants.staggerChildren}>
+            <motion.h1
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="font-serif text-4xl md:text-5xl text-center leading-tight mb-6"
+            >
+            PwC – Enterprise Application Suite
+            </motion.h1>
+            <motion.p
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="text-center text-[--color-text-muted] max-w-3xl mx-auto"
+            >
+            Driving design consistency and efficiency across a global software ecosystem.
+            </motion.p>
+        </MotionSection>
+      </Section>
 
-        {/* === Meta === */}
-        <section className="text-sm text-zinc-400 text-center">
-          <p>
-            <strong>Project Type:</strong> Enterprise Web Application Suite ·{" "}
-            <strong>Client:</strong> PwC (PricewaterhouseCoopers)
-          </p>
-          <p>
-            <strong>Company:</strong> Arrow Digital ·{" "}
-            <strong>Role:</strong> Partner & Head of UX
-          </p>
-          <p>
-            <strong>Focus:</strong> Creating a unified design system and strategy across dozens of
-            enterprise applications used by global auditing, tax, and consulting teams.
-          </p>
-        </section>
-
-        {/* === Overview === */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Project Overview</h2>
-          <p className="text-zinc-300 leading-relaxed mb-4">
+      {/* === Project Overview === */}
+      <Section container density="editorial" className="section--editorial">
+        <MotionSection variants={variants.staggerChildren}>
+            <motion.h2
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className=""
+            >
+            Project Overview
+            </motion.h2>
+            <motion.div
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="text-[--color-text-muted] leading-relaxed space-y-4"
+            >
+           <p>
             PwC, the world’s largest professional services firm, invested heavily in building
             internal software to support its global workforce of auditors, tax specialists, and
             consultants. Our team partnered with PwC over several years to design and deliver more
             than two dozen enterprise applications—each critical to daily operations and client
             service delivery.
           </p>
-          <p className="text-zinc-300 leading-relaxed">
+          <p>
             As <strong>Partner and Head of UX</strong> at Arrow Digital, I guided the overall design
             strategy, led cross-functional teams, and developed a scalable design system to unify the
             experience across this extensive suite of tools.
           </p>
-        </section>
+            </motion.div>
+        </MotionSection>
+      </Section>
 
-        {/* === Challenge === */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">The Challenge</h2>
-          <p className="text-zinc-300 leading-relaxed mb-4">
+      {/* === Challenge === */}
+      <Section container density="editorial"  className="section--editorial">
+        <MotionSection variants={variants.staggerChildren}>
+            <motion.h2
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className=""
+            >
+            The Challenge
+            </motion.h2>
+            <motion.div
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-[--color-text-muted] leading-relaxed space-y-4"
+            >
+            <p>
             With more than 20 internally built applications—each owned by different product teams—
             PwC faced challenges around consistency, usability, and development efficiency.
           </p>
-          <ul className="list-disc list-inside text-zinc-300 space-y-2">
+          <ul className="list-disc pl-6">
             <li>Inconsistent interfaces and interaction patterns across tools.</li>
             <li>Fragmented workflows that caused redundant effort and confusion.</li>
             <li>Design debt accumulated from parallel development timelines.</li>
             <li>Lack of unified accessibility or branding standards.</li>
           </ul>
-          <p className="text-zinc-300 leading-relaxed mt-4">
+          <p>
             We needed to step back and create a cohesive foundation—a shared system that would scale
             across products and teams worldwide.
           </p>
-        </section>
+            </motion.div>
+        </MotionSection>
+      </Section>
 
-        {/* === Impact === */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Impact</h2>
-          <p className="text-zinc-300 leading-relaxed mb-4">
+            {/* === Impact === */}
+      <Section container density="editorial"  className="section--editorial">
+        <MotionSection variants={variants.staggerChildren}>
+            <motion.h2
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className=""
+            >
+            Impact
+            </motion.h2>
+            <motion.div
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-[--color-text-muted] leading-relaxed space-y-4"
+            >
+            <p>
             By developing a consistent design system and framework, we dramatically reduced
             time-to-market and improved product quality. Dashboards and reporting tools became more
             intuitive, allowing accountants and consultants to focus on insights rather than
             navigation.
           </p>
-          <ul className="list-disc list-inside text-zinc-300 space-y-2">
+          <ul className="list-disc pl-6">
             <li>Created a scalable component library for all PwC digital products.</li>
             <li>Reduced redundant UI design and front-end development by over 40%.</li>
             <li>Improved usability testing scores across multiple product lines.</li>
             <li>Established long-term UX governance and brand consistency globally.</li>
           </ul>
-        </section>
+            </motion.div>
+        </MotionSection>
+      </Section>
 
-        {/* === Key Skills === */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Key Skills Demonstrated</h2>
-          <p className="text-zinc-300 leading-relaxed">
+      {/* === Key Skills === */}
+      <Section container density="editorial"  className="section--editorial">
+        <MotionSection variants={variants.staggerChildren}>
+            <motion.h2
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className=""
+            >
+            Key Skills Demonstrated
+            </motion.h2>
+            <motion.div
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-[--color-text-muted] leading-relaxed space-y-4"
+            >
+            <p>
             UX Strategy · Design Systems · Leadership & Mentorship · Enterprise UX · UI Design ·
             Stakeholder Alignment · Agile Collaboration
           </p>
-        </section>
+            </motion.div>
+        </MotionSection>
+      </Section>
 
         {/* === Reflection === */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Reflection</h2>
-          <p className="text-zinc-300 leading-relaxed">
+        <Section container density="editorial"  className="section--editorial relative overflow-hidden" fadeTo="footer">
+            <MotionSection variants={variants.staggerChildren}>
+                {/* Ambient Glow Behind Section */}
+                <motion.div
+                className="absolute top-[20%] left-[40%] w-[600px] h-[600px] rounded-full blur-[180px] bg-[--color-accent]/10 -z-10"
+                animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.3, 0.15] }}
+                transition={{ repeat: Infinity, duration: 18, ease: "easeInOut" }}
+                />
+
+                <motion.h2
+                variants={variants.fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                className=""
+                >
+                Reflection
+                </motion.h2>
+                <motion.div
+                variants={variants.fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                className="text-[--color-text-muted] leading-relaxed space-y-4"
+                >
+               <p>
             This project highlighted the value of systems thinking in enterprise UX. A unified design
             language doesn’t just improve visual consistency—it transforms how teams collaborate,
             scale, and deliver value. Establishing a shared design system allowed PwC’s global teams
             to move faster and deliver with greater confidence and cohesion.
           </p>
-        </section>
+                </motion.div>
+            </MotionSection>
+        </Section>
 
-        {/* === Footer === */}
-        <div className="flex justify-between items-center pt-8 border-t border-zinc-800">
-          <Link
-            href="/projects"
-            className="text-amber-500 hover:text-amber-400 transition"
-          >
-            ← Back to Projects
-          </Link>
-          <button
-            onClick={() => askAIAbout("PwC")}
-            className="rounded-xl px-6 py-3 bg-amber-500 hover:bg-amber-600 transition text-sm"
-          >
-            Ask My AI Assistant
-          </button>
-        </div>
-      </article>
+      {/* === Footer CTA === */}
+      <Section className="section--editorial" variant="default" fadeTo="footer">
+        <MotionSection variants={variants.staggerChildren}>
+            <div className="max-w-5xl mx-auto flex justify-between items-center px-6">
+
+            <Link
+                href="/projects"
+                className="text-[--color-accent] hover:opacity-80 transition font-medium"
+            >
+                ← Back to Projects
+            </Link>
+            <MotionButton
+                variant="accent"
+                onClick={() => askAIAbout('PwC')}
+                aria-label="Ask my AI assistant about the PwC project"
+            >
+                Ask My AI Assistant
+            </MotionButton>
+            </div>
+        </MotionSection>
+      </Section>
     </main>
   );
 }
+

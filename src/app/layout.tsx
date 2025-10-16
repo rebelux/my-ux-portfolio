@@ -1,18 +1,8 @@
-import type { Metadata } from "next";
-//import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import type { Metadata } from "next";
 import Script from "next/script";
-import Link from "next/link";
-
-/*const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});*/
+import NavBar from "@/components/NavBar";
+import PageTransitionLayout from "@/components/PageTransitionLayout";
 
 export const metadata: Metadata = {
   title: "Henry Tavarez | UX Designer & Product Design Lead",
@@ -26,7 +16,7 @@ export const metadata: Metadata = {
     siteName: "Henry Tavarez Portfolio",
     images: [
       {
-        url: "/og-image.jpg", // optional — add a preview image later
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Henry Tavarez UX Portfolio",
@@ -40,26 +30,21 @@ export const metadata: Metadata = {
     title: "Henry Tavarez | UX Designer & Product Design Lead",
     description:
       "UX Designer and Product Design Lead helping organizations turn complexity into clarity through human-centered design and scalable systems.",
-    creator: "@eLevel", // optional if you have a Twitter handle
+    creator: "@eLevel",
   },
 };
 
-
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" style={{ backgroundColor: "#E9EBEC" }}>
       <head>
-        {/* Load Botpress v3.3 script */}
+        {/* Botpress v3.3 script */}
         <Script
           src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"
           strategy="afterInteractive"
         />
-
-        {/* Inject chat container styling */}
         <style>{`
           #webchat .bpWebchat {
             position: unset;
@@ -68,91 +53,60 @@ export default function RootLayout({
             max-height: 100%;
             max-width: 100%;
           }
-
           #webchat .bpFab {
             display: none;
           }
         `}</style>
       </head>
-      <body className="bg-zinc-950 text-zinc-100">
-        {/* === Global Navigation === */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800">
-          <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-            <Link href="/" className="text-lg font-bold text-amber-500 hover:text-amber-400">
-              Henry Tavarez
-            </Link>
-            <div className="flex gap-6 text-sm">
-              <Link href="/projects" className="hover:text-amber-400 transition">
-                Projects
-              </Link>
-              <Link href="/about" className="hover:text-amber-400 transition">
-                About
-              </Link>
-              <Link href="/resume" className="hover:text-amber-400 transition">
-                Résumé
-              </Link>
-              <Link href="/contact" className="hover:text-amber-400 transition">
-                Contact
-              </Link>
-            </div>
-          </div>
-        </nav>
 
-        {/* Main content wrapper */}
-        <main className="min-h-[calc(100vh-4rem)] pt-16 bg-zinc-950">
-          {children}
+      {/* ✅ Updated background + text colors for Tailwind v4 */}
+      <body className="bg-[--color-bg] text-[--color-text] font-sans transition-colors duration-500">
+        {/* === Global Navigation (Responsive) === */}
+        <NavBar />
+
+        {/* === Main Content === */}
+        <main className="pt-20 min-h-[calc(100vh-5rem)] bg-[--color-bg] text-[--color-text] transition-colors">
+          <PageTransitionLayout>{children}</PageTransitionLayout>
         </main>
 
-        {/* Chat container required for Botpress v3.3 */}
-        {/* Chat container as fixed */}
+        {/* === Botpress Chat Container === */}
         <div
           id="webchat"
           className="fixed bottom-6 right-6 w-[420px] h-[560px] hidden"
         ></div>
-        {/* Initialize Botpress after the script loads */}
+
+        {/* === Botpress Init Script === */}
         <Script id="botpress-init" strategy="afterInteractive">
           {`
             function initializeBotpress() {
               if (window.botpress && typeof window.botpress.init === "function") {
-                // ❌ Removed auto-open so chat stays hidden until toggled
                 window.botpress.init({
                   botId: "0d1251e2-411d-4cbd-a0f8-3302266afb9f",
                   configuration: {
                     version: "v2",
-                    composerPlaceholder: "",
                     botName: "Henry’s UX Portfolio Assistant",
                     botDescription: "Discover Henry’s UX journey — ask me about his design philosophy or key projects.",
-                    website: {},
-                    email: {},
-                    phone: {},
-                    termsOfService: {},
-                    privacyPolicy: {},
-                    color: "#E91E63",
+                    color: "#7A8CA8",
                     variant: "solid",
                     headerVariant: "glass",
                     themeMode: "light",
-                    fontFamily: "inter",
+                    fontFamily: "Inter",
                     radius: 4,
                     feedbackEnabled: false,
                     footer: "[⚡ by Botpress](https://botpress.com/?from=webchat)",
                     soundEnabled: false,
                     proactiveMessageEnabled: false,
-                    proactiveBubbleMessage: "Hi! 👋 Need help?",
-                    proactiveBubbleTriggerType: "afterDelay",
-                    proactiveBubbleDelayTime: 10
                   },
                   clientId: "4c7013bc-fc0a-4e19-ad82-c9a54129c8b6",
                   selector: "#webchat"
                 });
               } else {
-                // Retry after a short delay if the script hasn't loaded yet
                 setTimeout(initializeBotpress, 500);
               }
             }
             initializeBotpress();
           `}
         </Script>
-        
       </body>
     </html>
   );

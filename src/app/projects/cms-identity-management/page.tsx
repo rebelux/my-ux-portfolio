@@ -1,175 +1,282 @@
 "use client";
+
+import { motion } from "framer-motion";
 import Link from "next/link";
-import CaseStudyHero from "@/components/CaseStudyHero";
-// top of file (after imports)
-function askAIAbout(projectTitle: string) {
-  if (typeof window === "undefined" || !window.botpress) return;
-
-  const text = `Tell me about the ${projectTitle} case study.`;
-  let sent = false;
-
-  const trySend = () => {
-    if (sent) return;
-    sent = true;
-    window.botpress?.sendMessage?.(text);
-  };
-
-  // Open chat, then try to send once it's ready/open.
-  window.botpress.open();
-  window.botpress.on?.("webchat:ready", trySend);
-  window.botpress.on?.("webchat:opened", trySend);
-
-  // Fallback in case events have already fired
-  setTimeout(trySend, 300);
-}
+import { askAIAbout } from "@/lib/askAI"
+import Section from "@/components/layout/Section";
+import MotionSection from "@/components/layout/MotionSection";
+import MotionButton from "@/components/ui/MotionButton";
+import { variants } from "@/theme/motionVariants";
 
 export default function CMSIdentityManagement() {
   return (
-    <main className="bg-black text-zinc-100 px-6 py-16 flex flex-col items-center">
-      <article className="max-w-4xl w-full space-y-12">
-        {/* === Header === */}
-        <CaseStudyHero
-            title="CMS – Identity Management Modernization"
-            subtitle="Streamlining secure access for healthcare data systems through human-centered design."
-            imageUrl="/images/cms-identity-management-hero.jpg"
-        />
+    <main className="editorial bg-[--color-bg] text-[--color-text]">
+      {/* === Hero Section === */}
+      <Section container density="editorial"  className="section--editorial">
+        <MotionSection variants={variants.staggerChildren}>
+            <motion.h1
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="font-serif text-4xl md:text-5xl text-center leading-tight mb-6"
+            >
+            CMS – Identity Management Modernization
+            </motion.h1>
+            <motion.p
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="text-center text-[--color-text-muted] max-w-3xl mx-auto"
+            >
+            Streamlining secure access for healthcare data systems through human-centered design.
+            </motion.p>
+        </MotionSection>
+      </Section>
 
-
-        {/* === Meta === */}
-        <section className="text-sm text-zinc-400 text-center">
-          <p>
-            <strong>Role:</strong> UX Design Lead ·{" "}
-            <strong>Client:</strong> Centers for Medicare and Medicaid Services (CMS)
-          </p>
-          <p>
-            <strong>Company:</strong> C-HIT · <strong>Timeline:</strong> 2021 – 2022
-          </p>
-          <p>
-            <strong>Focus:</strong> Modernizing the Identity Management system to improve
-            efficiency, accessibility, and usability for internal CMS staff and external vendors.
-          </p>
-        </section>
-
-        {/* === Overview === */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Project Overview</h2>
-          <p className="text-zinc-300 leading-relaxed">
-            CMS&rsquo;s Identity Management (IDM) platform serves as the secure entry point for vendors
+      {/* === Project Overview === */}
+      <Section container density="editorial" className="section--editorial">
+        <MotionSection variants={variants.staggerChildren}>
+            <motion.h2
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className=""
+            >
+            Project Overview
+            </motion.h2>
+            <motion.div
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="text-[--color-text-muted] leading-relaxed space-y-4"
+            >
+            <p>
+                CMS&rsquo;s Identity Management (IDM) platform serves as the secure entry point for vendors
             and partners connecting to CMS data systems. The existing platform was outdated,
             inefficient, and difficult for both internal staff and external partners to navigate.
             As <strong>UX Design Lead</strong>, I led the redesign of this critical system,
             applying Human-Centered Design (HCD) principles to improve onboarding, enhance
             usability, and align the interface with the{" "}
             <strong>U.S. Web Design System (USWDS)</strong> standards.
-          </p>
-        </section>
+            </p>
+            </motion.div>
+        </MotionSection>
+      </Section>
 
-        {/* === Challenge === */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">The Challenge</h2>
-          <p className="text-zinc-300 leading-relaxed mb-4">
-            The original IDM process was cumbersome for users and administrators alike. Key
+      {/* === Challenge === */}
+      <Section container density="editorial"  className="section--editorial">
+        <MotionSection variants={variants.staggerChildren}>
+            <motion.h2
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className=""
+            >
+            The Challenge
+            </motion.h2>
+            <motion.div
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-[--color-text-muted] leading-relaxed space-y-4"
+            >
+            <p>
+              The original IDM process was cumbersome for users and administrators alike. Key
             challenges included:
-          </p>
-          <ul className="list-disc list-inside text-zinc-300 space-y-2">
-            <li>Long, complex onboarding forms for new vendors.</li>
+            </p>
+            <ul className="list-disc pl-6">
+              <li>Long, complex onboarding forms for new vendors.</li>
             <li>Inconsistent workflows between internal and external users.</li>
             <li>Accessibility and compliance gaps.</li>
             <li>Limited visibility into user status and request progress.</li>
-          </ul>
-          <p className="text-zinc-300 leading-relaxed mt-4">
+            </ul>
+             <p>
             The goal was to reduce friction in the onboarding process, increase transparency, and
             create a more accessible experience that scaled across user roles.
           </p>
-        </section>
+            </motion.div>
+        </MotionSection>
+      </Section>
 
-        {/* === Approach === */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">My Approach</h2>
-          <p className="text-zinc-300 leading-relaxed mb-6">
-            I applied a collaborative and research-driven design process to uncover pain points and
+      {/* === Approach === */}
+      <Section container density="editorial"  className="section--editorial">
+        <MotionSection variants={variants.staggerChildren}>
+            <motion.h2
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className=""
+            >
+            My Approach
+            </motion.h2>
+            <motion.div
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-[--color-text-muted] leading-relaxed space-y-4"
+            >
+            <p>
+             I applied a collaborative and research-driven design process to uncover pain points and
             deliver solutions that balanced security, usability, and compliance.
-          </p>
-
-          <h3 className="text-xl font-semibold mb-2">Discovery & Co-Creation</h3>
-          <p className="text-zinc-300 leading-relaxed mb-4">
+            </p>
+            <h3>Discovery & Co-Creation</h3>
+          <p>
             Conducted <strong>co-creation workshops</strong> with internal CMS employees to
             document workflows, map user pain points, and identify redundant steps. These sessions
             provided a shared understanding of inefficiencies and opportunities for improvement.
           </p>
 
-          <h3 className="text-xl font-semibold mb-2">Collaboration with Product & Engineering</h3>
-          <p className="text-zinc-300 leading-relaxed mb-4">
+          <h3>Collaboration with Product & Engineering</h3>
+          <p>
             Partnered with business analysts to refine user stories and clarify requirements.
             Collaborated closely with engineers to ensure all interface components followed{" "}
             <strong>USWDS</strong> guidelines and were built to specification.
           </p>
 
-          <h3 className="text-xl font-semibold mb-2">Design & Prototyping</h3>
-          <p className="text-zinc-300 leading-relaxed mb-4">
+          <h3>Design & Prototyping</h3>
+          <p>
             Created wireframes and high-fidelity prototypes for improved task flows such as vendor
             registration, identity verification, and access management. Tested designs with internal
             staff and external vendors to validate usability and accessibility.
           </p>
 
-          <h3 className="text-xl font-semibold mb-2">Usability Testing & Accessibility</h3>
-          <p className="text-zinc-300 leading-relaxed">
+          <h3>Usability Testing & Accessibility</h3>
+          <p>
             Performed recorded usability sessions to identify workflow gaps and refine interactions.
             Each screen was reviewed for Section 508 compliance, ensuring accessibility standards
             were met for all users.
           </p>
-        </section>
+            </motion.div>
+        </MotionSection>
+      </Section>
 
-        {/* === Outcomes === */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Outcomes & Impact</h2>
-          <ul className="list-disc list-inside text-zinc-300 space-y-2">
+      {/* === Impact === */}
+      <Section container density="editorial"  className="section--editorial">
+        <MotionSection variants={variants.staggerChildren}>
+            <motion.h2
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className=""
+            >
+            Outcomes & Impact
+            </motion.h2>
+            <motion.div
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-[--color-text-muted] leading-relaxed space-y-4"
+            >
+            <ul className="list-disc pl-6">
             <li>Streamlined vendor onboarding with simplified workflows.</li>
             <li>Reduced redundant steps and form fields for CMS employees.</li>
             <li>Improved accessibility and consistency through USWDS standards.</li>
             <li>Delivered clearer communication between internal teams and external partners.</li>
           </ul>
-          <p className="text-zinc-300 leading-relaxed mt-4">
+          <p>
             The modernization effort improved day-to-day operations and laid the groundwork for
             scalable, accessible system upgrades across CMS.
           </p>
-        </section>
+            </motion.div>
+        </MotionSection>
+      </Section>
 
-        {/* === Key Skills === */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Key Skills Demonstrated</h2>
-          <p className="text-zinc-300 leading-relaxed">
+      {/* === Key Skills === */}
+      <Section container density="editorial"  className="section--editorial">
+        <MotionSection variants={variants.staggerChildren}>
+            <motion.h2
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className=""
+            >
+            Key Skills Demonstrated
+            </motion.h2>
+            <motion.div
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-[--color-text-muted] leading-relaxed space-y-4"
+            >
+            <p>
             Human-Centered Design (HCD) · Design Systems (USWDS) · Accessibility & Section 508
             Compliance · Prototyping & Usability Testing · Cross-Functional Collaboration · Agile
             Product Development · Workshop Facilitation
           </p>
-        </section>
+            </motion.div>
+        </MotionSection>
+      </Section>
 
-        {/* === Reflection === */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Reflection</h2>
-          <p className="text-zinc-300 leading-relaxed">
-            This project reaffirmed the importance of empathy and collaboration in enterprise UX. By
-            aligning design with both technical infrastructure and user needs, we delivered a
-            solution that improved workflow efficiency and accessibility—without compromising
-            security or compliance.
-          </p>
-        </section>
+      {/* === Reflection === */}
+      <Section container density="editorial"  className="section--editorial relative overflow-hidden" fadeTo="footer">
+        <MotionSection variants={variants.staggerChildren}>
+            {/* Ambient Glow Behind Section */}
+            <motion.div
+            className="absolute top-[20%] left-[40%] w-[600px] h-[600px] rounded-full blur-[180px] bg-[--color-accent]/10 -z-10"
+            animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.3, 0.15] }}
+            transition={{ repeat: Infinity, duration: 18, ease: "easeInOut" }}
+            />
 
-        {/* === Footer === */}
-        <div className="flex justify-between items-center pt-8 border-t border-zinc-800">
-          <Link href="/projects" className="text-amber-500 hover:text-amber-400 transition">
-            ← Back to Projects
-          </Link>
-          <button
-            onClick={() => askAIAbout("CMS – Identity Management Modernization")}
-            className="rounded-xl px-6 py-3 bg-amber-500 hover:bg-amber-600 transition text-sm"
+            <motion.h2
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className=""
             >
-            Ask My AI Assistant
-            </button>
+            Reflection
+            </motion.h2>
+            <motion.div
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-[--color-text-muted] leading-relaxed space-y-4"
+            >
+            <p>This project reaffirmed the importance of empathy and collaboration in enterprise 
+                UX. By aligning design with both technical infrastructure and user needs, we 
+                delivered a solution that improved workflow efficiency and accessibility—without 
+                compromising security or compliance.</p>
+            </motion.div>
+        </MotionSection>
+      </Section>
 
-        </div>
-      </article>
+      {/* === Footer CTA === */}
+      <Section className="section--editorial" variant="default" fadeTo="footer">
+        <MotionSection variants={variants.staggerChildren}>
+            <div className="max-w-5xl mx-auto flex justify-between items-center px-6">
+
+            <Link
+                href="/projects"
+                className="text-[--color-accent] hover:opacity-80 transition font-medium"
+            >
+                ← Back to Projects
+            </Link>
+            <MotionButton
+                variant="accent"
+                onClick={() => askAIAbout('CMS – Identity Management Modernization')}
+                aria-label="Ask my AI assistant about the CMS Identity Management Modernization project"
+            >
+                Ask My AI Assistant
+            </MotionButton>
+            </div>
+        </MotionSection>
+      </Section>
     </main>
   );
 }

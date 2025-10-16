@@ -1,183 +1,234 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Link from "next/link";
-import CaseStudyHero from "@/components/CaseStudyHero";
+import { askAIAbout } from "@/lib/askAI"
+import Section from "@/components/layout/Section";
+import MotionSection from "@/components/layout/MotionSection";
+import MotionButton from "@/components/ui/MotionButton";
+import { variants } from "@/theme/motionVariants";
 
-// top of file (after imports)
-function askAIAbout(projectTitle: string) {
-  if (typeof window === "undefined" || !window.botpress) return;
-
-  const text = `Tell me about the ${projectTitle} case study.`;
-  let sent = false;
-
-  const trySend = () => {
-    if (sent) return;
-    sent = true;
-    window.botpress?.sendMessage?.(text);
-  };
-
-  // Open chat, then try to send once it's ready/open.
-  window.botpress.open();
-  window.botpress.on?.("webchat:ready", trySend);
-  window.botpress.on?.("webchat:opened", trySend);
-
-  // Fallback in case events have already fired
-  setTimeout(trySend, 300);
-}
-
-export default function CDCNbsModernization() {
+export default function CdcNbsModernizationPage() {
   return (
-    <main className="bg-black text-zinc-100 px-6 py-16 flex flex-col items-center">
-      <article className="max-w-4xl w-full space-y-12">
-        {/* === Header === */}
-        <CaseStudyHero
-            title="CDC – NBS Modernization"
-            subtitle="Transforming public health data systems through human-centered design."
-            imageUrl="/images/cdc-nbs-modernization-hero.jpg"
-        />
+    <main className="editorial bg-[--color-bg] text-[--color-text]">
+      {/* === Hero Section === */}
+      <Section container density="editorial"  className="section--editorial">
+        <MotionSection variants={variants.staggerChildren}>
+            <motion.h1
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="font-serif text-4xl md:text-5xl text-center leading-tight mb-6"
+            >
+            CDC — NBS Modernization
+            </motion.h1>
+            <motion.p
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="text-center text-[--color-text-muted] max-w-3xl mx-auto"
+            >
+            Reimagining national disease surveillance workflows through a
+            human-centered modernization of the National Electronic Disease
+            Surveillance System (NEDSS) Base System.
+            </motion.p>
+        </MotionSection>
+      </Section>
 
+      {/* === Project Overview === */}
+      <Section container density="editorial" className="section--editorial">
+        <MotionSection variants={variants.staggerChildren}>
+            <motion.h2
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className=""
+            >
+            Project Overview
+            </motion.h2>
+            <motion.div
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="text-[--color-text-muted] leading-relaxed space-y-4"
+            >
+            <p>
+                The CDC’s National Electronic Disease Surveillance System (NEDSS)
+                Base System (NBS) is a cornerstone of U.S. public health reporting,
+                helping states and jurisdictions track infectious disease cases and
+                trends. However, the system’s decades-old interface and data
+                workflows hindered efficiency and scalability, especially during
+                critical outbreak response scenarios.
+            </p>
+            <p>
+                Our team partnered with the CDC to redesign NBS from the ground up —
+                focusing on the modernized architecture, user experience, and
+                long-term sustainability across all state and local public health
+                programs.
+            </p>
+            </motion.div>
+        </MotionSection>
+      </Section>
 
-        {/* === Meta === */}
-        <section className="text-sm text-zinc-400 text-center">
-          <p>
-            <strong>Role:</strong> UX Design Lead ·{" "}
-            <strong>Client:</strong> Centers for Disease Control and Prevention (CDC)
-          </p>
-          <p>
-            <strong>Company:</strong> CDW (Public Sector Cloud Practice) ·{" "}
-            <strong>Timeline:</strong> 2022 – Present
-          </p>
-          <p>
-            <strong>Focus:</strong> Modernizing the National Disease Surveillance (NBS)
-            platform to enhance usability, scalability, and accessibility.
-          </p>
-        </section>
+      {/* === Approach === */}
+      <Section container density="editorial"  className="section--editorial">
+        <MotionSection variants={variants.staggerChildren}>
+            <motion.h2
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className=""
+            >
+            Approach
+            </motion.h2>
+            <motion.div
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-[--color-text-muted] leading-relaxed space-y-4"
+            >
+            <p>
+                We conducted extensive discovery sessions with epidemiologists,
+                case investigators, and surveillance coordinators across multiple
+                jurisdictions to understand the nuanced challenges of disease
+                surveillance workflows.
+            </p>
+            <ul className="list-disc pl-6">
+                <li>
+                Developed user journey maps and service blueprints to visualize
+                data flow between systems and users.
+                </li>
+                <li>
+                Identified high-friction processes such as duplicate case
+                resolution, patient search, and HL7 message ingestion.
+                </li>
+                <li>
+                Collaborated closely with engineers to align UX decisions with
+                evolving architecture based on modular microservices and FHIR data
+                models.
+                </li>
+            </ul>
+            <p>
+                This iterative collaboration between CDC, state users, and our
+                design-engineering team ensured that modernization decisions were
+                validated by real-world needs, not assumptions.
+            </p>
+            </motion.div>
+        </MotionSection>
+      </Section>
 
-        {/* === Overview === */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Project Overview</h2>
-          <p className="text-zinc-300 leading-relaxed">
-            The CDC partnered with CDW to modernize its disease surveillance infrastructure,
-            migrating legacy systems to a cloud-based platform that could better serve public
-            health professionals across the U.S. As <strong>UX Design Lead</strong>, I was
-            responsible for driving the human-centered design (HCD) process, leading discovery
-            and co-creation with public health users, and building a scalable design system
-            aligned with federal standards.
-          </p>
-        </section>
+      {/* === Impact === */}
+      <Section container density="editorial"  className="section--editorial">
+        <MotionSection variants={variants.staggerChildren}>
+            <motion.h2
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className=""
+            >
+            Impact
+            </motion.h2>
+            <motion.div
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-[--color-text-muted] leading-relaxed space-y-4"
+            >
+            <p>
+                The modernization effort has already led to measurable improvements
+                in workflow efficiency and data quality:
+            </p>
+            <ul className="list-disc pl-6">
+                <li>
+                Reduced case deduplication time by over 60% through improved
+                patient search and record matching algorithms.
+                </li>
+                <li>
+                Streamlined HL7 message ingestion pipelines, reducing backlog
+                delays from days to hours.
+                </li>
+                <li>
+                Established a design system and modular UI library to ensure
+                future extensibility and brand consistency across CDC programs.
+                </li>
+            </ul>
+            </motion.div>
+        </MotionSection>
+      </Section>
 
-        {/* === The Challenge === */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">The Challenge</h2>
-          <p className="text-zinc-300 leading-relaxed mb-4">
-            The existing NBS platform was built on outdated technology that limited speed,
-            flexibility, and collaboration. Public health professionals faced challenges such as:
-          </p>
-          <ul className="list-disc list-inside text-zinc-300 space-y-2">
-            <li>Slow data ingestion and limited real-time analytics.</li>
-            <li>Complex and inconsistent workflows across jurisdictions.</li>
-            <li>Accessibility gaps and non-compliance with Section 508.</li>
-            <li>Fragmented systems that slowed response during health emergencies.</li>
-          </ul>
-          <p className="text-zinc-300 leading-relaxed mt-4">
-            Our goal was to deliver a <strong>secure, accessible, and intuitive</strong> cloud
-            platform that improved efficiency and supported timely public health decisions.
-          </p>
-        </section>
+      {/* === Outcomes === */}
+      <Section container density="editorial"  className="section--editorial relative overflow-hidden" fadeTo="footer">
+        <MotionSection variants={variants.staggerChildren}>
+            {/* Ambient Glow Behind Section */}
+            <motion.div
+            className="absolute top-[20%] left-[40%] w-[600px] h-[600px] rounded-full blur-[180px] bg-[--color-accent]/10 -z-10"
+            animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.3, 0.15] }}
+            transition={{ repeat: Infinity, duration: 18, ease: "easeInOut" }}
+            />
 
-        {/* === My Approach === */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">My Approach</h2>
-          <p className="text-zinc-300 leading-relaxed mb-6">
-            I led an iterative, research-driven design process grounded in empathy and collaboration.
-          </p>
+            <motion.h2
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className=""
+            >
+            Outcomes
+            </motion.h2>
+            <motion.div
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-[--color-text-muted] leading-relaxed space-y-4"
+            >
+            <p>
+                Beyond improving system performance and usability, NBS Modernization
+                established a scalable design foundation for the future of disease
+                surveillance in the United States.
+            </p>
+            <p>
+                The lessons learned from this effort are informing modernization
+                initiatives across other CDC programs and partner systems —
+                creating a more unified, responsive, and resilient public health
+                data infrastructure.
+            </p>
+            </motion.div>
+        </MotionSection>
+      </Section>
 
-          <h3 className="text-xl font-semibold mb-2">User Research & Discovery</h3>
-          <p className="text-zinc-300 leading-relaxed mb-4">
-            We conducted <strong>user interviews, surveys, and contextual inquiries</strong> with
-            health professionals from state, tribal, local, and territorial (STLT) agencies. These
-            sessions uncovered critical pain points around navigation, data entry, and cross-agency
-            communication.
-          </p>
+      {/* === Footer CTA === */}
+      <Section className="section--editorial" variant="default" fadeTo="footer">
+        <MotionSection variants={variants.staggerChildren}>
+            <div className="max-w-5xl mx-auto flex justify-between items-center px-6">
 
-          <h3 className="text-xl font-semibold mb-2">Co-Creation & Ideation</h3>
-          <p className="text-zinc-300 leading-relaxed mb-4">
-            I facilitated <strong>co-creation workshops</strong> where users, stakeholders, and
-            product teams worked together to reimagine workflows and validate design concepts.
-            Outputs included early sketches, task flows, and Miro-based prototypes that informed
-            design priorities.
-          </p>
-
-          <h3 className="text-xl font-semibold mb-2">Iterative Design & Testing</h3>
-          <p className="text-zinc-300 leading-relaxed mb-4">
-            Using Figma and USWDS components, I developed interactive prototypes to test new
-            patterns for patient search, record filtering, and data visualization. Designs were
-            validated through multiple feedback loops with subject-matter experts and refined based
-            on usability insights.
-          </p>
-
-          <h3 className="text-xl font-semibold mb-2">Design System Leadership</h3>
-          <p className="text-zinc-300 leading-relaxed">
-            The project required expanding and customizing the{" "}
-            <strong>U.S. Web Design System (USWDS)</strong> to support complex enterprise use cases.
-            I partnered closely with front-end engineers to create new components, ensure
-            accessibility compliance, and maintain visual consistency across modules.
-          </p>
-        </section>
-
-        {/* === Outcomes === */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Outcomes & Impact</h2>
-          <ul className="list-disc list-inside text-zinc-300 space-y-2">
-            <li>Streamlined workflows reduced search and entry times for case records.</li>
-            <li>Consistent, accessible design improved usability for a diverse workforce.</li>
-            <li>Real-time data visualization enabled faster outbreak detection and response.</li>
-            <li>Positive user feedback confirmed improved clarity and task efficiency.</li>
-          </ul>
-          <p className="text-zinc-300 leading-relaxed mt-4">
-            Beyond interface improvements, the project established a repeatable UX framework for
-            future CDC modernization efforts.
-          </p>
-        </section>
-
-        {/* === Key Skills === */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Key Skills Demonstrated</h2>
-          <p className="text-zinc-300 leading-relaxed">
-            Design Systems (USWDS) · Accessibility & Section 508 Compliance · Co-Creation &
-            Facilitation · User Research & Synthesis · Prototyping & Iterative Design · Stakeholder
-            Collaboration · Cross-Functional Alignment
-          </p>
-        </section>
-
-        {/* === Reflection === */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Reflection</h2>
-          <p className="text-zinc-300 leading-relaxed">
-            This project reinforced the power of human-centered design in government systems. By
-            involving users throughout the process, we built not just a tool—but a platform that
-            empowers public health professionals to act quickly, confidently, and collaboratively
-            in moments that matter most.
-          </p>
-        </section>
-
-        {/* === Back link + Chat CTA === */}
-        <div className="flex justify-between items-center pt-8 border-t border-zinc-800">
-          <Link
-            href="/projects"
-            className="text-amber-500 hover:text-amber-400 transition"
-          >
-            ← Back to Projects
-          </Link>
-            <button
-                onClick={() => askAIAbout("CDC – NBS Modernization")}
-                className="rounded-xl px-6 py-3 bg-amber-500 hover:bg-amber-600 transition text-sm"
-                >
+            <Link
+                href="/projects"
+                className="text-[--color-accent] hover:opacity-80 transition font-medium"
+            >
+                ← Back to Projects
+            </Link>
+            <MotionButton
+                variant="accent"
+                onClick={() => askAIAbout('CDC – NBS Modernization')}
+                aria-label="Ask my AI assistant about the CDC NBS Modernization project"
+            >
                 Ask My AI Assistant
-            </button>
-
-        </div>
-      </article>
+            </MotionButton>
+            </div>
+        </MotionSection>
+      </Section>
     </main>
   );
 }

@@ -1,0 +1,9 @@
+:root {
+  --debug-accent: hotpink;
+}
+
+.debug-block {
+  background: var(--debug-accent);
+  width: 80px;
+  height: 80px;
+}

@@ -1,137 +1,231 @@
 "use client";
+
+import { motion } from "framer-motion";
 import Link from "next/link";
-import CaseStudyHero from "@/components/CaseStudyHero";
-
-// === Botpress-safe helper ===
-function askAIAbout(projectTitle: string) {
-  if (typeof window === "undefined" || !window.botpress) return;
-
-  const text = `Tell me about the ${projectTitle} project.`;
-  let sent = false;
-
-  const trySend = () => {
-    if (sent) return;
-    sent = true;
-    window.botpress?.sendMessage?.(text);
-  };
-
-  window.botpress.open();
-  window.botpress.on?.("webchat:ready", trySend);
-  window.botpress.on?.("webchat:opened", trySend);
-  setTimeout(trySend, 300);
-}
+import { askAIAbout } from "@/lib/askAI"
+import Section from "@/components/layout/Section";
+import MotionSection from "@/components/layout/MotionSection";
+import MotionButton from "@/components/ui/MotionButton";
+import { variants } from "@/theme/motionVariants";
 
 export default function InTouchMinistriesPage() {
   return (
-    <main className="bg-black text-zinc-100 px-6 py-16 flex flex-col items-center">
-      <article className="max-w-4xl w-full space-y-12">
-        {/* === Hero === */}
-        <CaseStudyHero
-          title="In Touch Ministries"
-          subtitle="Creating a unified, mobile-optimized experience for a global digital ministry."
-          imageUrl="/images/in-touch-ministries-hero.jpg"
-        />
+    <main className="editorial bg-[--color-bg] text-[--color-text]">
+      {/* === Hero Section === */}
+      <Section container density="editorial"  className="section--editorial">
+        <MotionSection variants={variants.staggerChildren}>
+            <motion.h1
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="font-serif text-4xl md:text-5xl text-center leading-tight mb-6"
+            >
+            In Touch Ministries
+            </motion.h1>
+            <motion.p
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="text-center text-[--color-text-muted] max-w-3xl mx-auto"
+            >
+            Creating a unified, mobile-optimized experience for a global digital ministry.
+            </motion.p>
+        </MotionSection>
+      </Section>
 
-        {/* === Meta === */}
-        <section className="text-sm text-zinc-400 text-center">
-          <p>
-            <strong>Project Type:</strong> Mobile App & Website ·{" "}
-            <strong>Client:</strong> In Touch Ministries
-          </p>
-          <p>
-            <strong>Company:</strong> Arrow Digital ·{" "}
-            <strong>Timeline:</strong> 2014 – 2016
-          </p>
-          <p>
-            <strong>Focus:</strong> Redesigning In Touch Ministries’ digital ecosystem to support modern web, mobile, and publishing experiences within a unified design framework.
-          </p>
-        </section>
-
-        {/* === Overview === */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Project Overview</h2>
-          <p className="text-zinc-300 leading-relaxed mb-4">
+      {/* === Project Overview === */}
+      <Section container density="editorial" className="section--editorial">
+        <MotionSection variants={variants.staggerChildren}>
+            <motion.h2
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className=""
+            >
+            Project Overview
+            </motion.h2>
+            <motion.div
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="text-[--color-text-muted] leading-relaxed space-y-4"
+            >
+            <p>
             In Touch Ministries wanted a complete digital refresh—one that honored its legacy while
             enabling the flexibility and reach of modern media. What began as a website redesign
             evolved into a larger initiative: integrating an online magazine, developing a new web
             application, and designing reusable components to create a cohesive experience across all
             of In Touch’s platforms.
           </p>
-          <p className="text-zinc-300 leading-relaxed">
+          <p>
             The goal was to unify their brand and technology stack while maintaining creative freedom
             for each department. This required designing a scalable system that could adapt to the
             ministry’s diverse audiences and growing content strategy.
           </p>
-        </section>
+            </motion.div>
+        </MotionSection>
+      </Section>
 
-        {/* === Challenge & Approach === */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Challenge & Approach</h2>
-          <p className="text-zinc-300 leading-relaxed mb-4">
+      {/* === Challenge === */}
+      <Section container density="editorial"  className="section--editorial">
+        <MotionSection variants={variants.staggerChildren}>
+            <motion.h2
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className=""
+            >
+            Challenge & Approach
+            </motion.h2>
+            <motion.div
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-[--color-text-muted] leading-relaxed space-y-4"
+            >
+            <p>
             The existing digital ecosystem was fragmented, with separate experiences for the main
             website, magazine, and mobile content. To bridge these gaps, we developed a component-based
             design language that provided consistency while still allowing visual expression for key
             brand areas.
           </p>
-          <p className="text-zinc-300 leading-relaxed mb-4">
+          <p>
             Mobile optimization was a major priority. We analyzed user behavior and discovered that a
             large portion of the audience accessed content on weekends via mobile devices. This insight
             drove the creation of new mobile-first features and an app experience that encouraged
             continuous engagement.
           </p>
-          <p className="text-zinc-300 leading-relaxed">
+          <p>
             For the magazine integration, we collaborated with the IT and editorial teams to design a
             seamless digital reading experience. The result allowed the magazine to retain its unique
             identity while functioning as part of the main site’s ecosystem.
           </p>
-        </section>
+            </motion.div>
+        </MotionSection>
+      </Section>
 
-        {/* === Impact === */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Impact</h2>
-          <ul className="list-disc list-inside text-zinc-300 space-y-2">
+            {/* === Impact === */}
+      <Section container density="editorial"  className="section--editorial">
+        <MotionSection variants={variants.staggerChildren}>
+            <motion.h2
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className=""
+            >
+            Impact
+            </motion.h2>
+            <motion.div
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-[--color-text-muted] leading-relaxed space-y-4"
+            >
+            <ul className="list-disc pl-6">
             <li>Unified web, app, and publication experiences under a single design system.</li>
             <li>Increased mobile engagement and content accessibility.</li>
             <li>Streamlined collaboration across internal teams (IT, editorial, design).</li>
             <li>Established scalable design patterns for future expansion.</li>
           </ul>
-        </section>
+            </motion.div>
+        </MotionSection>
+      </Section>
 
-        {/* === Key Skills === */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Key Skills Demonstrated</h2>
-          <p className="text-zinc-300 leading-relaxed">
+      {/* === Key Skills === */}
+      <Section container density="editorial"  className="section--editorial">
+        <MotionSection variants={variants.staggerChildren}>
+            <motion.h2
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className=""
+            >
+            Key Skills Demonstrated
+            </motion.h2>
+            <motion.div
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-[--color-text-muted] leading-relaxed space-y-4"
+            >
+            <p>
             UX Strategy · Responsive Design · Component-Based Systems · Collaboration · Mobile Design · Product Thinking · Digital Publishing Integration
           </p>
-        </section>
+            </motion.div>
+        </MotionSection>
+      </Section>
 
         {/* === Reflection === */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Reflection</h2>
-          <p className="text-zinc-300 leading-relaxed">
+        <Section container density="editorial"  className="section--editorial relative overflow-hidden" fadeTo="footer">
+            <MotionSection variants={variants.staggerChildren}>
+                {/* Ambient Glow Behind Section */}
+                <motion.div
+                className="absolute top-[20%] left-[40%] w-[600px] h-[600px] rounded-full blur-[180px] bg-[--color-accent]/10 -z-10"
+                animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.3, 0.15] }}
+                transition={{ repeat: Infinity, duration: 18, ease: "easeInOut" }}
+                />
+
+                <motion.h2
+                variants={variants.fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                className=""
+                >
+                Reflection
+                </motion.h2>
+                <motion.div
+                variants={variants.fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                className="text-[--color-text-muted] leading-relaxed space-y-4"
+                >
+                <p>
             This project reinforced the importance of designing for both scalability and storytelling.
             By unifying In Touch’s digital properties, we gave their teams a flexible design system
             that continues to serve new audiences while maintaining the integrity of their message and
             brand.
           </p>
-        </section>
+                </motion.div>
+            </MotionSection>
+        </Section>
 
-        {/* === Footer === */}
-        <div className="flex justify-between items-center pt-8 border-t border-zinc-800">
-          <Link
-            href="/projects"
-            className="text-amber-500 hover:text-amber-400 transition"
-          >
-            ← Back to Projects
-          </Link>
-          <button
-            onClick={() => askAIAbout("In Touch Ministries")}
-            className="rounded-xl px-6 py-3 bg-amber-500 hover:bg-amber-600 transition text-sm"
-          >
-            Ask My AI Assistant
-          </button>
-        </div>
-      </article>
+      {/* === Footer CTA === */}
+      <Section className="section--editorial" variant="default" fadeTo="footer">
+        <MotionSection variants={variants.staggerChildren}>
+            <div className="max-w-5xl mx-auto flex justify-between items-center px-6">
+
+            <Link
+                href="/projects"
+                className="text-[--color-accent] hover:opacity-80 transition font-medium"
+            >
+                ← Back to Projects
+            </Link>
+            <MotionButton
+                variant="accent"
+                onClick={() => askAIAbout('In Touch Ministries')}
+                aria-label="Ask my AI assistant about the In Touch Ministries project"
+            >
+                Ask My AI Assistant
+            </MotionButton>
+            </div>
+        </MotionSection>
+      </Section>
     </main>
   );
 }
+

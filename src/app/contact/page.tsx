@@ -2,6 +2,12 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import MotionSection from "@/components/layout/MotionSection";
+import MotionButton from "@/components/ui/MotionButton";
+import Section from "@/components/layout/Section";
+import { variants } from "@/theme/motionVariants";
+import { askAIAbout } from "@/lib/askAI"
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -34,18 +40,30 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="min-h-screen bg-black text-zinc-100 px-6 py-24 flex flex-col items-center">
-      <section className="max-w-2xl w-full text-center">
-        <h1 className="text-4xl font-bold mb-8">Contact</h1>
-        <p className="text-zinc-400 mb-12">
-          Have a question, collaboration idea, or want to chat about design leadership or UX
+    <main className="editorial min-h-screen bg-[--color-bg] text-[--color-text] px-6 py-24 flex flex-col items-center">
+      {/* === Header === */}
+      <Section container density="editorial" className="section--editorial-alt">
+      <MotionSection variants={variants.fadeUp} className="text-center max-w-3xl mx-auto">
+        <motion.h1
+            variants={variants.fadeUp}
+            className="text-4xl md:text-5xl font-serif text-[--color-text]"
+            >Contact</motion.h1>
+        <motion.p
+            variants={variants.fadeUp}
+            className="text-[--color-text-muted] leading-relaxed"
+        >
+            Have a question, collaboration idea, or want to chat about design leadership or UX
           strategy? Send me a message — I’d love to connect.
-        </p>
+        </motion.p>
+      </MotionSection>
+      </Section>
 
+     <Section container density="editorial" className="section--editorial-alt">
+      <MotionSection variants={variants.fadeUp} className="max-w-xl mx-auto">
         {!submitted ? (
           <form onSubmit={handleSubmit} className="space-y-6 text-left">
             <div>
-              <label htmlFor="name" className="block text-zinc-400 mb-2">
+              <label htmlFor="name" className="block mb-2">
                 Name
               </label>
               <input
@@ -53,12 +71,12 @@ export default function ContactPage() {
                 id="name"
                 name="name"
                 required
-                className="w-full rounded-lg bg-zinc-900 border border-zinc-700 px-4 py-3 text-zinc-100 focus:border-amber-500 outline-none transition"
+                className="w-full rounded-xl bg-[color:var(--color-card)]/70 backdrop-blur-md border border-[color:var(--color-border)] px-4 py-3 focus:border-[color:var(--color-accent)] outline-none transition"
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-zinc-400 mb-2">
+              <label htmlFor="email" className="block mb-2">
                 Email
               </label>
               <input
@@ -66,12 +84,12 @@ export default function ContactPage() {
                 id="email"
                 name="email"
                 required
-                className="w-full rounded-lg bg-zinc-900 border border-zinc-700 px-4 py-3 text-zinc-100 focus:border-amber-500 outline-none transition"
+                className="w-full rounded-xl bg-[color:var(--color-card)]/70 backdrop-blur-md border border-[color:var(--color-border)] px-4 py-3 focus:border-[color:var(--color-accent)] outline-none transition"
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-zinc-400 mb-2">
+              <label htmlFor="message" className="block mb-2">
                 Message
               </label>
               <textarea
@@ -79,16 +97,18 @@ export default function ContactPage() {
                 name="message"
                 required
                 rows={5}
-                className="w-full rounded-lg bg-zinc-900 border border-zinc-700 px-4 py-3 text-zinc-100 focus:border-amber-500 outline-none transition"
+                className="w-full rounded-xl bg-[color:var(--color-card)]/70 backdrop-blur-md border border-[color:var(--color-border)] px-4 py-3 focus:border-[color:var(--color-accent)] outline-none transition"
               ></textarea>
             </div>
 
-            <button
-              type="submit"
-              className="w-full rounded-xl px-6 py-3 bg-amber-500 hover:bg-amber-600 transition font-medium"
-            >
-              Send Message
-            </button>
+            <MotionButton
+                type="submit"
+                variant="accent"
+                className="w-full justify-center py-3 text-base"
+                fullWidth
+                >
+                Send Message
+            </MotionButton>
 
             {error && (
               <p className="text-red-500 text-sm mt-4 text-center">
@@ -98,7 +118,7 @@ export default function ContactPage() {
           </form>
         ) : (
           <motion.div
-            className="text-amber-500 font-medium mt-8"
+            className="text-[--color-accent] font-medium mt-8"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -106,26 +126,32 @@ export default function ContactPage() {
             Thanks for reaching out! I’ll get back to you soon.
           </motion.div>
         )}
-      </section>
+    </MotionSection>
+    </Section>
 
-      {/* === Chatbot CTA === */}
-      <section className="mt-20 text-center max-w-2xl">
-        <p className="text-zinc-400 mb-6">
+        <Section container density="editorial" className="section--editorial-alt">
+      {/* === Chat CTA === */}
+      <MotionSection
+        variants={variants.fadeUp}
+        className="text-center bg-[--color-bg-alt]"
+      >
+        <motion.p variants={variants.fadeUp} className="text-[--color-text-muted] mb-6 max-w-2xl mx-auto">
           Prefer a quicker chat? My AI Assistant can answer questions about my work, projects, or
           design approach — instantly.
-        </p>
-        <button
-          onClick={() => {
-            if (typeof window !== "undefined" && window.botpress) {
-              window.botpress.open();
-              window.botpress.sendMessage?.("Hi! I’d like to contact Henry.");
-            }
-          }}
-          className="rounded-xl px-6 py-3 bg-amber-500 hover:bg-amber-600 transition font-medium"
-        >
-          Chat with My AI Assistant
-        </button>
-      </section>
+        </motion.p>
+        <MotionButton
+            variant="accent"
+            onClick={() => {
+                if (typeof window !== "undefined" && window.botpress) {
+                window.botpress.open();
+                window.botpress.sendMessage?.("Hi! I’d like to contact Henry.");
+                }
+            }}
+            >
+            Chat with My AI Assistant
+        </MotionButton>
+      </MotionSection>
+      </Section>
     </main>
   );
 }

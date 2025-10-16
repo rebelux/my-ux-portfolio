@@ -1,34 +1,227 @@
 @import "tailwindcss";
 
+/* === Glacial Depth Theme Tokens === */
+/* @theme inline {
+  --color-bg: #E9EBEC;
+  --color-bg-alt: #F2F3EF;
+  --color-footer: #DADDDD;
+  --color-text: #1A1A1A;
+  --color-text-muted: #5C5F61;
+  --color-accent: #7A8CA8;
+  --color-accent-hover: #5467e6;
+  --color-border: rgba(0, 0, 0, 0.05);
+  --color-card: #F8F9F9;
+
+  --font-serif: "Canela", "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --motion-fast: 150ms ease-out;
+  --motion-medium: 400ms ease-out;
+  --motion-slow: 700ms ease-in-out;
+
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 32px;
+  --space-lg: 64px;
+  --space-xl: 96px;
+  --space-section: 120px;
+  --space-section-sm: 100px;
+}*/
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --section-space: var(--space-section);
+  --section-space-sm: var(--space-section-sm);
+  --color-bg: #E9EBEC;
+  --color-bg-alt: #F2F3EF;
+  --color-footer: #DADDDD;
+  --color-text: #1A1A1A;
+  --color-text-muted: #5C5F61;
+  --color-accent: #7A8CA8;
+  --color-accent-hover: #6C7C97;
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-card: #F8F9F9;
+
+  --font-serif: "Canela", "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --motion-fast: 150ms ease-out;
+  --motion-medium: 400ms ease-out;
+  --motion-slow: 700ms ease-in-out;
+
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 32px;
+  --space-lg: 64px;
+  --space-xl: 96px;
+  --space-section: 120px;
+  --space-section-sm: 100px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+/* (Dark mode intentionally disabled for now) */
+
+/* === Base Styles === */
+body {
+  background-color: var(--color-bg) !important;
+  color: var(--color-text);
+  transition: background-color var(--motion-slow), color var(--motion-slow);
+  font-family: var(--font-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* === Typography === */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: clamp(2.8rem, 6vw, 4.25rem);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: clamp(2.2rem, 4vw, 2.6rem);
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  margin-bottom: 0.75rem;
+}
+
+
+p {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+/* === Section Structure & Backgrounds (keep these) === */
+.section {
+  @apply relative overflow-hidden bg-[--color-bg] text-[--color-text] transition-colors duration-700;
+}
+.section-alt {
+  @apply relative overflow-hidden bg-[--color-bg-alt] text-[--color-text] transition-colors duration-700;
+}
+.section-gradient {
+  @apply relative overflow-hidden bg-gradient-to-b from-[--color-bg] via-[--color-bg-alt]/60 to-[--color-bg] text-[--color-text];
+}
+
+/* Unified vertical rhythm here (delete the duplicate ".section" further down) */
+.section,
+.section-alt,
+.section-gradient {
+  padding-top: var(--section-space);
+  padding-bottom: var(--section-space-sm);
+}
+@media (min-width: 768px) {
+  .section,
+  .section-alt,
+  .section-gradient {
+    padding-top: var(--section-space);
+    padding-bottom: var(--section-space); /* fuller breathing room on md+ */
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+.section-fade {
+  @apply absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent pointer-events-none z-0;
 }
 
-h1, h2, h3 {
-  letter-spacing: -0.02em;
+.section-fade-to-bg {
+  @apply to-[--color-bg];
 }
 
+.section-fade-to-bg-alt {
+  @apply to-[--color-bg-alt];
+}
+
+.section-fade-to-footer {
+  @apply to-[--color-footer];
+}
+
+.section,
+.section-alt,
+.section-gradient {
+  position: relative;
+  z-index: 0; /* ensure fades sit above */
+}
+.section-gradient {
+  background: linear-gradient(
+    180deg,
+    var(--color-bg) 0%,
+    color-mix(in srgb, var(--color-bg-alt) 70%, white) 50%,
+    var(--color-bg) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.section-fade::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.03) 100%);
+  pointer-events: none;
+}
+
+.section-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  pointer-events: none;
+  z-index: 1;
+  background-image: linear-gradient(to bottom, transparent, var(--color-bg));
+  transition: opacity 0.6s ease-out;
+}
+
+.section-fade-to-bg-alt {
+  background-image: linear-gradient(to bottom, transparent, var(--color-bg-alt));
+}
+
+.section-fade-to-footer {
+  background-image: linear-gradient(to bottom, transparent, var(--color-footer));
+}
+
+.section-editorial {
+  padding-top: var(--space-editorial, 56px);
+  padding-bottom: var(--space-editorial-sm, 48px);
+}
+
+.section-editorial-alt {
+  padding-top: var(--space-editorial-sm, 48px);
+  padding-bottom: var(--space-editorial, 56px);
+}
+
+@media (min-width: 768px) { .section--editorial { padding-top: 56px; padding-bottom: 48px; } }
+
+
+/* === Links === */
+a {
+  color: var(--color-accent);
+  transition: opacity var(--motion-medium);
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* === Borders === */
+hr {
+  border-color: var(--color-border);
+  margin: 5rem 0;
+}
+
+/* === Chatbot Embed === */
 #webchat {
   position: fixed !important;
   bottom: 24px;
@@ -45,19 +238,205 @@ h1, h2, h3 {
   display: block;
 }
 
+/* === Animation Utilities === */
 @keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .animate-gradient {
   background-size: 400% 400%;
   animation: gradientMove 12s ease infinite;
 }
+
+/* === Utility Equivalents === */
+.text-accent { color: var(--color-accent); }
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--motion-medium), transform var(--motion-medium);
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === Ensure cascade & readable defaults === */
+html, body { color: var(--color-text); background-color: var(--color-bg) !important; }
+*, *::before, *::after { color: inherit; }
+
+/* === Reusable CTA styles (works for <a> and <button>) === */
+.btn-accent {
+  background-color: var(--color-accent);
+  color: #fff;
+  border-radius: 0.75rem; /* ~rounded-xl */
+  padding: 0.75rem 2rem;   /* px-8 py-4 */
+  font-weight: 500;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  transition: transform var(--motion-fast), box-shadow var(--motion-fast), background-color var(--motion-fast);
+}
+
+.btn-accent:hover {
+  background-color: color-mix(in srgb, var(--color-accent) 90%, black);
+}
+
+.btn-accent:active {
+  transform: scale(0.98);
+}
+
+.btn-outline {
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+  border-radius: 0.75rem; /* match accent */
+  padding: 0.75rem 2rem;  /* same as accent button */
+  font-weight: 500;
+  background-color: transparent;
+  transition: all var(--motion-fast);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-accent);
+  color: #fff;
+}
+
+/* === Subtle secondary button (for case studies, cards, etc.) === */
+.btn-secondary {
+  background-color: var(--color-card);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: 0.75rem 2rem;
+  font-weight: 500;
+  transition: all var(--motion-medium);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-bg-alt);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Accent utilities (bypass Tailwind arbitrary-colors) */
+.bg-accent { background-color: var(--color-accent) !important; color: white !important; }
+.bg-accent-hover:hover { background-color: var(--color-accent-hover) !important; }
+.text-accent { color: var(--color-accent) !important; } /* reinforce */
+.border-accent { border-color: var(--color-accent) !important; }
+
+
+/* === Frosted project cards === */
+.project-card {
+  background-color: var(--color-card);
+  border-radius: 1.25rem; /* rounded-2xl */
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.03),
+    0 8px 24px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.4s var(--motion-medium),
+              transform 0.4s var(--motion-medium);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.05),
+    0 10px 32px rgba(0, 0, 0, 0.06);
+}
+
+
+.hero-fade {
+  background: linear-gradient(
+    180deg,
+    var(--color-bg) 60%,
+    var(--color-bg-alt) 100%
+  );
+}
+
+.name-highlight {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.name-highlight:hover {
+  color: var(--color-accent);
+  text-shadow: 0 0 12px rgba(122, 140, 168, 0.4);
+}
+
+/* ============================================
+   Editorial Page System — Glacial Depth Theme
+   For About / Case Study pages
+   ============================================ */
+
+/* Main editorial wrapper */
+.editorial {
+  background:
+    radial-gradient(
+      circle at 50% 28%,            /* moved down from 10% */
+      rgba(122,140,168,0.018),      /* lighter than 0.04 */
+      transparent 68%
+    ),
+    var(--color-bg);
+  min-height: 100vh;
+  padding-top: env(safe-area-inset-top);
+}
+
+.editorial > *:first-child {
+  margin-top: 0 !important;
+  padding-top: 6rem; /* same vertical offset as Hero sections */
+}
+
+
+/* Editorial section rhythm */
+.section--editorial {
+  position: relative;
+  padding-top: 56px;
+  padding-bottom: 48px;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .section--editorial {
+    padding-top: 56px;
+    padding-bottom: 48px;
+  }
+}
+
+/* Optional — make typography feel airier */
+.editorial h2 {
+  font-weight: 400;
+  font-size: clamp(1.75rem, 2vw, 1.875rem);
+  line-height: 1.25;
+  color: var(--color-text);
+  margin-bottom: 1.25rem;
+}
+
+.editorial h3 {
+  font-weight: 400;
+  font-size: clamp(1.25rem, 1.6vw, 1.5rem);
+  line-height: 1.4;
+  color: var(--color-text);
+  margin-top: 2.25rem;
+  margin-bottom: 0.75rem;
+}
+.editorial h3.muted {
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+
+.editorial p {
+  line-height: 1.75;
+}
+
+.editorial ul {
+  margin-top: 1rem;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.editorial li {
+  margin-bottom: 0.5rem;
+  color: var(--color-text-muted);
+}
+
