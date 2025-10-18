@@ -68,6 +68,11 @@ body {
   font-family: var(--font-sans);
 }
 
+.footer {
+  background-color: #d3d6d7;
+  color: var(--color-text-muted);
+}
+
 /* === Typography === */
 h1,
 h2,
@@ -377,7 +382,6 @@ html, body { color: var(--color-text); background-color: var(--color-bg) !import
       transparent 68%
     ),
     var(--color-bg);
-  min-height: 100vh;
   padding-top: env(safe-area-inset-top);
 }
 
@@ -392,6 +396,11 @@ html, body { color: var(--color-text); background-color: var(--color-bg) !import
   position: relative;
   padding-top: 56px;
   padding-bottom: 48px;
+  z-index: 1;
+}
+/* Editorial section rhythm */
+.section--editorial.pb-0 {
+  padding-bottom: 0px;
   z-index: 1;
 }
 
@@ -440,3 +449,11 @@ html, body { color: var(--color-text); background-color: var(--color-bg) !import
   color: var(--color-text-muted);
 }
 
+
+/* Hide background image on mobile when prop is active */
+@media (max-width: 767px) {
+  .bg-none-mobile {
+    background-image: none !important;
+    background-color: var(--color-bg); /* optional: fallback background */
+  }
+}

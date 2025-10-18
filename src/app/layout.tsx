@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import NavBar from "@/components/NavBar";
 import PageTransitionLayout from "@/components/PageTransitionLayout";
+import Footer from "@/components/layout/Footer";
+import { AnimatePresence } from "framer-motion";
 
 export const metadata: Metadata = {
   title: "Henry Tavarez | UX Designer & Product Design Lead",
@@ -66,7 +68,9 @@ export default function RootLayout({
 
         {/* === Main Content === */}
         <main className="pt-20 min-h-[calc(100vh-5rem)] bg-[--color-bg] text-[--color-text] transition-colors">
-          <PageTransitionLayout>{children}</PageTransitionLayout>
+          <AnimatePresence mode="wait">
+            <PageTransitionLayout>{children}</PageTransitionLayout>
+          </AnimatePresence>
         </main>
 
         {/* === Botpress Chat Container === */}
@@ -74,6 +78,8 @@ export default function RootLayout({
           id="webchat"
           className="fixed bottom-6 right-6 w-[420px] h-[560px] hidden"
         ></div>
+
+        <Footer />
 
         {/* === Botpress Init Script === */}
         <Script id="botpress-init" strategy="afterInteractive">

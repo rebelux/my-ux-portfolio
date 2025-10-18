@@ -38,7 +38,7 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="editorial min-h-screen bg-[--color-bg] text-[--color-text] px-6 py-24 flex flex-col items-center">
+    <main className="editorial bg-[--color-bg] text-[--color-text]">
       {/* === Header === */}
       <Section container density="editorial" className="section--editorial-alt">
       <MotionSection variants={variants.fadeUp} className="text-center max-w-3xl mx-auto">
@@ -127,7 +127,7 @@ export default function ContactPage() {
     </MotionSection>
     </Section>
 
-        <Section container density="editorial" className="section--editorial-alt">
+    <Section container density="editorial" className="section--editorial" fadeTo="footer">
       {/* === Chat CTA === */}
       <MotionSection
         variants={variants.fadeUp}

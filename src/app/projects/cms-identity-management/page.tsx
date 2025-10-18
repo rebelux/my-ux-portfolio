@@ -7,6 +7,7 @@ import Section from "@/components/layout/Section";
 import MotionSection from "@/components/layout/MotionSection";
 import MotionButton from "@/components/ui/MotionButton";
 import { variants } from "@/theme/motionVariants";
+import Image from "next/image";
 
 export default function CMSIdentityManagement() {
   return (
@@ -104,6 +105,14 @@ export default function CMSIdentityManagement() {
             create a more accessible experience that scaled across user roles.
           </p>
             </motion.div>
+
+            <Image
+                src="/images/cms-identity-management-hero.png"
+                alt="A portion of the information architecture of the system."
+                width={1600}
+                height={900}
+                className="w-full h-auto mt-16 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.04)]"
+                />
         </MotionSection>
       </Section>
 

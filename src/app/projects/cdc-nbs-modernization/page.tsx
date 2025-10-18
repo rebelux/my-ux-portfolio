@@ -7,6 +7,7 @@ import Section from "@/components/layout/Section";
 import MotionSection from "@/components/layout/MotionSection";
 import MotionButton from "@/components/ui/MotionButton";
 import { variants } from "@/theme/motionVariants";
+import Image from "next/image";
 
 export default function CdcNbsModernizationPage() {
   return (
@@ -123,6 +124,14 @@ export default function CdcNbsModernizationPage() {
                 validated by real-world needs, not assumptions.
             </p>
             </motion.div>
+
+            <Image
+                src="/images/cdc-sitemap.png"
+                alt="A portion of the information architecture of the system."
+                width={1600}
+                height={900}
+                className="w-full h-auto mt-16 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.04)]"
+                />
         </MotionSection>
       </Section>
 
@@ -164,6 +173,14 @@ export default function CdcNbsModernizationPage() {
                 </li>
             </ul>
             </motion.div>
+
+            <Image
+                src="/images/cdc-screen-hero.png"
+                alt="A couple screen examples for Patient Search and Queues"
+                width={1600}
+                height={900}
+                className="w-full h-auto mt-16"
+                />
         </MotionSection>
       </Section>
 

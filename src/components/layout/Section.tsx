@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { ReactNode, CSSProperties } from "react";
 import clsx from "clsx";
 
 interface SectionProps {
@@ -11,11 +11,18 @@ interface SectionProps {
   variant?: "default" | "alt" | "gradient";
   fadeTo?: "bg" | "bg-alt" | "footer" | "none";
   hasGlow?: boolean;
-  /** 🆕 tighter vertical rhythm for editorial pages */
   density?: "default" | "editorial";
-  /** 🆕 wrap children in a centered container while background stays full-bleed */
   container?: boolean;
   containerClassName?: string;
+
+  /** Background image or pattern */
+  backgroundImage?: string;
+  backgroundRepeat?: "repeat" | "no-repeat";
+  backgroundSize?: "cover" | "contain" | "auto";
+  backgroundPosition?: string;
+
+  /** 🆕 Disable background on mobile */
+  disableBackgroundOnMobile?: boolean;
 }
 
 export default function Section({
@@ -28,6 +35,11 @@ export default function Section({
   density = "default",
   container = false,
   containerClassName,
+  backgroundImage,
+  backgroundRepeat = "no-repeat",
+  backgroundSize = "cover",
+  backgroundPosition = "center",
+  disableBackgroundOnMobile = false,
 }: SectionProps) {
   const baseClass =
     variant === "alt"
@@ -45,31 +57,44 @@ export default function Section({
       ? "section-fade section-fade-to-footer"
       : "";
 
+  // background style for desktop
+  const backgroundStyle: CSSProperties | undefined = backgroundImage
+    ? {
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundRepeat,
+        backgroundSize,
+        backgroundPosition,
+      }
+    : undefined;
+
   return (
     <section
       id={id}
+      style={backgroundStyle}
       className={clsx(
         baseClass,
-        density === "editorial" && "section--editorial", // 🆕 tighter spacing
-        "w-full relative overflow-hidden",                // ensure full-bleed background/gradients
+        density === "editorial" && "section--editorial",
+        "w-full relative overflow-hidden",
+        disableBackgroundOnMobile && "bg-none-mobile",
         className
       )}
     >
-      {/* soft fade transition */}
       {fadeTo !== "none" && <div className={fadeClass} />}
 
-      {/* motion wrapper */}
       <motion.div
+        key={id || Math.random()} // ensures re-animation on route change
         initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className={clsx("relative z-10", container && "mx-auto max-w-5xl px-6 md:px-8", containerClassName)}
+        className={clsx(
+          "relative z-10 px-6 sm:px-8",
+          container && "mx-auto max-w-5xl",
+          containerClassName
+        )}
       >
         {children}
       </motion.div>
 
-      {/* ambient glow */}
       {hasGlow && (
         <motion.div
           className="section-glow"

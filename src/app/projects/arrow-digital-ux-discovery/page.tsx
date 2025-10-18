@@ -7,6 +7,7 @@ import Section from "@/components/layout/Section";
 import MotionSection from "@/components/layout/MotionSection";
 import MotionButton from "@/components/ui/MotionButton";
 import { variants } from "@/theme/motionVariants";
+import Image from "next/image";
 
 export default function ArrowDigitalDiscovery() {
   return (
@@ -70,6 +71,7 @@ export default function ArrowDigitalDiscovery() {
             scaling our UX team and contributing to the company&rsquo;s growth to over 200 employees.
           </p>
             </motion.div>
+
         </MotionSection>
       </Section>
 
@@ -112,6 +114,14 @@ export default function ArrowDigitalDiscovery() {
             development, and business goals from day one.
           </p>
             </motion.div>
+
+            <Image
+                src="/images/arrow-process.png"
+                alt="Various components prepared for PwC enterprise apps"
+                width={1600}
+                height={900}
+                className="w-full h-auto mt-16"
+                />
         </MotionSection>
       </Section>
 
@@ -239,7 +249,7 @@ export default function ArrowDigitalDiscovery() {
         </MotionSection>
       </Section>
 
-      {/* === Leadership === */}
+      {/* === Leadership ===
       <Section container density="editorial"  className="section--editorial">
         <MotionSection variants={variants.staggerChildren}>
             <motion.h2
@@ -267,7 +277,7 @@ export default function ArrowDigitalDiscovery() {
           </p>
             </motion.div>
         </MotionSection>
-      </Section>
+      </Section> */}
 
       {/* === Key Skills === */}
       <Section container density="editorial"  className="section--editorial">

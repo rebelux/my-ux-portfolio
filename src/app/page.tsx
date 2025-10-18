@@ -9,6 +9,7 @@ import { featuredProjects } from "@/data/featuredProjects";
 import MotionSection from "@/components/layout/MotionSection";
 import MotionGroup from "@/components/layout/MotionGroup";
 import { variants } from "@/theme/motionVariants";
+//import Image from "next/image";
 
 import "./test.css";
 
@@ -17,7 +18,7 @@ export default function HomePage() {
     <main className="overflow-x-hidden text-[--color-text] bg-[--color-bg]">
 
       {/* === HERO === */}
-      <Section variant="default" fadeTo="bg-alt" id="hero" hasGlow>
+      <Section variant="gradient" id="hero" hasGlow>
         <MotionSection>
           <MotionGroup>
             <motion.h1
@@ -56,7 +57,15 @@ export default function HomePage() {
       </Section>
 
       {/* === ABOUT === */}
-      <Section variant="alt" fadeTo="bg" id="about" hasGlow>
+      <Section 
+        variant="gradient" 
+        id="about" 
+        hasGlow 
+        backgroundImage="/images/ht-full-bg-transparent.png"
+        backgroundSize="contain"
+        backgroundPosition="bottom center"
+        disableBackgroundOnMobile
+        fadeTo="footer">
         <MotionSection delay={0.1}>
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-center">
             <div>
@@ -85,10 +94,17 @@ export default function HomePage() {
               </motion.div>
             </div>
 
-            <motion.div
+            {/*<motion.div
               variants={variants.scaleIn}
-              className="bg-[--color-card] rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] aspect-[4/3]"
-            />
+              className="bg-[--color-card] rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] aspect-[4/3] overflow-hidden">
+                <Image
+                    src="/images/ht-crop.jpg"
+                    alt="A picture of Henry Tavarez"
+                    width={1600}
+                    height={900}
+                    className="w-full h-auto"
+                  />
+            </motion.div>*/}
           </div>
         </MotionSection>
       </Section>

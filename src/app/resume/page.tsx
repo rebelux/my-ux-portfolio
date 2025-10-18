@@ -42,7 +42,7 @@ export default function ResumePage() {
       </Section>
 
         {/* === Professional Experience === */}
-        <Section container density="editorial" className="section--editorial-alt">
+        <Section container density="editorial" className="section--editorial-alt" fadeTo="footer">
                 <MotionSection variants={variants.staggerChildren}>
           <motion.h2 
           variants={variants.fadeUp} 

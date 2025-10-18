@@ -7,6 +7,8 @@ import Section from "@/components/layout/Section";
 import MotionSection from "@/components/layout/MotionSection";
 import MotionButton from "@/components/ui/MotionButton";
 import { variants } from "@/theme/motionVariants";
+import FullWidthImage from "@/components/FullWidthImage";
+import Image from "next/image";
 
 export default function PwCPage() {
   return (
@@ -107,6 +109,14 @@ export default function PwCPage() {
             across products and teams worldwide.
           </p>
             </motion.div>
+
+            <Image
+                src="/images/pwc-ds.png"
+                alt="Various components prepared for PwC enterprise apps"
+                width={1600}
+                height={900}
+                className="w-full h-auto mt-16"
+                />
         </MotionSection>
       </Section>
 
@@ -144,6 +154,11 @@ export default function PwCPage() {
             </motion.div>
         </MotionSection>
       </Section>
+
+      <FullWidthImage
+        src="/images/pwc-dashboards.jpg"
+        alt="A collection of PwC dashboards showing the variety of ways the design system was implemented."
+        />
 
       {/* === Key Skills === */}
       <Section container density="editorial"  className="section--editorial">

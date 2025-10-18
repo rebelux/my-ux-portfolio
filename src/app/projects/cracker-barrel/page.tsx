@@ -6,7 +6,9 @@ import { askAIAbout } from "@/lib/askAI"
 import Section from "@/components/layout/Section";
 import MotionSection from "@/components/layout/MotionSection";
 import MotionButton from "@/components/ui/MotionButton";
+import CaseStudyImage from "@/components/CaseStudyImage";
 import { variants } from "@/theme/motionVariants";
+import Image from "next/image";
 
 export default function CrackerBarrelPage() {
   return (
@@ -37,50 +39,73 @@ export default function CrackerBarrelPage() {
         </MotionSection>
       </Section>
 
-      {/* === Project Overview === */}
-      <Section container density="editorial" className="section--editorial">
-        <MotionSection variants={variants.staggerChildren}>
-            <motion.h2
+{/* === Project Overview === */}
+<Section container density="editorial" className="section--editorial">
+  <MotionSection variants={variants.staggerChildren}>
+
+    <div className="grid md:grid-cols-2 gap-10 items-start">
+      {/* Left column: your existing overview text */}
+      <motion.div
+        variants={variants.fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        className="space-y-4 text-[--color-text-muted]"
+      >
+        <motion.h2
             variants={variants.fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className=""
             >
             Project Overview
             </motion.h2>
-            <motion.div
-            variants={variants.fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-            className="text-[--color-text-muted] leading-relaxed space-y-4"
-            >
-            <p>
-            Cracker Barrel wanted to modernize its online experience without losing the nostalgic,
-            rustic warmth that defines the brand. The challenge was to blend modern usability and 
-            responsiveness with a design language deeply rooted in its country heritage.
-          </p>
-          <p>
-            Our team recreated the feel of their physical stores digitally by using textured materials, 
-            warm tones, and familiar visual motifs like wood grain and chalkboard surfaces. We also 
-            partnered with Cracker Barrel to restructure their content and data models for over 600 locations, 
-            enabling personalized menus and store information based on location and user preferences.
-          </p>
-            </motion.div>
-        </MotionSection>
-      </Section>
+        {/* keep your real paragraphs here unchanged */}
+        <p>Cracker Barrel wanted to modernize its online experience 
+            without losing the nostalgic, rustic warmth that defines the 
+            brand. The challenge was to blend modern usability and responsiveness
+             with a design language deeply rooted in its country heritage.</p>
+        <p>Our team recreated the feel of their physical stores digitally by 
+            using textured materials, warm tones, and familiar visual motifs 
+            like wood grain and chalkboard surfaces. We also partnered with 
+            Cracker Barrel to restructure their content and data models for 
+            over 600 locations, enabling personalized menus and store information 
+            based on location and user preferences.</p>
+      </motion.div>
+
+      {/* Right column: the image */}
+      <CaseStudyImage
+        src="/images/cb-brand-laptop.png"
+        alt="Cracker Barrel website redesign overview"
+        aspect="4/3"
+        className=""
+      />
+
+    </div>
+  </MotionSection>
+</Section>
+
+
 
       {/* === Beyond === */}
       <Section container density="editorial"  className="section--editorial">
         <MotionSection variants={variants.staggerChildren}>
+
+            <Image
+                    src="/images/cb-data-transparent.png"
+                    alt="Screens using data from store-wide CRM"
+                    width={1600}
+                    height={900}
+                    className="w-full h-auto"
+                  />
+
+
             <motion.h2
             variants={variants.fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className=""
+            className="mt-16"
             >
             Beyond the Redesign
             </motion.h2>
@@ -91,15 +116,25 @@ export default function CrackerBarrelPage() {
             viewport={{ once: true, amount: 0.3 }}
             className="text-[--color-text-muted] leading-relaxed space-y-4"
             >
-            <p>
+            <p className="mb-16">
             During our collaboration, we explored ways to extend Cracker Barrel’s in-store experience 
             through digital engagement. One of our concepts was an AR-based “antique hunt” that invited 
             guests to explore the country store to find virtual collectibles and earn rewards. This idea 
             strengthened the connection between Cracker Barrel’s physical spaces and its digital brand.
           </p>
             </motion.div>
+
+                <Image
+                    src="/images/cb-mobile-transparent.png"
+                    alt="AR-based concept developed for Cracker Barrel"
+                    width={1600}
+                    height={900}
+                    className="w-full h-auto"
+                  />
+
         </MotionSection>
       </Section>
+
 
       {/* === Key Skills === */}
       <Section container density="editorial"  className="section--editorial">
@@ -159,6 +194,8 @@ export default function CrackerBarrelPage() {
             with technology, we helped Cracker Barrel extend its hospitality into the digital space.
           </p>
                 </motion.div>
+
+
             </MotionSection>
         </Section>
 

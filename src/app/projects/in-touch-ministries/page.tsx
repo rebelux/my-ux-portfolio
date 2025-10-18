@@ -7,6 +7,8 @@ import Section from "@/components/layout/Section";
 import MotionSection from "@/components/layout/MotionSection";
 import MotionButton from "@/components/ui/MotionButton";
 import { variants } from "@/theme/motionVariants";
+import Image from "next/image";
+//import CaseStudyImage from "@/components/CaseStudyImage";
 
 export default function InTouchMinistriesPage() {
   return (
@@ -38,7 +40,7 @@ export default function InTouchMinistriesPage() {
       </Section>
 
       {/* === Project Overview === */}
-      <Section container density="editorial" className="section--editorial">
+      <Section container density="editorial" className="section--editorial pb-0" fadeTo="footer">
         <MotionSection variants={variants.staggerChildren}>
             <motion.h2
             variants={variants.fadeUp}
@@ -70,6 +72,14 @@ export default function InTouchMinistriesPage() {
             ministry’s diverse audiences and growing content strategy.
           </p>
             </motion.div>
+
+             <Image
+                src="/images/itm-laptop.png"
+                alt="Responsove view of redesigned In Touch Ministries site"
+                width={1600}
+                height={900}
+                className="w-full h-auto mt-16"
+                />
         </MotionSection>
       </Section>
 
@@ -113,44 +123,76 @@ export default function InTouchMinistriesPage() {
         </MotionSection>
       </Section>
 
-            {/* === Impact === */}
-      <Section container density="editorial"  className="section--editorial">
-        <MotionSection variants={variants.staggerChildren}>
-            <motion.h2
-            variants={variants.fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            className=""
-            >
-            Impact
-            </motion.h2>
-            <motion.div
-            variants={variants.fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            className="text-[--color-text-muted] leading-relaxed space-y-4"
-            >
-            <ul className="list-disc pl-6">
-            <li>Unified web, app, and publication experiences under a single design system.</li>
-            <li>Increased mobile engagement and content accessibility.</li>
-            <li>Streamlined collaboration across internal teams (IT, editorial, design).</li>
-            <li>Established scalable design patterns for future expansion.</li>
-          </ul>
-            </motion.div>
-        </MotionSection>
-      </Section>
+            {/* === Challenge & Approach === */}
+            <Section container density="editorial" className="section--editorial">
+              <MotionSection variants={variants.staggerChildren}>
+            
+                <div className="grid md:grid-cols-16 gap-10 items-start">
+                  {/* Left column: your existing overview text */}
+                  <motion.div
+                    variants={variants.fadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                    className="col-span-9 space-y-4 text-[--color-text-muted]"
+                  >
+                    <motion.h2
+                        variants={variants.fadeUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.3 }}
+                        >
+                        Challenge & Approach
+                        </motion.h2>
+                    {/* keep your real paragraphs here unchanged */}
+                    <p>
+                        The existing digital ecosystem was fragmented, with separate experiences for the main
+                        website, magazine, and mobile content. To bridge these gaps, we developed a component-based
+                        design language that provided consistency while still allowing visual expression for key
+                        brand areas.
+                    </p>
+                    <p>
+                        Mobile optimization was a major priority. We analyzed user behavior and discovered that a
+                        large portion of the audience accessed content on weekends via mobile devices. This insight
+                        drove the creation of new mobile-first features and an app experience that encouraged
+                        continuous engagement.
+                    </p>
+                    <p>
+                        For the magazine integration, we collaborated with the IT and editorial teams to design a
+                        seamless digital reading experience. The result allowed the magazine to retain its unique
+                        identity while functioning as part of the main site’s ecosystem.
+                    </p>
 
-      {/* === Key Skills === */}
-      <Section container density="editorial"  className="section--editorial">
-        <MotionSection variants={variants.staggerChildren}>
-            <motion.h2
+                    <motion.h2
+                        variants={variants.fadeUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.3 }}
+                        className="mt-16"
+                        >
+                        Impact
+                        </motion.h2>
+                        <motion.div
+                        variants={variants.fadeUp}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.3 }}
+                        className="text-[--color-text-muted] leading-relaxed space-y-4"
+                        >
+                        <ul className="list-disc pl-6">
+                            <li>Unified web, app, and publication experiences under a single design system.</li>
+                            <li>Increased mobile engagement and content accessibility.</li>
+                            <li>Streamlined collaboration across internal teams (IT, editorial, design).</li>
+                            <li>Established scalable design patterns for future expansion.</li>
+                        </ul>
+                        </motion.div>
+
+                         <motion.h2
             variants={variants.fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className=""
+            className="mt-16"
             >
             Key Skills Demonstrated
             </motion.h2>
@@ -165,8 +207,30 @@ export default function InTouchMinistriesPage() {
             UX Strategy · Responsive Design · Component-Based Systems · Collaboration · Mobile Design · Product Thinking · Digital Publishing Integration
           </p>
             </motion.div>
-        </MotionSection>
-      </Section>
+                    </motion.div>
+
+                   
+                    
+            <div className="col-span-7">
+                  <Image
+                    src="/images/itm-mobile.png"
+                    alt="Responsiove view of In Touch redesign"
+                    width={1600}
+                    height={900}
+                    className="w-full h-auto"
+                    />
+
+                    <Image
+                    src="/images/itm-blog.png"
+                    alt="Magazine integration"
+                    width={1600}
+                    height={900}
+                    className="w-full h-auto mt-16"
+                    />
+            </div>
+            </div>
+              </MotionSection>
+            </Section>
 
         {/* === Reflection === */}
         <Section container density="editorial"  className="section--editorial relative overflow-hidden" fadeTo="footer">

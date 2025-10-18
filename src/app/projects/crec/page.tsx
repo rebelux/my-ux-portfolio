@@ -7,6 +7,8 @@ import Section from "@/components/layout/Section";
 import MotionSection from "@/components/layout/MotionSection";
 import MotionButton from "@/components/ui/MotionButton";
 import { variants } from "@/theme/motionVariants";
+import Image from "next/image";
+import CaseStudyImage from "@/components/CaseStudyImage";
 
 export default function CRECPage() {
   return (
@@ -70,29 +72,40 @@ export default function CRECPage() {
             operations center staff and field teams respond faster and more effectively.
           </p>
             </motion.div>
+
+            <Image
+                src="/images/crec-dashboard-full.jpg"
+                alt="26 monitors that shows charts, graphs, and data from the Energy Dashboard alongside other critical information such as weather forecasts, etc."
+                width={1600}
+                height={900}
+                className="w-full h-auto mt-16"
+                />
         </MotionSection>
       </Section>
 
-      {/* === Beyond === */}
-      <Section container density="editorial"  className="section--editorial">
+      {/* === Impact === */}
+      <Section container density="editorial" className="section--editorial">
         <MotionSection variants={variants.staggerChildren}>
-            <motion.h2
-            variants={variants.fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            className=""
-            >
-            Impact
-            </motion.h2>
+      
+          <div className="grid md:grid-cols-2 gap-10 items-start">
+            {/* Left column: your existing overview text */}
             <motion.div
-            variants={variants.fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            className="text-[--color-text-muted] leading-relaxed space-y-4"
+              variants={variants.fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              className="space-y-4 text-[--color-text-muted]"
             >
-             <p>
+              <motion.h2
+                  variants={variants.fadeUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
+                  >
+                  Impact
+                  </motion.h2>
+              {/* keep your real paragraphs here unchanged */}
+              <p>
             The new system provided a unified operational view across CREC’s teams, displayed
             prominently on a 26-screen video wall in their operations center. Field techs accessed
             the same data through tablet and mobile views, ensuring that insights were shared in
@@ -104,6 +117,15 @@ export default function CRECPage() {
             human-centered interface.
           </p>
             </motion.div>
+      
+            {/* Right column: the image */}
+            <CaseStudyImage
+              src="/images/crec-mobile.png"
+              alt="CREC Field Ipad App"
+              className=""
+            />
+      
+          </div>
         </MotionSection>
       </Section>
 

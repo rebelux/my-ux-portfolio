@@ -28,7 +28,7 @@ export default function ProjectCardFrosted({
       className="h-full flex flex-col relative rounded-2xl bg-[--color-card]/80 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.04)] overflow-hidden hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300"
     >
     <div className="flex-1">
-      <div className="relative w-full aspect-[4/3] overflow-hidden">
+      <div className="relative w-full aspect-[3/2] overflow-hidden">
         <Image
           src={image}
           alt={title}
