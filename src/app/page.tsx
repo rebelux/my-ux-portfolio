@@ -182,7 +182,7 @@ export default function HomePage() {
             variants={variants.fadeUp} 
             className="max-w-2xl mx-auto text-[--color-text-muted] leading-relaxed text-center mb-12">
             Curious about my work or design approach? My AI Assistant can walk
-            you through my projects, philosophy, and process and it's all trained from
+            you through my projects, philosophy, and process and it&rsquo;s all trained from
             my own portfolio.
           </motion.p>
 

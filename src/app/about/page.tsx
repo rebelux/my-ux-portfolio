@@ -156,7 +156,7 @@ export default function AboutPage() {
             variants={variants.fadeUp}
             className="text-[--color-text-muted] leading-relaxed"
         >
-            I see mentorship as a conversation, not a hierarchy. It's a chance to
+            I see mentorship as a conversation, not a hierarchy. It&rsquo;s a chance to
             build confidence through collaboration and curiosity. My teams know
             that feedback flows both ways, and that our shared goal is to create
             meaningful, user-centered outcomes that make an impact.
