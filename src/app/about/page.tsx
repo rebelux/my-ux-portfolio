@@ -54,7 +54,7 @@ export default function AboutPage() {
         >
             I began my career in 2002 as a web designer and developer, learning how to balance aesthetics 
             with functionality and collaborate seamlessly with engineering teams. Since 2008, I’ve led 
-            design initiatives across public health, higher education, finance, and enterprise technology—building 
+            design initiatives across public health, higher education, finance, and enterprise technology by building 
             design practices from the ground up, modernizing legacy systems, and shaping design systems that 
             support transformation at scale.
         </motion.p>
