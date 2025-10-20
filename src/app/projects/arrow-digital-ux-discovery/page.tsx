@@ -59,16 +59,15 @@ export default function ArrowDigitalDiscovery() {
             className="text-[--color-text-muted] leading-relaxed space-y-4"
             >
             <p>
-            When I joined Arrow Digital, it was a small software boutique of about 12 employees—
-            mostly engineers and project managers. The company produced technically sound
-            solutions, but lacked a structured approach to understanding user needs or aligning
-            designs with business strategy.
+            When I joined Arrow Digital as the first UX Designer, we were about 13 people, mostly engineers and 
+            project managers. The work was technically solid, but we didn’t have a clear 
+            way to connect what we built to what users actually needed or to the business strategy.
           </p>
           <p>
-            Over seven years, I helped evolve that environment into a mature, human-centered design
-            practice. By introducing a repeatable UX discovery process, I transformed how the
-            company scoped projects, collaborated with clients, and delivered value—eventually
-            scaling our UX team and contributing to the company&rsquo;s growth to over 200 employees.
+            Over the next seven years, I helped grow that into a real human-centered practice. 
+            I introduced a repeatable UX discovery process that changed how we scoped projects, 
+            collaborated with clients, and measured value. We scaled the UX team and helped the 
+            company grow past 200 people.
           </p>
             </motion.div>
 
@@ -94,25 +93,12 @@ export default function ArrowDigitalDiscovery() {
             viewport={{ once: true, amount: 0.3 }}
             className="text-[--color-text-muted] leading-relaxed space-y-4"
             >
-          <p>
-            At the time, Arrow Digital had no formal UX practice. Projects were driven by technical
-            requirements, often with minimal user input. This led to:
-          </p>
-          <ul className="list-disc pl-6">
-            <li>
-              <strong>Engineer-focused solutions</strong> that overlooked real user workflows.
-            </li>
-            <li>
-              <strong>Inconsistent client outcomes</strong> and rework during implementation.
-            </li>
-            <li>
-              <strong>Inefficient scoping</strong> due to unclear requirements expanding mid-project.
-            </li>
-          </ul>
-          <p>
-            The opportunity was clear: establish a structured UX process that aligned design,
-            development, and business goals from day one.
-          </p>
+          <p>There was no formal UX practice. Projects were driven by technical requirements with 
+            little user input. That led to engineer-first solutions that missed real workflows, 
+            inconsistent outcomes, and rework during build. Scoping was fuzzy, so projects often 
+            grew mid-development. The fix was clear: add a structured UX process that aligned design, 
+            engineering, and business from day one.</p>
+
             </motion.div>
 
             <Image
@@ -135,7 +121,7 @@ export default function ArrowDigitalDiscovery() {
             viewport={{ once: true, amount: 0.3 }}
             className=""
             >
-            My Approach
+           Creating the UX Discovery Process
             </motion.h2>
             <motion.div
             variants={variants.fadeUp}
@@ -145,37 +131,30 @@ export default function ArrowDigitalDiscovery() {
             className="text-[--color-text-muted] leading-relaxed space-y-4"
             >
             <p>
-            To address these challenges, I designed and implemented a{" "}
-            <strong>UX Discovery Framework</strong> that became the foundation of every project.
-            The process focused on four key dimensions:
+           I designed a <strong>UX Discovery Framework</strong> that became the start of every project. Using 
+           best practices from Design Thinking and Human-Centered Design, the framework focused on four 
+           dimensions: problem framing, user understanding, stakeholder alignment, and contextual research.
           </p>
 
           <h3>1. Problem Framing</h3>
-          <p>
-            Defined and articulated the core challenge before design began. This ensured every team
-            member—from engineers to stakeholders—shared a unified understanding of the problem we
-            were solving.
-          </p>
+
+          <p>We defined the core challenge before any design work. That gave engineers and 
+            stakeholders a shared view of the problem.</p>
 
           <h3>2. User Understanding</h3>
-          <p>
-            Introduced user research methods such as <strong>interviews, surveys, and contextual
-            mapping</strong> to uncover user behaviors, motivations, and pain points. These insights
-            shifted the focus from building features to solving meaningful problems.
-          </p>
+          <p>We ran interviews, surveys, and contextual mapping to uncover behavior, motivation, and pain points. 
+            This moved us from shipping features to solving problems.</p>
 
           <h3>3. Stakeholder Alignment</h3>
           <p>
-            Facilitated workshops and kickoff sessions to align client expectations, project vision,
-            and success metrics early in the process. This collaborative approach built trust and
-            reduced misalignment later in development.
+            We used workshops and kickoffs to align expectations, vision, and success measures 
+            early. That trust up front reduced churn later.
           </p>
 
           <h3>4. Contextual Research</h3>
           <p>
-            Encouraged competitive and market analysis to position each product strategically within
-            its domain. This helped identify differentiation opportunities and guided product
-            direction.
+            We looked at competitors and the market to place each product in context. That 
+            surfaced differentiation and informed direction.
           </p>
             </motion.div>
         </MotionSection>
@@ -201,18 +180,10 @@ export default function ArrowDigitalDiscovery() {
             className="text-[--color-text-muted] leading-relaxed space-y-4"
             >
             <p>
-            The UX Discovery Process became the backbone of Arrow Digital&rsquo;s project lifecycle. We
-            incorporated it into <strong>proposal development, planning sessions, and design
-            delivery</strong>, ensuring every engagement started with empathy and evidence.
-          </p>
-          <ul className="list-disc pl-6">
-            <li>Clients gained clearer, evidence-based project scopes.</li>
-            <li>Developers had validated requirements and fewer late-stage changes.</li>
-            <li>Designers produced solutions grounded in real user needs.</li>
-          </ul>
-          <p>
-            The process not only improved project quality but also enhanced the company&rsquo;s reputation
-            for delivering thoughtful, high-impact solutions.
+            We built the discovery work into proposals, planning, and design delivery, 
+            so every engagement started with evidence and empathy. Clients got clearer 
+            scopes. Developers worked from validated requirements. Designers grounded 
+            solutions in real needs. Quality went up. So did our reputation.
           </p>
             </motion.div>
         </MotionSection>
@@ -237,14 +208,11 @@ export default function ArrowDigitalDiscovery() {
             viewport={{ once: true, amount: 0.3 }}
             className="text-[--color-text-muted] leading-relaxed space-y-4"
             >
-            <ul className="list-disc pl-6">
-            <li>Reduced rework and development waste, saving time and cost.</li>
-            <li>Improved client satisfaction and retention through consistent outcomes.</li>
-            <li>Expanded service offerings—wireframing, usability testing, and content design became standard deliverables.</li>
-            <li>Higher win rates on proposals and larger project contracts.</li>
-            <li>Company growth from 12 to over 200 employees with a 15-person UX team.</li>
-            <li>Positioned Arrow Digital for acquisition by Cognizant in 2018.</li>
-          </ul>
+            <p>Results showed up in operations and in the numbers. We cut rework and 
+              build waste. Client retention improved. We added standard deliverables 
+              like wireframing, usability testing, and content design. Win rates and 
+              deal size grew. The company scaled from 12 to 200+, with a UX team of 
+              about 15. The maturity helped position Arrow Digital for acquisition by Cognizant in 2018.</p>
             </motion.div>
         </MotionSection>
       </Section>
@@ -333,11 +301,9 @@ export default function ArrowDigitalDiscovery() {
             viewport={{ once: true, amount: 0.3 }}
             className="text-[--color-text-muted] leading-relaxed space-y-4"
             >
-           <p>
-            This experience taught me that creating a UX practice isn&rsquo;t just about design—it&rsquo;s about
-            changing how an organization thinks. By integrating discovery, research, and
-            collaboration into every phase of work, we built more than a process; we built a culture
-            of design thinking that elevated the company&rsquo;s entire delivery model.
+            <p>
+            Creating a UX practice is not just design. It is changing how an org thinks. By weaving 
+            discovery, research, and collaboration into every phase, we built more than a process. We built a culture.
           </p>
             </motion.div>
         </MotionSection>

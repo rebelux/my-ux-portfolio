@@ -77,14 +77,18 @@ export default function HomePage() {
               </motion.h2>
               <motion.div variants={variants.fadeUp}>
                 <p className="text-[--color-text-muted] leading-relaxed mb-6">
-                  I&apos;m a UX Designer and Product Design Lead with over two decades of 
-                  experience bridging design, technology, and strategy.
+                  I’m a UX Designer and Product Design Lead with more than 20 years 
+                  of experience connecting design, technology, and strategy.
                 </p>
                 <p className="text-[--color-text-muted] leading-relaxed mb-8">
-                  My work focuses on simplifying complexity—translating the needs of 
-                  users, engineers, and business leaders into cohesive, 
-                  human-centered solutions that scale.
+                 My work is about making complex things simple. I translate the 
+                 needs of users, engineers, and business leaders into practical, 
+                 human-centered solutions that scale.
+
                 </p>
+
+                
+
                 <Link
                   href="/about"
                   className="inline-block text-[--color-accent] font-medium hover:opacity-80 transition"
@@ -178,7 +182,7 @@ export default function HomePage() {
             variants={variants.fadeUp} 
             className="max-w-2xl mx-auto text-[--color-text-muted] leading-relaxed text-center mb-12">
             Curious about my work or design approach? My AI Assistant can walk
-            you through my projects, philosophy, and process — all trained from
+            you through my projects, philosophy, and process and it's all trained from
             my own portfolio.
           </motion.p>
 

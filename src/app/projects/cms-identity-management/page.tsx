@@ -33,7 +33,7 @@ export default function CMSIdentityManagement() {
             transition={{ duration: 0.8, delay: 0.15 }}
             className="text-center text-[--color-text-muted] max-w-3xl mx-auto"
             >
-            Streamlining secure access for healthcare data systems through human-centered design.
+            Streamlining secure access for healthcare data systems at the Centers for Medicare & Medicaid Services (CMS) through human-centered design.
             </motion.p>
         </MotionSection>
       </Section>
@@ -58,15 +58,14 @@ export default function CMSIdentityManagement() {
             transition={{ duration: 0.8 }}
             className="text-[--color-text-muted] leading-relaxed space-y-4"
             >
-            <p>
-                CMS&rsquo;s Identity Management (IDM) platform serves as the secure entry point for vendors
-            and partners connecting to CMS data systems. The existing platform was outdated,
-            inefficient, and difficult for both internal staff and external partners to navigate.
-            As <strong>UX Design Lead</strong>, I led the redesign of this critical system,
-            applying Human-Centered Design (HCD) principles to improve onboarding, enhance
-            usability, and align the interface with the{" "}
-            <strong>U.S. Web Design System (USWDS)</strong> standards.
-            </p>
+
+            <p>The Centers for Medicare & Medicaid Services (CMS) Identity Management (IDM) platform is the gateway for thousands of external partners and 
+            vendors. Due to fragmented development initiatives, over time, the interface and processes to manage roles and onboard new vendors became confusing, dated, and difficult for both 
+            CMS staff and partner organizations to navigate.</p>
+
+            <p>As UX Design Lead, I guided a full redesign through a human-centered design process. The goal was to 
+            simplify onboarding, improve usability, and align the experience with modern federal standards like 
+            USWDS and Section 508.</p>
             </motion.div>
         </MotionSection>
       </Section>
@@ -91,18 +90,18 @@ export default function CMSIdentityManagement() {
             className="text-[--color-text-muted] leading-relaxed space-y-4"
             >
             <p>
-              The original IDM process was cumbersome for users and administrators alike. Key
-            challenges included:
+              The existing system created friction at every step:
             </p>
             <ul className="list-disc pl-6">
-              <li>Long, complex onboarding forms for new vendors.</li>
-            <li>Inconsistent workflows between internal and external users.</li>
-            <li>Accessibility and compliance gaps.</li>
-            <li>Limited visibility into user status and request progress.</li>
+              <li>Long and unclear registration workflows.</li>
+            <li>Duplicate or missing information fields.</li>
+            <li>Limited visibility into request status.</li>
+            <li>Inconsistent interface patterns across pages.</li>
+            <li>Accessibility issues that blocked some users entirely</li>
             </ul>
+
              <p>
-            The goal was to reduce friction in the onboarding process, increase transparency, and
-            create a more accessible experience that scaled across user roles.
+            The result was frustration for both partners and CMS staff, leading to support backlogs and wasted time.
           </p>
             </motion.div>
 
@@ -136,36 +135,25 @@ export default function CMSIdentityManagement() {
             className="text-[--color-text-muted] leading-relaxed space-y-4"
             >
             <p>
-             I applied a collaborative and research-driven design process to uncover pain points and
-            deliver solutions that balanced security, usability, and compliance.
+             We began with stakeholder interviews and user sessions that mapped pain points across 
+             multiple roles—vendors, CMS administrators, and access approvers.
             </p>
-            <h3>Discovery & Co-Creation</h3>
           <p>
-            Conducted <strong>co-creation workshops</strong> with internal CMS employees to
-            document workflows, map user pain points, and identify redundant steps. These sessions
-            provided a shared understanding of inefficiencies and opportunities for improvement.
+            Using those insights, we restructured the entire onboarding experience. The redesign prioritized 
+            clarity and predictability over aesthetic overhaul. Each step focused on making sure users knew 
+            what to expect, what information they needed, and where they stood in the process.
           </p>
 
-          <h3>Collaboration with Product & Engineering</h3>
           <p>
-            Partnered with business analysts to refine user stories and clarify requirements.
-            Collaborated closely with engineers to ensure all interface components followed{" "}
-            <strong>USWDS</strong> guidelines and were built to specification.
+            We prototyped multiple task flows and tested them with real users, refining layout, language, 
+            and logic based on feedback. The final design matched USWDS components and met Section 508 
+            compliance standards.
+          </p>
+          <p>
+            Collaboration was key. We held weekly working sessions with developers, product owners, and 
+            security stakeholders to ensure technical feasibility and compliance alignment as we went.
           </p>
 
-          <h3>Design & Prototyping</h3>
-          <p>
-            Created wireframes and high-fidelity prototypes for improved task flows such as vendor
-            registration, identity verification, and access management. Tested designs with internal
-            staff and external vendors to validate usability and accessibility.
-          </p>
-
-          <h3>Usability Testing & Accessibility</h3>
-          <p>
-            Performed recorded usability sessions to identify workflow gaps and refine interactions.
-            Each screen was reviewed for Section 508 compliance, ensuring accessibility standards
-            were met for all users.
-          </p>
             </motion.div>
         </MotionSection>
       </Section>
@@ -180,7 +168,7 @@ export default function CMSIdentityManagement() {
             viewport={{ once: true, amount: 0.3 }}
             className=""
             >
-            Outcomes & Impact
+            Outcomes
             </motion.h2>
             <motion.div
             variants={variants.fadeUp}
@@ -190,15 +178,11 @@ export default function CMSIdentityManagement() {
             className="text-[--color-text-muted] leading-relaxed space-y-4"
             >
             <ul className="list-disc pl-6">
-            <li>Streamlined vendor onboarding with simplified workflows.</li>
-            <li>Reduced redundant steps and form fields for CMS employees.</li>
-            <li>Improved accessibility and consistency through USWDS standards.</li>
-            <li>Delivered clearer communication between internal teams and external partners.</li>
+            <li>Streamlined registration and approval flows reduced completion time for new accounts.</li>
+            <li>Standardized interface patterns and improved consistency across applications.</li>
+            <li>Accessibility compliance ensured full keyboard and screen-reader support.</li>
+            <li>CMS staff gained clearer visibility into approval queues, reducing duplicate requests and help desk volume.</li>
           </ul>
-          <p>
-            The modernization effort improved day-to-day operations and laid the groundwork for
-            scalable, accessible system upgrades across CMS.
-          </p>
             </motion.div>
         </MotionSection>
       </Section>
@@ -257,10 +241,10 @@ export default function CMSIdentityManagement() {
             viewport={{ once: true, amount: 0.3 }}
             className="text-[--color-text-muted] leading-relaxed space-y-4"
             >
-            <p>This project reaffirmed the importance of empathy and collaboration in enterprise 
-                UX. By aligning design with both technical infrastructure and user needs, we 
-                delivered a solution that improved workflow efficiency and accessibility—without 
-                compromising security or compliance.</p>
+            <p>The CMS IDM project reminded me that great UX often means simplifying what already exists, 
+              not reinventing it. By bringing users and technical teams together early, we reduced complexity 
+              and built trust. The new experience feels not only more modern, but also more transparent and 
+              respectful of users’ time.</p>
             </motion.div>
         </MotionSection>
       </Section>

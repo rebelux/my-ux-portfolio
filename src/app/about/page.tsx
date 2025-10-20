@@ -43,23 +43,20 @@ export default function AboutPage() {
             variants={variants.fadeUp}
             className="text-[--color-text-muted] leading-relaxed"
         >
-            I’m a UX Designer and Product Design Lead with over two decades of
-            experience bridging design, technology, and strategy. My work
-            centers on simplifying complexity — translating the needs of users,
-            engineers, and business leaders into cohesive, human-centered
+            I’m a UX Designer and Product Design Lead with more than 20 years of experience 
+            connecting design, technology, and strategy. My work centers on simplifying complexity, 
+            translating the needs of users, engineers, and business leaders into cohesive, human-centered 
             solutions that scale.
         </motion.p>
         <motion.p
             variants={variants.fadeUp}
             className="text-[--color-text-muted] leading-relaxed mt-6"
         >
-            I began my career in 2002 as a web designer and developer, where I
-            learned to balance aesthetics with functionality and collaborate
-            seamlessly with engineering teams. Since 2008, I’ve led design
-            initiatives across public health, higher education, finance, and
-            enterprise technology — building design practices from the ground
-            up, modernizing legacy systems, and shaping design systems that
-            drive transformation at scale.
+            I began my career in 2002 as a web designer and developer, learning how to balance aesthetics 
+            with functionality and collaborate seamlessly with engineering teams. Since 2008, I’ve led 
+            design initiatives across public health, higher education, finance, and enterprise technology—building 
+            design practices from the ground up, modernizing legacy systems, and shaping design systems that 
+            support transformation at scale.
         </motion.p>
         </MotionSection>
     </Section>
@@ -77,20 +74,19 @@ export default function AboutPage() {
             variants={variants.fadeUp}
             className="text-[--color-text-muted] leading-relaxed mb-4"
         >
-            I believe good design creates clarity. It removes friction,
-            surfaces what matters, and builds systems that empower people to
-            do their best work.
+            I believe good design creates clarity. It removes friction, highlights
+             what matters, and builds systems that help people do their best work.
         </motion.p>
         <motion.p
             variants={variants.fadeUp}
             className="text-[--color-text-muted] leading-relaxed"
         >
-            For me, design is both empathetic and analytical — it’s about
-            understanding human needs while balancing technical and
-            organizational realities. I often describe my work as{" "}
-            <em>designing clarity and impact at enterprise scale</em> — creating
-            solutions that don’t just look good, but perform beautifully within
-            the complexity of real-world systems.
+            For me, design is both empathetic and analytical. It’s about understanding 
+            human needs while balancing technical and organizational realities. I often 
+            describe my approach as <em>designing for clarity and impact at enterprise scale</em>. It means creating 
+            solutions that don’t just look good but perform beautifully in the complexity of real-world systems.
+
+            
         </motion.p>
         </MotionSection>
     </Section>
@@ -108,9 +104,8 @@ export default function AboutPage() {
             variants={variants.fadeUp}
             className="text-[--color-text-muted] leading-relaxed mb-4"
         >
-            Collaboration sits at the center of everything I do. Whether it’s
-            engineers, product managers, or stakeholders, I make it a point to
-            speak their language.
+            Collaboration sits at the center of everything I do. Whether I’m working 
+            with engineers, product managers, or stakeholders, I make it a point to speak their language.
         </motion.p>
         <motion.ul
             variants={variants.fadeUp}
@@ -125,9 +120,8 @@ export default function AboutPage() {
             align on goals, metrics, and value.
             </li>
             <li>
-            <strong>With stakeholders</strong>, I connect design decisions to
-            measurable business outcomes — translating usability into
-            adoption, efficiency, and retention.
+            <strong>With stakeholders</strong>, I connect design decisions to measurable outcomes, 
+            translating usability into adoption, efficiency, and retention.
             </li>
         </motion.ul>
         <motion.p
@@ -135,9 +129,8 @@ export default function AboutPage() {
             className="text-[--color-text-muted] leading-relaxed mt-4"
         >
             I believe the best outcomes come from openness and iteration. My
-            process blends research, co-creation, prototyping, and validation —
-            using workshops, design systems, and data to inform decisions that
-            scale.
+            process blends research, co-creation, prototyping, and validation and I use workshops, 
+            design systems, and data to inform decisions that scale.
         </motion.p>
         </MotionSection>
     </Section>
@@ -163,7 +156,7 @@ export default function AboutPage() {
             variants={variants.fadeUp}
             className="text-[--color-text-muted] leading-relaxed"
         >
-            I see mentorship as a conversation, not a hierarchy — a chance to
+            I see mentorship as a conversation, not a hierarchy. It's a chance to
             build confidence through collaboration and curiosity. My teams know
             that feedback flows both ways, and that our shared goal is to create
             meaningful, user-centered outcomes that make an impact.
@@ -184,9 +177,8 @@ export default function AboutPage() {
             variants={variants.fadeUp}
             className="text-[--color-text-muted] leading-relaxed mb-4"
         >
-            I define success through outcomes, not deliverables. It’s not about
-            producing wireframes or prototypes — it’s about improving how people
-            experience products.
+            I define success through outcomes, not deliverables. It’s not about producing 
+            wireframes or prototypes; it’s about improving how people experience products.
         </motion.p>
         <motion.ul
             variants={variants.fadeUp}
@@ -194,7 +186,7 @@ export default function AboutPage() {
         >
             <li>A task that once took ten clicks now takes three.</li>
             <li>A design decision perfectly aligns with a business goal.</li>
-            <li>A user feels confident, not confused.</li>
+            <li>A user feels confident instead of confused.</li>
         </motion.ul>
         <motion.p
             variants={variants.fadeUp}

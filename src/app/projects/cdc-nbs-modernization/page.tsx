@@ -35,7 +35,7 @@ export default function CdcNbsModernizationPage() {
             >
             Reimagining national disease surveillance workflows through a
             human-centered modernization of the National Electronic Disease
-            Surveillance System (NEDSS) Base System.
+            Surveillance System Base System (NBS).
             </motion.p>
         </MotionSection>
       </Section>
@@ -61,19 +61,58 @@ export default function CdcNbsModernizationPage() {
             className="text-[--color-text-muted] leading-relaxed space-y-4"
             >
             <p>
-                The CDC’s National Electronic Disease Surveillance System (NEDSS)
-                Base System (NBS) is a cornerstone of U.S. public health reporting,
-                helping states and jurisdictions track infectious disease cases and
-                trends. However, the system’s decades-old interface and data
-                workflows hindered efficiency and scalability, especially during
-                critical outbreak response scenarios.
+                The CDC’s National Electronic Disease Surveillance System Base System (NBS) helps state, 
+                tribal, local, and territorial health departments track and manage infectious disease cases 
+                across the country. Over time, its aging workflows and interfaces slowed response and made 
+                scaling difficult—especially during large-scale outbreaks like COVID-19.
             </p>
             <p>
-                Our team partnered with the CDC to redesign NBS from the ground up —
-                focusing on the modernized architecture, user experience, and
-                long-term sustainability across all state and local public health
-                programs.
+                CDC partnered with our team at CDW to modernize NBS, moving it into a secure, cloud-based 
+                environment built for flexibility and speed.
             </p>
+
+            <p>
+                As UX Design Lead, I guided the human-centered design (HCD) process end to end. That included 
+                discovery, stakeholder workshops, usability testing, and building a scalable design system 
+                based on USWDS and Section 508 standards.</p>
+
+            </motion.div>
+        </MotionSection>
+      </Section>
+
+      {/* === The Challenge === */}
+      <Section container density="editorial" className="section--editorial">
+        <MotionSection variants={variants.staggerChildren}>
+            <motion.h2
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className=""
+            >
+            The Challenge
+            </motion.h2>
+            <motion.div
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="text-[--color-text-muted] leading-relaxed space-y-4"
+            >
+
+         <p>The existing surveillance system was a mix of aging technologies and complex data flows that 
+        made daily work slow and error-prone. Public health users needed a platform that was modern, 
+        intuitive, and adaptable to rapid-response scenarios.</p>
+
+        <p>Key issues included:</p>
+
+        <ul className="list-disc pl-6">
+        <li>Fragmented workflows: Each jurisdiction used a slightly different process, causing data inconsistencies.</li>
+        <li>Inefficient case investigation tools: Users spent hours searching or manually reconciling duplicate records.</li>
+        <li>Accessibility gaps: The system wasn’t fully compliant with Section 508, limiting usability for assistive tech users.</li>
+        <li>Technical silos: Different agencies had difficulty sharing and analyzing cross-jurisdictional data.</li>
+        </ul>
             </motion.div>
         </MotionSection>
       </Section>
@@ -97,32 +136,21 @@ export default function CdcNbsModernizationPage() {
             viewport={{ once: true, amount: 0.3 }}
             className="text-[--color-text-muted] leading-relaxed space-y-4"
             >
-            <p>
-                We conducted extensive discovery sessions with epidemiologists,
-                case investigators, and surveillance coordinators across multiple
-                jurisdictions to understand the nuanced challenges of disease
-                surveillance workflows.
-            </p>
-            <ul className="list-disc pl-6">
-                <li>
-                Developed user journey maps and service blueprints to visualize
-                data flow between systems and users.
-                </li>
-                <li>
-                Identified high-friction processes such as duplicate case
-                resolution, patient search, and HL7 message ingestion.
-                </li>
-                <li>
-                Collaborated closely with engineers to align UX decisions with
-                evolving architecture based on modular microservices and FHIR data
-                models.
-                </li>
-            </ul>
-            <p>
-                This iterative collaboration between CDC, state users, and our
-                design-engineering team ensured that modernization decisions were
-                validated by real-world needs, not assumptions.
-            </p>
+            <p>We started with empathy-driven research, meeting users where they worked—state and local 
+                public health offices. We observed real case investigations, data entry pain points, and 
+                collaboration hurdles between teams.</p>
+
+            <p>From there, we co-created workflows and prototypes directly with epidemiologists, data analysts, 
+                and program managers. These working sessions helped us design around real conditions rather 
+                than assumptions.</p>
+
+            <p>We validated early ideas through usability testing across multiple jurisdictions and device 
+                types. Each test cycle improved efficiency and reduced cognitive load for core tasks like 
+                case searches and data imports.</p>
+
+            <p>Finally, we built a reusable design system to keep the platform consistent and accessible.
+                It included flexible components, color contrast guidance, and interaction patterns tailored 
+                for dense data screens.</p>
             </motion.div>
 
             <Image
@@ -145,7 +173,7 @@ export default function CdcNbsModernizationPage() {
             viewport={{ once: true, amount: 0.3 }}
             className=""
             >
-            Impact
+            Outcomes
             </motion.h2>
             <motion.div
             variants={variants.fadeUp}
@@ -154,23 +182,17 @@ export default function CdcNbsModernizationPage() {
             viewport={{ once: true, amount: 0.3 }}
             className="text-[--color-text-muted] leading-relaxed space-y-4"
             >
-            <p>
-                The modernization effort has already led to measurable improvements
-                in workflow efficiency and data quality:
-            </p>
             <ul className="list-disc pl-6">
                 <li>
-                Reduced case deduplication time by over 60% through improved
-                patient search and record matching algorithms.
+                Simplified the case investigation flow, reducing redundant data entry.
                 </li>
                 <li>
-                Streamlined HL7 message ingestion pipelines, reducing backlog
-                delays from days to hours.
+                Increased user confidence in record accuracy through clear error states and validation patterns.
                 </li>
                 <li>
-                Established a design system and modular UI library to ensure
-                future extensibility and brand consistency across CDC programs.
+                Established a shared design system used across multiple modernization tracks at CDC.
                 </li>
+                <li>Strengthened collaboration between UX, engineering, and CDC teams which reduced handoff gaps and ensured compliance.</li>
             </ul>
             </motion.div>
 
@@ -201,7 +223,7 @@ export default function CdcNbsModernizationPage() {
             viewport={{ once: true, amount: 0.3 }}
             className=""
             >
-            Outcomes
+            Reflection
             </motion.h2>
             <motion.div
             variants={variants.fadeUp}
@@ -211,15 +233,10 @@ export default function CdcNbsModernizationPage() {
             className="text-[--color-text-muted] leading-relaxed space-y-4"
             >
             <p>
-                Beyond improving system performance and usability, NBS Modernization
-                established a scalable design foundation for the future of disease
-                surveillance in the United States.
-            </p>
-            <p>
-                The lessons learned from this effort are informing modernization
-                initiatives across other CDC programs and partner systems —
-                creating a more unified, responsive, and resilient public health
-                data infrastructure.
+                Working with public health professionals reinforced that design’s biggest 
+                impact often comes from removing friction, not adding polish. By keeping users 
+                involved throughout, we helped transform an outdated system into a platform 
+                that supports faster, more confident decisions during real health crises.
             </p>
             </motion.div>
         </MotionSection>
