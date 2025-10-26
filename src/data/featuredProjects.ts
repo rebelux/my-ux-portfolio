@@ -16,7 +16,7 @@ export const featuredProjects = [
   {
     title: "Arrow Digital - UX Discovery Process",
     subtitle:
-      "Establishing a repeatable design process that shaped company-wide transformation.",
+      "Building a user-centered design discipline that reshaped how the company delivered software.",
     image: "/images/arrow-digital-hero.png",
     href: "/projects/arrow-digital-ux-discovery",
   },

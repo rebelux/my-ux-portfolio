@@ -449,6 +449,8 @@ html, body { color: var(--color-text); background-color: var(--color-bg) !import
   color: var(--color-text-muted);
 }
 
+.editorial .feature h3 {margin-top: 0;}
+
 
 /* Hide background image on mobile when prop is active */
 @media (max-width: 767px) {

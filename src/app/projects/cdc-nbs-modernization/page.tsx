@@ -61,20 +61,19 @@ export default function CdcNbsModernizationPage() {
             className="text-[--color-text-muted] leading-relaxed space-y-4"
             >
             <p>
-                The CDC’s National Electronic Disease Surveillance System Base System (NBS) helps state, 
-                tribal, local, and territorial health departments track and manage infectious disease cases 
-                across the country. Over time, its aging workflows and interfaces slowed response and made 
-                scaling difficult—especially during large-scale outbreaks like COVID-19.
+                The CDC&rsquo;s National Electronic Disease Surveillance System Base System (NBS) helps 
+                state, tribal, local, and territorial health departments track, investigate, and 
+                manage infectious disease cases across the country. During high-volume outbreaks 
+                like COVID-19, epidemiologists struggled to find, triage, and update cases quickly 
+                enough to keep up with real-time reporting demands.
             </p>
             <p>
-                CDC partnered with our team at CDW to modernize NBS, moving it into a secure, cloud-based 
-                environment built for flexibility and speed.
+                CDC partnered with our team to modernize NBS in a secure, cloud-based environment 
+                built for rapid case triage and collaboration between public health workers during 
+                outbreak response. As UX Design Lead, I guided the human-centered design process 
+                from discovery through validation and created a reusable design system aligned with 
+                USWDS and Section 508 standards.
             </p>
-
-            <p>
-                As UX Design Lead, I guided the human-centered design (HCD) process end to end. That included 
-                discovery, stakeholder workshops, usability testing, and building a scalable design system 
-                based on USWDS and Section 508 standards.</p>
 
             </motion.div>
         </MotionSection>
@@ -101,18 +100,27 @@ export default function CdcNbsModernizationPage() {
             className="text-[--color-text-muted] leading-relaxed space-y-4"
             >
 
-         <p>The existing surveillance system was a mix of aging technologies and complex data flows that 
-        made daily work slow and error-prone. Public health users needed a platform that was modern, 
-        intuitive, and adaptable to rapid-response scenarios.</p>
-
-        <p>Key issues included:</p>
+         <p>Of the many challenges during this project, a recent one was related to case management. 
+            Public health users rely on a feature for this called <strong>Queues</strong> as their gateway to 
+            records inside NBS. Multiple queues support different workflows:</p>
+    
 
         <ul className="list-disc pl-6">
-        <li>Fragmented workflows: Each jurisdiction used a slightly different process, causing data inconsistencies.</li>
-        <li>Inefficient case investigation tools: Users spent hours searching or manually reconciling duplicate records.</li>
-        <li>Accessibility gaps: The system wasn’t fully compliant with Section 508, limiting usability for assistive tech users.</li>
-        <li>Technical silos: Different agencies had difficulty sharing and analyzing cross-jurisdictional data.</li>
+        <li><strong>DRR</strong> queue for reviewing lab or case reports that were not auto-processed by the rules engine</li>
+        <li><strong>Open Investigations</strong> queue for cases still in progress</li>
+        <li><strong>DRSA</strong> queue for reports missing jurisdiction data</li>
         </ul>
+
+        <p>Research identified several critical issues:</p>
+
+        <ul className="list-disc pl-6">
+        <li>Limited data visibility forced users to open each record before knowing what action to take</li>
+        <li>A cap of 100 records meant large parts of their workload were hidden</li>
+        <li>Filters reset when navigating back from a record, causing repetitive rework</li>
+        <li>Slow load times stalled triage during peak case periods</li>
+        </ul>
+        <p>Every minute lost to navigation and delays was a minute not spent confirming cases or taking 
+            action to protect the public.</p>
             </motion.div>
         </MotionSection>
       </Section>
@@ -127,7 +135,7 @@ export default function CdcNbsModernizationPage() {
             viewport={{ once: true, amount: 0.3 }}
             className=""
             >
-            Approach
+            My Approach
             </motion.h2>
             <motion.div
             variants={variants.fadeUp}
@@ -136,21 +144,24 @@ export default function CdcNbsModernizationPage() {
             viewport={{ once: true, amount: 0.3 }}
             className="text-[--color-text-muted] leading-relaxed space-y-4"
             >
-            <p>We started with empathy-driven research, meeting users where they worked—state and local 
-                public health offices. We observed real case investigations, data entry pain points, and 
-                collaboration hurdles between teams.</p>
+            <p>We shadowed epidemiologists as they worked through daily lab loads and saw them 
+                juggling spreadsheets, sticky notes, and multiple browser tabs just to keep track of 
+                what to review next.</p>
 
-            <p>From there, we co-created workflows and prototypes directly with epidemiologists, data analysts, 
-                and program managers. These working sessions helped us design around real conditions rather 
-                than assumptions.</p>
+            <p>From this fieldwork, we uncovered key opportunities:</p>
 
-            <p>We validated early ideas through usability testing across multiple jurisdictions and device 
-                types. Each test cycle improved efficiency and reduced cognitive load for core tasks like 
-                case searches and data imports.</p>
+            <ul className="list-disc pl-6">
+            <li>Make queue data tables show more critical data up front so users could triage faster</li>
+            <li>Allow configurable views so each disease program saw what mattered to them</li>
+            <li>Use a search index to load queues faster and display the full workload beyond 100 records</li>
+            </ul>
 
-            <p>Finally, we built a reusable design system to keep the platform consistent and accessible.
-                It included flexible components, color contrast guidance, and interaction patterns tailored 
-                for dense data screens.</p>
+            <p>Testing showed that missing data elements such as <em>Associated Investigation</em> or <em>Notification 
+                Status</em> made or broke triage speed. So we elevated additional data elements like these into 
+                queue tables to cut unnecessary clicks.</p>
+
+            <p>We built reusable queue data table templates and filtering patterns into the design system so teams 
+                modernizing other features could drop them in without redesigning core workflows.</p>
             </motion.div>
 
             <Image
@@ -182,18 +193,21 @@ export default function CdcNbsModernizationPage() {
             viewport={{ once: true, amount: 0.3 }}
             className="text-[--color-text-muted] leading-relaxed space-y-4"
             >
+                <p>The improvements delivered clear, measurable impact:</p>
             <ul className="list-disc pl-6">
                 <li>
-                Simplified the case investigation flow, reducing redundant data entry.
+                78 percent faster case management workflows
                 </li>
                 <li>
-                Increased user confidence in record accuracy through clear error states and validation patterns.
+                Work that once took hours was completed in less than half the time
                 </li>
                 <li>
-                Established a shared design system used across multiple modernization tracks at CDC.
+                User satisfaction improved from 5.6 to 8.4 on a 1–10 scale
                 </li>
-                <li>Strengthened collaboration between UX, engineering, and CDC teams which reduced handoff gaps and ensured compliance.</li>
+                <li>Increased confidence and adoption of the modernized platform across jurisdictions</li>
             </ul>
+
+            <p>One epidemiologist told us, “I can finally keep up.”</p>
             </motion.div>
 
             <Image
@@ -233,10 +247,10 @@ export default function CdcNbsModernizationPage() {
             className="text-[--color-text-muted] leading-relaxed space-y-4"
             >
             <p>
-                Working with public health professionals reinforced that design’s biggest 
-                impact often comes from removing friction, not adding polish. By keeping users 
-                involved throughout, we helped transform an outdated system into a platform 
-                that supports faster, more confident decisions during real health crises.
+                When a system gets out of the way, public health professionals can focus on stopping 
+                outbreaks, not clicking through screens. The biggest win for me was hearing users say 
+                they were finally keeping up with their caseload. Faster review means faster action, 
+                and that keeps people safer.
             </p>
             </motion.div>
         </MotionSection>
