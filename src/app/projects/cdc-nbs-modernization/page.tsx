@@ -23,7 +23,7 @@ export default function CdcNbsModernizationPage() {
             transition={{ duration: 0.8 }}
             className="font-serif text-4xl md:text-5xl text-center leading-tight mb-6"
             >
-            CDC — NBS Modernization
+            CDC: Modernizing Disease Surveillance for Faster Outbreak Response
             </motion.h1>
             <motion.p
             variants={variants.fadeUp}

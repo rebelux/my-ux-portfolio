@@ -23,7 +23,7 @@ export default function ArrowDigitalDiscovery() {
             transition={{ duration: 0.8 }}
             className="font-serif text-4xl md:text-5xl text-center leading-tight mb-6"
             >
-            Arrow Digital — Building a UX Practice from the Ground Up
+            Arrow Digital: Building a UX Practice from the Ground Up
             </motion.h1>
             <motion.p
             variants={variants.fadeUp}
