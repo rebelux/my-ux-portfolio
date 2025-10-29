@@ -13,7 +13,7 @@ export default function ProjectsPage() {
   return (
     <main className="bg-[--color-bg] text-[--color-text] overflow-x-hidden">
       <Section variant="default" fadeTo="bg" hasGlow className="py-20 md:py-24">
-        <MotionSection variants={variants.staggerChildren}>
+        <MotionSection variants={variants.staggerChildren} animate="visible">
           {/* Page Title */}
           <motion.h1
             variants={variants.fadeUp}

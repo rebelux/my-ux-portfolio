@@ -9,49 +9,54 @@ import { askAIAbout } from "@/lib/askAI"
 export default function ResumePage() {
   return (
     <motion.main
-      initial="hidden"
       animate="visible"
       variants={variants.fadeUp}
       transition={{ duration: 0.8 }}
       className="editorial bg-[--color-bg] text-[--color-text]"
     >
-      <Section container density="editorial" className="section--editorial">
-        <MotionSection variants={variants.staggerChildren} className="text-center">
-        <motion.h1
-            variants={variants.fadeUp}
-            className="text-4xl md:text-5xl font-serif text-[--color-text]"
-            >Résumé</motion.h1>
-        <motion.p
-            variants={variants.fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="text-center text-[--color-text-muted] max-w-2xl mx-auto mb-16 leading-relaxed"
-          >
-          Here’s a concise overview of my professional experience, leadership background, and core
-          design skills. A downloadable PDF version is available below.
-        </motion.p>
-        </MotionSection>
+      <Section container density="editorial" className="section--editorial relative">
+        <MotionSection variants={variants.staggerChildren} animate="visible">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+          className="text-center relative z-10"
+        >
+          <h1 className="text-4xl md:text-5xl font-serif text-[--color-text]">Résumé</h1>
+          <p className="text-center text-[--color-text-muted] max-w-2xl mx-auto mt-4 mb-16 leading-relaxed">
+            Here’s a concise overview of my professional experience, leadership background, and core
+            design skills. A downloadable PDF version is available below.
+          </p>
+        </motion.div>
         {/* ✅ Add this ambient glow behind header */}
         <motion.div
             className="absolute top-[30%] left-1/2 w-[500px] h-[500px] -translate-x-1/2 rounded-full blur-[140px] bg-[--color-accent]/10 -z-10"
             animate={{ opacity: [0.15, 0.25, 0.15], scale: [1, 1.05, 1] }}
             transition={{ repeat: Infinity, duration: 18, ease: 'easeInOut' }}
         />
+        </MotionSection>
       </Section>
 
         {/* === Professional Experience === */}
         <Section container density="editorial" className="section--editorial-alt" fadeTo="footer">
-                <MotionSection variants={variants.staggerChildren}>
+          <MotionSection 
+            variants={variants.staggerChildren}
+            >
           <motion.h2 
           variants={variants.fadeUp} 
-          className="border-b border-[color:var(--color-border)] pb-4 mb-8">
+          className="border-b border-[color:var(--color-border)] pb-4 mb-8"
+          initial="hidden"
+            whileInView="visible"
+            >
             Professional Experience
           </motion.h2>
 
           {/* === CDW === */}
-          <motion.div variants={variants.fadeUp}>
+          <motion.div 
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            >
             <h3>UX Lead</h3>
             <p className="text-[--color-text-muted]">CDW-G — 2022–Present</p>
             <p className="text-[--color-text] leading-relaxed mt-2 mb-4">
@@ -82,6 +87,8 @@ export default function ResumePage() {
           {/* === C-HIT === */}
           <motion.div 
             variants={variants.fadeUp} 
+            initial="hidden"
+            whileInView="visible"
             className="border-t border-[color:var(--color-border)] mt-8">
             <h3 className="text-xl font-semibold">
               Human-Centered Design Lead
@@ -108,6 +115,8 @@ export default function ResumePage() {
           {/* === Rebel UX === */}
           <motion.div 
             variants={variants.fadeUp} 
+            initial="hidden"
+            whileInView="visible"
             className="border-t border-[color:var(--color-border)] mt-8">
             <h3 className="text-xl font-semibold">
               Founder & Head of User Experience
@@ -132,6 +141,8 @@ export default function ResumePage() {
           {/* === Arrow Digital (Partner) === */}
           <motion.div 
             variants={variants.fadeUp} 
+            initial="hidden"
+            whileInView="visible"
             className="border-t border-[color:var(--color-border)] mt-8">
             <h3 className="text-xl font-semibold">Partner, User Experience</h3>
             <p className="text-[--color-text-muted]">Arrow Digital (Acquired by Cognizant) — 2016–2018</p>
@@ -161,6 +172,8 @@ export default function ResumePage() {
           {/* === Arrow Digital (Creative Director) === */}
           <motion.div 
             variants={variants.fadeUp} 
+            initial="hidden"
+            whileInView="visible"
             className="border-t border-[color:var(--color-border)] mt-8">
             <h3 className="text-xl font-semibold">Creative Director</h3>
             <p className="text-[--color-text-muted]">Arrow Digital — 2011–2015</p>
@@ -177,6 +190,8 @@ export default function ResumePage() {
           {/* === Early Roles === */}
           <motion.div 
             variants={variants.fadeUp} 
+            initial="hidden"
+            whileInView="visible"
             className="border-t border-b border-[color:var(--color-border)] mt-8 pb-8 space-y-4">
             <h3 className="text-xl font-semibold">Earlier Roles</h3>
             <div>
@@ -218,6 +233,8 @@ export default function ResumePage() {
           </motion.div>
         <motion.div 
             variants={variants.fadeUp} 
+            initial="hidden"
+            whileInView="visible"
             className="border-b border-[color:var(--color-border)] mt-8 pb-8 space-y-4">
          <motion.h2 
           variants={variants.fadeUp}>Core Skills</motion.h2>
@@ -229,6 +246,8 @@ export default function ResumePage() {
           </motion.div>
         <motion.div 
             variants={variants.fadeUp} 
+            initial="hidden"
+            whileInView="visible"
             className="border-b border-[color:var(--color-border)] mt-8 pb-8 space-y-4">
           <motion.h2 
           variants={variants.fadeUp}>Education & Military</motion.h2>
@@ -246,6 +265,8 @@ export default function ResumePage() {
         </motion.div>
         <motion.p 
             variants={variants.fadeUp} 
+            initial="hidden"
+            whileInView="visible"
             className="mt-8 mb-4 text-center">
           Want to learn more about my professional experience?
         </motion.p>

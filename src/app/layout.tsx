@@ -1,10 +1,12 @@
 import "./globals.css";
+
+// src/app/layout.tsx
 import type { Metadata } from "next";
-import Script from "next/script";
-import NavBar from "@/components/NavBar";
-import PageTransitionLayout from "@/components/PageTransitionLayout";
+import ClientLayout from "./ClientLayout";
 import Footer from "@/components/layout/Footer";
-import { AnimatePresence } from "framer-motion";
+// If your NavBar lives here, keep this import:
+import NavBar from "@/components/NavBar";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Henry Tavarez | UX Designer & Product Design Lead",
@@ -36,42 +38,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" style={{ backgroundColor: "#E9EBEC" }}>
-      <head>
-        {/* Botpress v3.3 script */}
-        <Script
-          src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"
-          strategy="afterInteractive"
-        />
-        <style>{`
-          #webchat .bpWebchat {
-            position: unset;
-            width: 100%;
-            height: 100%;
-            max-height: 100%;
-            max-width: 100%;
-          }
-          #webchat .bpFab {
-            display: none;
-          }
-        `}</style>
-      </head>
-
-      {/* ✅ Updated background + text colors for Tailwind v4 */}
-      <body className="bg-[--color-bg] text-[--color-text] font-sans transition-colors duration-500">
-        {/* === Global Navigation (Responsive) === */}
+    <html lang="en">
+      {/* SSR-safe fallback background color to avoid flashes pre-hydration */}
+      <body className="bg-[--color-bg] text-[--color-text]">
+        {/* Keep your NavBar here if that’s how your app is wired */}
         <NavBar />
-
-        {/* === Main Content === */}
-        <main className="pt-20 min-h-[calc(100vh-5rem)] bg-[--color-bg] text-[--color-text] transition-colors">
-          <AnimatePresence mode="wait">
-            <PageTransitionLayout>{children}</PageTransitionLayout>
-          </AnimatePresence>
-        </main>
+        <ClientLayout>{children}</ClientLayout>
 
         {/* === Botpress Chat Container === */}
         <div
@@ -80,11 +54,16 @@ export default function RootLayout({
         ></div>
 
         <Footer />
-
-        {/* === Botpress Init Script === */}
+      </body>
+      {/* Botpress v3.3 script */}
+        <Script
+          src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"
+          strategy="afterInteractive"
+        />
+      {/* === Botpress Init Script === */}
         <Script id="botpress-init" strategy="afterInteractive">
           {`
-            function initializeBotpress() {
+            window.initializeBotpress = function () {
               if (window.botpress && typeof window.botpress.init === "function") {
                 window.botpress.init({
                   botId: "0d1251e2-411d-4cbd-a0f8-3302266afb9f",
@@ -109,11 +88,10 @@ export default function RootLayout({
               } else {
                 setTimeout(initializeBotpress, 500);
               }
-            }
-            initializeBotpress();
+            };
+            window.initializeBotpress();
           `}
         </Script>
-      </body>
     </html>
   );
 }

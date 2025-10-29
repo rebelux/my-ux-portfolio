@@ -9,9 +9,9 @@ declare global {
       close?: () => void;
       on?: (event: string, cb: (...args: unknown[]) => void) => void;
       sendMessage?: (text: string) => void;
-      init?: (cfg: unknown) => void;
+      init: (cfg: unknown) => void;
     };
-    
+    initializeBotpress?: () => void;
   }
 }
 

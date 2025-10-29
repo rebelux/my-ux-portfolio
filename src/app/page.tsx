@@ -19,7 +19,7 @@ export default function HomePage() {
 
       {/* === HERO === */}
       <Section variant="gradient" id="hero" hasGlow>
-        <MotionSection>
+        <MotionSection animate="visible">
           <MotionGroup>
             <motion.h1
               variants={variants.fadeUp}

@@ -41,7 +41,7 @@ export default function ContactPage() {
     <main className="editorial bg-[--color-bg] text-[--color-text]">
       {/* === Header === */}
       <Section container density="editorial" className="section--editorial-alt">
-      <MotionSection variants={variants.fadeUp} className="text-center max-w-3xl mx-auto">
+      <MotionSection variants={variants.fadeUp} className="text-center max-w-3xl mx-auto" animate="visible">
         <motion.h1
             variants={variants.fadeUp}
             className="text-4xl md:text-5xl font-serif text-[--color-text]"

@@ -14,11 +14,11 @@ export default function ArrowDigitalDiscovery() {
     <main className="editorial bg-[--color-bg] text-[--color-text]">
       {/* === Hero Section === */}
       <Section container density="editorial"  className="section--editorial">
-        <MotionSection variants={variants.staggerChildren}>
+        <MotionSection variants={variants.staggerChildren} animate="visible">
             <motion.h1
             variants={variants.fadeUp}
-            initial="hidden"
-            whileInView="visible"
+            initial={false}
+            animate="visible"
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
             className="font-serif text-4xl md:text-5xl text-center leading-tight mb-6"
@@ -27,8 +27,8 @@ export default function ArrowDigitalDiscovery() {
             </motion.h1>
             <motion.p
             variants={variants.fadeUp}
-            initial="hidden"
-            whileInView="visible"
+            initial={false}
+            animate="visible"
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.15 }}
             className="text-center text-[--color-text-muted] max-w-3xl mx-auto"
@@ -43,8 +43,8 @@ export default function ArrowDigitalDiscovery() {
         <MotionSection variants={variants.staggerChildren}>
             <motion.h2
             variants={variants.fadeUp}
-            initial="hidden"
-            whileInView="visible"
+            initial={false}
+            animate="visible"
             viewport={{ once: true, amount: 0.3 }}
             className=""
             >
@@ -52,8 +52,8 @@ export default function ArrowDigitalDiscovery() {
             </motion.h2>
             <motion.div
             variants={variants.fadeUp}
-            initial="hidden"
-            whileInView="visible"
+            initial={false}
+            animate="visible"
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
             className="text-[--color-text-muted] leading-relaxed space-y-4"

@@ -10,15 +10,15 @@ import { variants } from "@/theme/motionVariants";
 export default function AboutPage() {
   return (
     <motion.main
-      initial="hidden"
-      animate="visible"
+      initial={false}                 // 👈 prevents flicker/restart
+      animate="visible"               // 👈 animate immediately on load
       variants={variants.fadeUp}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       className="editorial bg-[--color-bg] text-[--color-text]"
     >
     {/* === Header === */}
     <Section container density="editorial" className="section--editorial">
-        <MotionSection variants={variants.staggerChildren}>
+        <MotionSection variants={variants.staggerChildren} animate="visible">
         <header className="text-center space-y-3">
             <motion.h1
             variants={variants.fadeUp}
