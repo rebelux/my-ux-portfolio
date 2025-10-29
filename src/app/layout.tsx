@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 // If your NavBar lives here, keep this import:
 import NavBar from "@/components/NavBar";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: "Henry Tavarez | UX Designer & Product Design Lead",
@@ -55,6 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <Footer />
       </body>
+      <Analytics />
       {/* Botpress v3.3 script */}
         <Script
           src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"
