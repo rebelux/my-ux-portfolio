@@ -34,6 +34,7 @@ export const glacialDepth: {
     text: "var(--color-text)",
     textMuted: "var(--color-text-muted)",
     accent: "var(--color-accent)",
+    accentHover: "var(--color-accent-hover)",
     border: "var(--color-border)",
     card: "var(--color-card)",
   },

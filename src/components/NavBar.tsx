@@ -26,7 +26,7 @@ export default function NavBar() {
   const { scrollY } = useScroll();
   const bgOpacity = useTransform(scrollY, [0, 80], [0, 0.3]);          // 0 → 0.8
   const shadowOpacity = useTransform(scrollY, [0, 80], [0, 0.2]);      // 0 → 0.3
-  const textColor = useTransform(scrollY, [0, 80], ["#ffffff", glacialDepth.colors.accent]);
+  const textColor = useTransform(scrollY, [0, 80], [glacialDepth.colors.text, glacialDepth.colors.accent]);
 
   // Convert numeric motion values to CSS-ready strings (no `.to()` use)
   const bgColorMV = useTransform(bgOpacity, (o: number) => `rgba(249, 249, 251, ${o})`);

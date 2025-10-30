@@ -46,6 +46,7 @@ export default function HeroBackground({
         priority
         style={{
             objectFit: 'cover',
+            objectPosition: 'center top',
             mixBlendMode: blendMode as CSSProperties["mixBlendMode"],
             opacity,
             // ⬇️  Fade out the bottom ~12% of the image

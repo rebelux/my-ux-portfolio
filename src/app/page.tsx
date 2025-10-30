@@ -18,7 +18,7 @@ export default function HomePage() {
   return (
     <>
       {/* Place the bg OUTSIDE the main wrapper so overflow-x-hidden cannot clip it */}
-      <HeroBackground src="/images/hero-bg-fadedv4.webp" opacity={0.85} blendMode="normal" />
+      <HeroBackground src="/images/hero-bg-faded-arc.webp" opacity={0.85} blendMode="normal" />
       <main className="overflow-x-hidden text-[--color-text] bg-[--color-bg]">
 
         {/* === HERO === */}
