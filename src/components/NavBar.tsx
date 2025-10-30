@@ -30,9 +30,6 @@ export default function NavBar() {
 
   // Convert numeric motion values to CSS-ready strings (no `.to()` use)
   const bgColorMV = useTransform(bgOpacity, (o: number) => `rgba(249, 249, 251, ${o})`);
-  const boxShadowMV = useTransform(shadowOpacity, (s: number) => `0 4px 10px rgba(0,0,0,${s})`);
-
-  const alwaysFrosted = !isHome;
 
   return (
     <motion.nav

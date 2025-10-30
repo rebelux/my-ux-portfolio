@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { glacialDepth } from '@/theme/glacialDepth';
+import { CSSProperties } from "react";
 
 interface HeroBackgroundProps {
   src: string;
@@ -45,7 +46,7 @@ export default function HeroBackground({
         priority
         style={{
             objectFit: 'cover',
-            mixBlendMode: blendMode as any,
+            mixBlendMode: blendMode as CSSProperties["mixBlendMode"],
             opacity,
             // ⬇️  Fade out the bottom ~12% of the image
             WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 88%, transparent 100%)',
