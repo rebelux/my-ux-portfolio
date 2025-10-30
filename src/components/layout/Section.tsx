@@ -23,6 +23,9 @@ interface SectionProps {
 
   /** 🆕 Disable background on mobile */
   disableBackgroundOnMobile?: boolean;
+
+  /** 🆕 Disable base background (used for hero transparency) */
+  transparent?: boolean;
 }
 
 export default function Section({
@@ -40,13 +43,21 @@ export default function Section({
   backgroundSize = "cover",
   backgroundPosition = "center",
   disableBackgroundOnMobile = false,
+  transparent = false,
 }: SectionProps) {
   const baseClass =
-    variant === "alt"
+    transparent
+      ? "" // skip all default section background classes
+      : variant === "alt"
       ? "section-alt"
       : variant === "gradient"
       ? "section-gradient"
       : "section";
+
+  const paddingFallback =
+    transparent && !className.includes("py-")
+      ? "py-[6rem] sm:py-[8rem]" // match your previous hero spacing
+      : "";
 
   const fadeClass =
     fadeTo === "bg"
@@ -76,6 +87,7 @@ export default function Section({
         density === "editorial" && "section--editorial",
         "w-full relative overflow-hidden",
         disableBackgroundOnMobile && "bg-none-mobile",
+        paddingFallback,
         className
       )}
     >

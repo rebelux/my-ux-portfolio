@@ -108,6 +108,8 @@ p {
   line-height: 1.8;
 }
 
+
+
 /* === Section Structure & Backgrounds (keep these) === */
 .section {
   @apply relative overflow-hidden bg-[--color-bg] text-[--color-text] transition-colors duration-700;
@@ -456,6 +458,6 @@ html, body { color: var(--color-text); background-color: var(--color-bg) !import
 @media (max-width: 767px) {
   .bg-none-mobile {
     background-image: none !important;
-    background-color: var(--color-bg); /* optional: fallback background */
+    /* background-color: var(--color-bg);  optional: fallback background */
   }
 }
