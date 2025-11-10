@@ -8,6 +8,7 @@ import MotionSection from "@/components/layout/MotionSection";
 import MotionButton from "@/components/ui/MotionButton";
 import { variants } from "@/theme/motionVariants";
 import Image from "next/image";
+import FullWidthImage from "@/components/FullWidthImage";
 
 export default function CdcNbsModernizationPage() {
   return (
@@ -122,6 +123,14 @@ export default function CdcNbsModernizationPage() {
         <p>Every minute lost to navigation and delays was a minute not spent confirming cases or taking 
             action to protect the public.</p>
             </motion.div>
+
+            <Image
+                src="/images/cdc-sitemap.png"
+                alt="A portion of the information architecture of the system."
+                width={1600}
+                height={900}
+                className="w-full h-auto mt-16 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.04)]"
+                />
         </MotionSection>
       </Section>
 
@@ -163,16 +172,13 @@ export default function CdcNbsModernizationPage() {
             <p>We built reusable queue data table templates and filtering patterns into the design system so teams 
                 modernizing other features could drop them in without redesigning core workflows.</p>
             </motion.div>
-
-            <Image
-                src="/images/cdc-sitemap.png"
-                alt="A portion of the information architecture of the system."
-                width={1600}
-                height={900}
-                className="w-full h-auto mt-16 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.04)]"
-                />
         </MotionSection>
       </Section>
+
+      <FullWidthImage
+        src="/images/cdc-screen-hero-layered.png"
+        alt="A collection of NBS screens showing the variety of ways the design system was implemented."
+        />
 
       {/* === Impact === */}
       <Section container density="editorial"  className="section--editorial">
@@ -210,13 +216,6 @@ export default function CdcNbsModernizationPage() {
             <p>One epidemiologist told us, “I can finally keep up.”</p>
             </motion.div>
 
-            <Image
-                src="/images/cdc-screen-hero.png"
-                alt="A couple screen examples for Patient Search and Queues"
-                width={1600}
-                height={900}
-                className="w-full h-auto mt-16"
-                />
         </MotionSection>
       </Section>
 
