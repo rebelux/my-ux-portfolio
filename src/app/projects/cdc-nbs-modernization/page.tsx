@@ -176,7 +176,7 @@ export default function CdcNbsModernizationPage() {
       </Section>
 
       <FullWidthImage
-        src="/images/cdc-screen-hero-layered.png"
+        src="/images/cdc-screen-hero-layered.webp"
         alt="A collection of NBS screens showing the variety of ways the design system was implemented."
         />
 
