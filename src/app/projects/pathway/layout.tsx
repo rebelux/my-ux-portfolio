@@ -12,9 +12,9 @@ export const metadata: Metadata = {
     siteName: "Henry Tavarez Portfolio",
     images: [
       {
-        url: "/images/pathway-hero.jpg",
+        url: "/images/pathway-screen-thumb.png",
         width: 1200,
-        height: 630,
+        height: 800,
         alt: "Pathway - Student Gudance Platform",
       },
     ],
