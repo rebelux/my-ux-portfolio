@@ -1,13 +1,5 @@
 export const featuredProjects = [
   {
-    title: "Pathway - Student Gudance Platform",
-    subtitle:
-      "Designing a student development system for high school guidance.",
-    image: "/images/pathway-screen-thumb.png",
-    href: "/projects/pathway",
-    active: true,
-  },
-  {
     title: "CDC - NBS Modernization",
     subtitle:
       "Modernizing public health data systems through human-centered design.",
@@ -23,6 +15,14 @@ export const featuredProjects = [
     href: "/projects/cms-identity-management",
     active: true,
   },*/
+      {
+    title: "Pathway - Student Gudance Platform",
+    subtitle:
+      "[Conceptual product design] Designing a student development system for high school guidance.",
+    image: "/images/pathway-screen-thumb.png",
+    href: "/projects/pathway",
+    active: true,
+  },
   {
     title: "Arrow Digital - UX Discovery Process",
     subtitle:
@@ -31,4 +31,5 @@ export const featuredProjects = [
     href: "/projects/arrow-digital-ux-discovery",
     active: true,
   },
+
 ];

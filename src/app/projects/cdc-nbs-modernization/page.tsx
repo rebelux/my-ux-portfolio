@@ -34,10 +34,53 @@ export default function CdcNbsModernizationPage() {
             transition={{ duration: 0.8, delay: 0.15 }}
             className="text-center text-[--color-text-muted] max-w-3xl mx-auto"
             >
-            Reimagining national disease surveillance workflows through a
-            human-centered modernization of the National Electronic Disease
-            Surveillance System Base System (NBS).
+            The CDC’s National Electronic Disease Surveillance System (NBS) supports state, 
+            tribal, local, and territorial health departments in managing infectious disease 
+            cases during routine operations and national outbreaks.
             </motion.p>
+        </MotionSection>
+      </Section>
+
+      {/* === Impact === */}
+      <Section container density="editorial"  className="section--editorial">
+        <MotionSection variants={variants.staggerChildren}>
+            <motion.h2
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className=""
+            >
+            Impact
+            </motion.h2>
+            <motion.div
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="grid gap-8 md:gap-10 lg:grid-cols-12 flex-wrap leading-relaxed space-y-4"
+            >
+                <div className="lg:col-span-3 rounded-2xl mb-8 p-6 bg-[#aebacf]/80 shadow-[0_4px_20px_rgba(0,0,0,0.04)] text-[1.2rem] text-white">
+                <strong>78% faster case management</strong>
+                </div>
+                <div className="lg:col-span-3 rounded-2xl mb-8 p-6 bg-[white]/80 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
+                Case review time cut by more than 50%
+                </div>
+                <div className="lg:col-span-3 rounded-2xl mb-8 p-6 bg-[white]/80 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
+                User satisfaction increased from 5.6 → 8.4
+                </div>
+                <div className="lg:col-span-3 rounded-2xl mb-8 p-6 bg-[white]/80 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
+                Increased adoption across jurisdictions during peak outbreaks
+                </div>
+          
+            </motion.div>
+
+            <p><strong>Role: UX Design Lead</strong><br />
+            I led human-centered discovery and design from early research through validation, 
+            partnering with CDC stakeholders, engineers, and public health practitioners to 
+            modernize core case-management workflows.</p>
+            
+
         </MotionSection>
       </Section>
 
@@ -101,9 +144,15 @@ export default function CdcNbsModernizationPage() {
             className="text-[--color-text-muted] leading-relaxed space-y-4"
             >
 
-         <p>Of the many challenges during this project, a recent one was related to case management. 
-            Public health users rely on a feature for this called <strong>Queues</strong> as their gateway to 
-            records inside NBS. Multiple queues support different workflows:</p>
+         <p>During high-volume outbreaks, epidemiologists rely on NBS to quickly identify, triage, 
+          and act on incoming case reports. As caseloads surged, the system’s core case-management 
+          workflows became a bottleneck, slowing review and increasing the risk of delayed or missed 
+          follow-up during critical response windows.</p>
+
+          <p>NBS uses multiple queues to support different stages of case review, including automated 
+            lab reports, active investigations, and cases missing jurisdictional data. These queues 
+            are the primary decision surfaces for public health users, determining what gets reviewed, 
+            when, and by whom.</p>
     
 
         <ul className="list-disc pl-6">
@@ -112,16 +161,17 @@ export default function CdcNbsModernizationPage() {
         <li><strong>DRSA</strong> queue for reports missing jurisdiction data</li>
         </ul>
 
-        <p>Research identified several critical issues:</p>
+        <p>Research identified several compounding issues that increased cognitive load and slowed decision-making:</p>
 
         <ul className="list-disc pl-6">
-        <li>Limited data visibility forced users to open each record before knowing what action to take</li>
-        <li>A cap of 100 records meant large parts of their workload were hidden</li>
-        <li>Filters reset when navigating back from a record, causing repetitive rework</li>
-        <li>Slow load times stalled triage during peak case periods</li>
+        <li>Epidemiologists often had to open individual records to understand urgency, delaying triage during peak caseloads</li>
+        <li>Large queues of 100+ records made it difficult to prioritize work and track progress</li>
+        <li>Filters resetting between views forced repeated setup and rework</li>
+        <li>SSlow load times interrupted review during time-sensitive response periods</li>
         </ul>
-        <p>Every minute lost to navigation and delays was a minute not spent confirming cases or taking 
-            action to protect the public.</p>
+        <p>Every delay in navigation or rework translated directly into time not spent confirming cases, 
+          coordinating follow-up, or containing outbreaks. Improving speed and clarity in these workflows 
+          was not just a usability concern, but a public health imperative.</p>
             </motion.div>
 
             <Image
@@ -153,24 +203,26 @@ export default function CdcNbsModernizationPage() {
             viewport={{ once: true, amount: 0.3 }}
             className="text-[--color-text-muted] leading-relaxed space-y-4"
             >
-            <p>We shadowed epidemiologists as they worked through daily lab loads and saw them 
-                juggling spreadsheets, sticky notes, and multiple browser tabs just to keep track of 
-                what to review next.</p>
+            <p>We partnered closely with epidemiologists and public health staff, shadowing them as they 
+              worked through daily lab reports and case queues during both routine operations and outbreak 
+              response. This firsthand observation revealed how much of their time was spent navigating 
+              spreadsheets, sticky notes, and multiple browser tabs just to keep track of what needed 
+              attention next.</p>
+            <p>Rather than redesigning workflows wholesale, we focused on reducing friction at the point of 
+              decision. We prioritized surfacing the most critical information directly within queue views so 
+              users could assess urgency without opening individual records.</p>
 
-            <p>From this fieldwork, we uncovered key opportunities:</p>
+            <p>This led to several targeted design decisions:</p>
 
             <ul className="list-disc pl-6">
-            <li>Make queue data tables show more critical data up front so users could triage faster</li>
-            <li>Allow configurable views so each disease program saw what mattered to them</li>
-            <li>Use a search index to load queues faster and display the full workload beyond 100 records</li>
+            <li>Elevating key data points such as notification status and associated investigations to support faster triage</li>
+            <li>Introducing configurable queue views to reflect how different disease programs prioritize work</li>
+            <li>Improving performance and search indexing so large queues remained usable at scale</li>
             </ul>
 
-            <p>Testing showed that missing data elements such as <em>Associated Investigation</em> or <em>Notification 
-                Status</em> made or broke triage speed. So we elevated additional data elements like these into 
-                queue tables to cut unnecessary clicks.</p>
-
-            <p>We built reusable queue data table templates and filtering patterns into the design system so teams 
-                modernizing other features could drop them in without redesigning core workflows.</p>
+            <p>We translated these patterns into reusable queue templates and filtering behaviors within the 
+              design system, allowing other teams modernizing NBS features to adopt the same approach without 
+              reworking core workflows.</p>
             </motion.div>
         </MotionSection>
       </Section>
@@ -180,44 +232,6 @@ export default function CdcNbsModernizationPage() {
         alt="A collection of NBS screens showing the variety of ways the design system was implemented."
         />
 
-      {/* === Impact === */}
-      <Section container density="editorial"  className="section--editorial">
-        <MotionSection variants={variants.staggerChildren}>
-            <motion.h2
-            variants={variants.fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            className=""
-            >
-            Outcomes
-            </motion.h2>
-            <motion.div
-            variants={variants.fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            className="text-[--color-text-muted] leading-relaxed space-y-4"
-            >
-                <p>The improvements delivered clear, measurable impact:</p>
-            <ul className="list-disc pl-6">
-                <li>
-                78 percent faster case management workflows
-                </li>
-                <li>
-                Work that once took hours was completed in less than half the time
-                </li>
-                <li>
-                User satisfaction improved from 5.6 to 8.4 on a 1–10 scale
-                </li>
-                <li>Increased confidence and adoption of the modernized platform across jurisdictions</li>
-            </ul>
-
-            <p>One epidemiologist told us, “I can finally keep up.”</p>
-            </motion.div>
-
-        </MotionSection>
-      </Section>
 
       {/* === Outcomes === */}
       <Section container density="editorial"  className="section--editorial relative overflow-hidden" fadeTo="footer">

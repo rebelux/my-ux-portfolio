@@ -37,18 +37,25 @@ export default function HomePage() {
 
               <motion.p
                 variants={variants.fadeUp}
-                className="text-[--color-text-muted] text-lg md:text-[1.25rem] leading-relaxed max-w-2xl mx-auto mb-10 text-center"
+                className="text-[--color-text-muted] text-lg md:text-[1.5rem] leading-relaxed max-w-2xl mx-auto mb-10 text-center"
               >
-                I&apos;m <span className="text-[--color-accent] font-medium">Henry Tavarez</span>, 
-                a UX design lead focused on modernizing complex systems and helping teams 
-                turn strategy into seamless user experiences.
+                UX design leader focused on modernizing complex, high-stakes systems where clarity, speed, and trust matter.
               </motion.p>
 
               <motion.div 
                 variants={variants.scaleIn} 
-                className="flex justify-center">
+                className="flex justify-center gap-4 flex-wrap">
+
                 <MotionButton
+                  href="/projects/"
                   variant="accent"
+                  className="px-8 py-3 rounded-lg text-[--color-accent] font-medium hover:bg-[--color-accent]/10 transition"
+                >
+                  View Selected Work
+                </MotionButton>
+
+                <MotionButton
+                  variant="outline"
                   className="px-8 py-3 rounded-lg text-white font-medium shadow-[0_4px_14px_rgba(0,0,0,0.1)] transition"
                   onClick={() => {
                       if (typeof window !== "undefined" && window.botpress) {
@@ -132,33 +139,36 @@ export default function HomePage() {
               </motion.h2>
 
               {/* Offset grid */}
-              <div className="mt-16 md:mt-24 grid gap-8 md:gap-10 lg:grid-cols-12">
+              <div className="mt-16 md:mt-16 grid gap-8 md:gap-10 lg:grid-cols-12">
+
+                {/* Centered card */}
+                <motion.div 
+                  variants={variants.fadeUp} 
+                  className="lg:col-span-12 order-1 flex justify-center">
+                  <div className="lg:w-2/3">
+                    <ProjectCardFrosted {...featuredProjects[0]} />
+                  </div>
+                </motion.div>
+
                 {/* Left card */}
                 <motion.div 
                   variants={variants.fadeUp} 
-                  className="lg:col-span-6 lg:pr-6 order-1 flex justify-center lg:justify-end">
-                  <div className="lg:translate-y-6">
-                    <ProjectCardFrosted {...featuredProjects[0]} />
+                  className="lg:col-span-6 lg:pr-6 order-2 mt-12 lg:mt-16 flex justify-center lg:justify-end">
+                  <div>
+                    <ProjectCardFrosted {...featuredProjects[1]} />
                   </div>
                 </motion.div>
 
                 {/* Right card */}
                 <motion.div 
                   variants={variants.fadeUp} 
-                  className="lg:col-span-6 lg:pl-6 order-2 flex justify-center lg:justify-start">
-                  <div className="lg:-translate-y-4">
-                    <ProjectCardFrosted {...featuredProjects[1]} />
-                  </div>
-                </motion.div>
-
-                {/* Centered card */}
-                <motion.div 
-                  variants={variants.fadeUp} 
-                  className="lg:col-span-12 order-3 mt-12 lg:mt-16 flex justify-center">
-                  <div className="lg:w-2/3">
+                  className="lg:col-span-6 lg:pl-6 order-3 mt-12 lg:mt-16 flex justify-center lg:justify-start">
+                  <div>
                     <ProjectCardFrosted {...featuredProjects[2]} />
                   </div>
                 </motion.div>
+
+                
               </div>
 
               <motion.div 
