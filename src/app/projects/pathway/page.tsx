@@ -218,7 +218,7 @@ export default function PathwayPage() {
               students navigating uncertainty over time.</p>
 
               <Image
-                src="/images/pathway-single-screen-hero.webp"
+                src="/images/pathway-single-screen-hero2.webp"
                 alt="Pathway Example Dashboard"
                 width={1600}
                 height={1048}

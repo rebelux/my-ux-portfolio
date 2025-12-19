@@ -3,7 +3,7 @@ export const featuredProjects = [
     title: "Pathway - Student Gudance Platform",
     subtitle:
       "Designing a student development system for high school guidance.",
-    image: "/images/pathway-single-screen-hero.webp",
+    image: "/images/pathway-screen-thumb.png",
     href: "/projects/pathway",
     active: true,
   },
